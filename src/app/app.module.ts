@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PlaygroundComponent } from './playground/playground.component';
-import {MatChipsModule, MatFormFieldModule, MatIconModule} from '@angular/material';
+import {MaterialModule} from './material.module';
+
 
 import {HttpClientModule} from '@angular/common/http';
 
@@ -17,9 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatChipsModule,
-    MatFormFieldModule,
-    MatIconModule,
+    MaterialModule,
     HttpClientModule
   ],
   providers: [],
