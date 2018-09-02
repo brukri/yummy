@@ -6,6 +6,10 @@ import { SpoonacularService } from '../spoonacular/spoonacular.service';
 export interface Ingredient {
   name: string;
 }
+export interface Recipe {
+  title: string;
+  image:string;
+}
 
 @Component({
   selector: 'app-playground',

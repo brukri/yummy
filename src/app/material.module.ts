@@ -31,7 +31,7 @@ import {
     MatSelectModule,
   ],
   exports: [
-    MatChipsModule, 
+    MatChipsModule,
     MatFormFieldModule,
     MatSidenavModule,
     MatToolbarModule,

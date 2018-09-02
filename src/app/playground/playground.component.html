@@ -17,6 +17,8 @@
       <button (click)="onButtonClick($event)">Search</button>
   </div>
   <div>
-    <div *ngFor='let recipe of recipes'> {{recipe.title}}  <img src={{recipe.image}} /></div> 
+    <div *ngFor="let recipe of recipes">
+        <recipe-card [recipe]="recipe"></recipe-card>
+    </div>
   </div>
 </div>

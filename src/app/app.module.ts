@@ -12,13 +12,15 @@ import {AppRouters} from './app.routes';
 import {HttpClientModule} from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SearchComponent } from './search/search.component';
+import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaygroundComponent,
     WelcomeComponent,
-    SearchComponent
+    SearchComponent,
+    RecipeOverviewComponent
   ],
   imports: [
     BrowserModule,
