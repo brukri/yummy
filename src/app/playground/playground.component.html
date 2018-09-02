@@ -17,7 +17,7 @@
       <button (click)="onButtonClick($event)">Search</button>
   </div>
   <div>
-    <div *ngFor="let recipe of recipes">
+    <div *ngFor="let recipe of recipes" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="5%" fxLayoutAlign="center">
         <recipe-card [recipe]="recipe"></recipe-card>
     </div>
   </div>
