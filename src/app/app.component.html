@@ -36,18 +36,16 @@
           </li>
           <li>
             <a
-              routerLink="/dashboard">
-              <mat-icon class="icon">dashboard</mat-icon>
-              <span class="label">Dashboard</span>
+              routerLink="/search">
+              <mat-icon class="icon">search</mat-icon>
+              <span class="label">serach</span>
             </a>
           </li>
         </ul>
       </div>
     </mat-toolbar>
     <main>
-      <div>
-        <app-playground></app-playground>
-      </div>
+      <router-outlet></router-outlet>
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>

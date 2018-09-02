@@ -7,7 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PlaygroundComponent } from './playground/playground.component';
 import {MaterialModule} from './material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
-
+import {AppRouters} from './app.routes';
 
 import {HttpClientModule} from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -26,6 +26,7 @@ import { SearchComponent } from './search/search.component';
     MaterialModule,
     HttpClientModule,
     FlexLayoutModule,
+    AppRouters,
   ],
   providers: [],
   bootstrap: [AppComponent]
