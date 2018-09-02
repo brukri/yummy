@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material';
-import { SpoonacularService } from '../spoonacular.service';
+import { SpoonacularService } from '../spoonacular/spoonacular.service';
 
 export interface Ingredient {
   name: string;
