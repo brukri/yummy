@@ -1,6 +1,15 @@
-<div *ngIf="recipe">
+<div *ngIf="recipeDetail">
 
-  <h2>{{recipe.title}}</h2>
-  <div><span>id: </span>{{recipe.id}}</div>
-  <img src={{recipe.image}} />
+  <h2>{{recipeDetail.title}}</h2>
+  <h1>Minutes: {{recipeDetail.cookingMinutes}}</h1>
+  <mat-checkbox [checked]=recipeDetail.vegetarian>
+    vegetarian
+  </mat-checkbox>
+  <mat-checkbox [checked]=recipeDetail.vegan>
+      vegan
+    </mat-checkbox>
+    <mat-checkbox [checked]=recipeDetail.glutenFree>
+        glutenFree
+      </mat-checkbox>
+  <img src={{recipeDetail.image}} />
 </div>

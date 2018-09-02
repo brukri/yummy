@@ -12,10 +12,11 @@
     </mat-form-field>
     <button (click)="onButtonClick($event)">Search</button>
   </div>
-  <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>
   <div>
-    <div *ngFor="let recipe of recipes" [class.selected]="recipe === selectedRecipe" (click)="onSelect(recipe)">
+    <div *ngFor="let recipe of recipes">
+        <a routerLink="/detail/{{recipe.id}}">
         <recipe-card [recipe]="recipe"></recipe-card>
+        </a>
     </div>
   </div>
 </div>

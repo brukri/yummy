@@ -28,4 +28,16 @@ export class SpoonacularService {
       },
     });
   }
+
+  
+  getRecipeDetailsForId(recipeId : number): Observable<Object> {
+    return this.http.get(`${SERVICE_URI}/recipes/${recipeId}/information`, {
+      headers: this.headers,
+      params: {
+        'id' : recipeId.toString(),
+        'includeNutrition':false.toString()
+      },
+    });
+  }
+
 }
