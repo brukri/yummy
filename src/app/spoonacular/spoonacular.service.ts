@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {apiKey} from './apiKey';
 
 const SERVICE_URI = 'http://localhost:3100';
 
@@ -12,7 +13,7 @@ export class SpoonacularService {
 
   constructor(private http:HttpClient) { 
     this.headers = new HttpHeaders({
-      'X-Mashape-Key' : 'API_KEY',
+      'X-Mashape-Key' : apiKey,
       'X-Mashape-Host' :   'spoonacular-recipe-food-nutrition-v1.p.mashape.com'
     });
   }
