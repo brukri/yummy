@@ -26,6 +26,7 @@ export class PlaygroundComponent implements OnInit {
 
   ingredients: String[] = [];
   recipes: Object = [];
+  selectedRecipe: Recipe;
 
   constructor(private spoonacularService:SpoonacularService) { }
 
@@ -45,6 +46,10 @@ export class PlaygroundComponent implements OnInit {
     if (input) {
       input.value = '';
     }
+  }
+
+  onSelect(recipe: Recipe): void {
+    this.selectedRecipe = recipe;
   }
 
   remove(ingredient: String): void {
