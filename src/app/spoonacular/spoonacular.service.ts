@@ -29,7 +29,6 @@ export class SpoonacularService {
     });
   }
 
-<<<<<<< Updated upstream
   
   getRecipeDetailsForId(recipeId : number): Observable<Object> {
     return this.http.get(`${SERVICE_URI}/recipes/${recipeId}/information`, {
@@ -41,8 +40,7 @@ export class SpoonacularService {
     });
   }
 
-=======
-  autoCompleteIngredient(ingredient : String, numberOfResults : number): Observable<any> {
+  autoCompleteIngredient(ingredient : String, numberOfResults : number): Observable<Object> {
     return this.http.get(`${SERVICE_URI}/food/ingredients/autocomplete`, {
       headers: this.headers,
       params: {
@@ -51,5 +49,4 @@ export class SpoonacularService {
       },
     });
   }
->>>>>>> Stashed changes
 }
