@@ -18,17 +18,18 @@ export class SpoonacularService {
     });
   }
 
-  findRecipesByIngredients(ingredients : String[], recipesNumber : number): Observable<Object> {
+  findRecipesByIngredients(ingredients : String[], numberOfResults : number): Observable<Object> {
     return this.http.get(`${SERVICE_URI}/recipes/findByIngredients`, {
       headers: this.headers,
       params: {
         'ingredients' : ingredients.join(','),
-        'number' : recipesNumber.toString(),
+        'number' : numberOfResults.toString(),
         'ranking': '1'
       },
     });
   }
 
+<<<<<<< Updated upstream
   
   getRecipeDetailsForId(recipeId : number): Observable<Object> {
     return this.http.get(`${SERVICE_URI}/recipes/${recipeId}/information`, {
@@ -40,4 +41,15 @@ export class SpoonacularService {
     });
   }
 
+=======
+  autoCompleteIngredient(ingredient : String, numberOfResults : number): Observable<any> {
+    return this.http.get(`${SERVICE_URI}/food/ingredients/autocomplete`, {
+      headers: this.headers,
+      params: {
+        'query' : ingredient.toString(),
+        'number' : numberOfResults.toString()
+      },
+    });
+  }
+>>>>>>> Stashed changes
 }

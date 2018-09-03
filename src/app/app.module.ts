@@ -14,6 +14,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SearchComponent } from './search/search.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { IngredientSearchComponent } from './ingredient-search/ingredient-search.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
     WelcomeComponent,
     SearchComponent,
     RecipeOverviewComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    IngredientSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,8 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
     HttpClientModule,
     FlexLayoutModule,
     AppRouters,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
