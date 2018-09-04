@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IngredientSearchComponent } from './ingredient-search.component';
+import { AutocompleteSearchComponent } from './autocomplete-search.component';
 
-describe('IngredientSearchComponent', () => {
-  let component: IngredientSearchComponent;
-  let fixture: ComponentFixture<IngredientSearchComponent>;
+describe('AutocompleteSearchComponent', () => {
+  let component: AutocompleteSearchComponent;
+  let fixture: ComponentFixture<AutocompleteSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IngredientSearchComponent ]
+      declarations: [ AutocompleteSearchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IngredientSearchComponent);
+    fixture = TestBed.createComponent(AutocompleteSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -15,7 +15,7 @@ import { SearchComponent } from './search/search.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { IngredientSearchComponent } from './ingredient-search/ingredient-search.component';
+import { AutocompleteSearchComponent } from './autocomplete-search/autocomplete-search.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { IngredientSearchComponent } from './ingredient-search/ingredient-search
     SearchComponent,
     RecipeOverviewComponent,
     RecipeDetailComponent,
-    IngredientSearchComponent
+    AutocompleteSearchComponent
   ],
   imports: [
     BrowserModule,

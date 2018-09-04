@@ -7,22 +7,22 @@ import { debounceTime, switchMap, map, startWith, skipWhile} from 'rxjs/operator
 import { SpoonacularService } from '../spoonacular/spoonacular.service';
 
 @Component({
-  selector: 'app-ingredient-search',
-  templateUrl: './ingredient-search.component.html',
-  styleUrls: ['./ingredient-search.component.css']
+  selector: 'autocomplete-search',
+  templateUrl: './autocomplete-search.component.html',
+  styleUrls: ['./autocomplete-search.component.css']
 })
-export class IngredientSearchComponent implements OnInit {
+export class AutocompleteSearchComponent implements OnInit {
   @Input() placeholder : string;
   @Input() autocompletionCallback: Function;
-  @Output() ingredientsChangeEvent: EventEmitter<string[]> = new EventEmitter();
+  @Output() chipListChanged: EventEmitter<string[]> = new EventEmitter();
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = false;
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  ingredientCtrl = new FormControl();
-  filteredIngredients: Observable<string[]>;
-  ingredients: string[] = [];
+  inputCtrl = new FormControl();
+  filteredTerms: Observable<string[]>;
+  items: string[] = [];
 
   @ViewChild('ingredientInput') ingredientInput: ElementRef<HTMLInputElement>;
 
@@ -30,7 +30,7 @@ export class IngredientSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.filteredIngredients = this.ingredientCtrl.valueChanges.pipe(
+    this.filteredTerms = this.inputCtrl.valueChanges.pipe(
       debounceTime(1000),
       skipWhile(value => {
         return value && value.length < 2;
@@ -40,19 +40,8 @@ export class IngredientSearchComponent implements OnInit {
           return [];
         }
         return this.autocompletionCallback(value);
-        //return this.mapCompleteIngredient(value);
       })
      );
-  }
-
-  private mapCompleteIngredient(value) : Observable<string[]>{
-    return this.spoonacularService.autoCompleteIngredient(value, 5).pipe(
-      map(result => {
-        return result.map(item => {
-          return item.name;
-        })
-      })
-    );
   }
 
   add(event: MatChipInputEvent): void {
@@ -61,31 +50,31 @@ export class IngredientSearchComponent implements OnInit {
     const value = event.value;
 
     if ((value || '').trim()) {
-      this.ingredients.push(value.trim());
+      this.items.push(value.trim());
     }
 
     if (input) {
       input.value = '';
     }
 
-    this.ingredientCtrl.setValue(null);
-    this.ingredientsChangeEvent.emit(this.ingredients);
+    this.inputCtrl.setValue(null);
+    this.chipListChanged.emit(this.items);
   }
 
   remove(ingredient: string): void {
-    const index = this.ingredients.indexOf(ingredient);
+    const index = this.items.indexOf(ingredient);
 
     if (index >= 0) {
-      this.ingredients.splice(index, 1);
+      this.items.splice(index, 1);
     }
-    this.ingredientsChangeEvent.emit(this.ingredients);
+    this.chipListChanged.emit(this.items);
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.ingredients.push(event.option.viewValue);
+    this.items.push(event.option.viewValue);
     this.ingredientInput.nativeElement.value = '';
-    this.ingredientCtrl.setValue(null);
-    this.ingredientsChangeEvent.emit(this.ingredients);
+    this.inputCtrl.setValue(null);
+    this.chipListChanged.emit(this.items);
   }
 
 }
