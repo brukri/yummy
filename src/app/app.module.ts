@@ -12,10 +12,11 @@ import {AppRouters} from './app.routes';
 import {HttpClientModule} from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SearchComponent } from './search/search.component';
-import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { AutocompleteSearchComponent } from './autocomplete-search/autocomplete-search.component';
+import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,10 @@ import { AutocompleteSearchComponent } from './autocomplete-search/autocomplete-
     PlaygroundComponent,
     WelcomeComponent,
     SearchComponent,
-    RecipeOverviewComponent,
+    RecipeCardComponent,
     RecipeDetailComponent,
-    AutocompleteSearchComponent
+    AutocompleteSearchComponent,
+    RecipeOverviewComponent
   ],
   imports: [
     BrowserModule,

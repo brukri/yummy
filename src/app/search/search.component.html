@@ -1,4 +1,4 @@
 <div>
   <autocomplete-search [placeholder]="'Search ingredients...'" [autocompletionCallback]="autoComplete" (chipListChanged)="updateIngredients($event)"></autocomplete-search>
-  <recipe-card [recipe]="recipe"></recipe-card>
+  <recipe-overview [recipes]="recipes"></recipe-overview>
 </div>

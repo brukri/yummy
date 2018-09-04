@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SpoonacularService } from '../services/spoonacular/spoonacular.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { YummyDataService } from '../services/yummy-data-service/yummy-data.service';
+import { YummyDataService, Recipe } from '../services/yummy-data-service/yummy-data.service';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +10,7 @@ import { YummyDataService } from '../services/yummy-data-service/yummy-data.serv
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  recipe : any = {};
+  recipes : Observable<Recipe[]>;
   constructor(private yummyDataService: YummyDataService) { 
     this.autoComplete = this.autoComplete.bind(this);
   }
@@ -19,9 +19,7 @@ export class SearchComponent implements OnInit {
   }
 
   updateIngredients(ingredients:string[]) {
-    this.yummyDataService.findRecipesByIngredients(ingredients, 5).subscribe(recipes => {
-      this.recipe = recipes[0];
-    });
+    this.recipes = this.yummyDataService.findRecipesByIngredients(ingredients, 5);
   }
 
   autoComplete(value) : Observable<string[]>{
