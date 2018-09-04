@@ -1,3 +1,4 @@
-<p>
-  search works!
-</p>
+<div>
+  <app-ingredient-search [placeholder]="'Search ingredients'" [autocompletionCallback]="autoComplete" (ingredientsChangeEvent)="updateIngredients($event)"></app-ingredient-search>
+  <recipe-card [recipe]="recipe"></recipe-card>
+</div>

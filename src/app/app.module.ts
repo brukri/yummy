@@ -14,7 +14,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SearchComponent } from './search/search.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import { IngredientSearchComponent } from './ingredient-search/ingredient-search.component';
 
 @NgModule({
@@ -34,7 +34,6 @@ import { IngredientSearchComponent } from './ingredient-search/ingredient-search
     HttpClientModule,
     FlexLayoutModule,
     AppRouters,
-    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

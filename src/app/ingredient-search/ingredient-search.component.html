@@ -9,7 +9,7 @@
         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
       </mat-chip>
       <input
-        placeholder="Search ingredients..."
+        [placeholder]="placeholder"
         #ingredientInput
         [formControl]="ingredientCtrl"
         [matAutocomplete]="auto"
@@ -20,7 +20,8 @@
     </mat-chip-list>
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
       <mat-option *ngFor="let ingredient of filteredIngredients | async" [value]="ingredient">
-        {{ingredient.name}}
+        {{ingredient}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
+  

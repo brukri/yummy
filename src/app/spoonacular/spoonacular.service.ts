@@ -18,7 +18,7 @@ export class SpoonacularService {
     });
   }
 
-  findRecipesByIngredients(ingredients : String[], numberOfResults : number): Observable<Object> {
+  findRecipesByIngredients(ingredients : String[], numberOfResults : number): Observable<any> {
     return this.http.get(`${SERVICE_URI}/recipes/findByIngredients`, {
       headers: this.headers,
       params: {
@@ -30,7 +30,7 @@ export class SpoonacularService {
   }
 
   
-  getRecipeDetailsForId(recipeId : number): Observable<Object> {
+  getRecipeDetailsForId(recipeId : number): Observable<any> {
     return this.http.get(`${SERVICE_URI}/recipes/${recipeId}/information`, {
       headers: this.headers,
       params: {
@@ -40,7 +40,7 @@ export class SpoonacularService {
     });
   }
 
-  autoCompleteIngredient(ingredient : String, numberOfResults : number): Observable<Object> {
+  autoCompleteIngredient(ingredient : String, numberOfResults : number): Observable<any> {
     return this.http.get(`${SERVICE_URI}/food/ingredients/autocomplete`, {
       headers: this.headers,
       params: {

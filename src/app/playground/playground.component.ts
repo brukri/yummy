@@ -7,8 +7,9 @@ export interface Ingredient {
   name: string;
 }
 export interface Recipe {
+  id: String;
   title: string;
-  image:string;
+  image: string;
 }
 
 @Component({
