@@ -3,7 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild, EventEmitter, Output, Input }
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent, MatChipInputEvent } from '@angular/material';
 import { Observable } from 'rxjs';
-import { debounceTime, switchMap, map, startWith, skipWhile} from 'rxjs/operators';
+import { debounceTime, switchMap, skipWhile} from 'rxjs/operators';
 import { SpoonacularService } from '../spoonacular/spoonacular.service';
 
 @Component({
@@ -24,9 +24,9 @@ export class AutocompleteSearchComponent implements OnInit {
   filteredTerms: Observable<string[]>;
   items: string[] = [];
 
-  @ViewChild('ingredientInput') ingredientInput: ElementRef<HTMLInputElement>;
+  @ViewChild('inputRef') ingredientInput: ElementRef<HTMLInputElement>;
 
-  constructor(private spoonacularService:SpoonacularService) {
+  constructor() {
   }
 
   ngOnInit(): void {
