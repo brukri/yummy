@@ -4,7 +4,6 @@ import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent, MatChipInputEvent } from '@angular/material';
 import { Observable } from 'rxjs';
 import { debounceTime, switchMap, skipWhile} from 'rxjs/operators';
-import { SpoonacularService } from '../spoonacular/spoonacular.service';
 
 @Component({
   selector: 'autocomplete-search',

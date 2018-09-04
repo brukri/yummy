@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { SpoonacularService } from '../spoonacular/spoonacular.service';
+import { SpoonacularService } from '../services/spoonacular/spoonacular.service';
 
 
 export interface RecipeDetail {

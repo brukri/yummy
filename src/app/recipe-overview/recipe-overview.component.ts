@@ -1,6 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
-import { Recipe } from '../playground/playground.component';
 import {MatCard} from '@angular/material';
+import { Recipe } from '../services/yummy-data-service/yummy-data.service';
 
 @Component({
   selector: 'recipe-card',

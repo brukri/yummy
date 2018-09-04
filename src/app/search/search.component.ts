@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SpoonacularService } from '../spoonacular/spoonacular.service';
+import { SpoonacularService } from '../services/spoonacular/spoonacular.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {Recipe} from '../playground/playground.component'
+import { YummyDataService } from '../services/yummy-data-service/yummy-data.service';
 
 @Component({
   selector: 'app-search',
@@ -11,31 +11,21 @@ import {Recipe} from '../playground/playground.component'
 })
 export class SearchComponent implements OnInit {
   recipe : any = {};
-  constructor(private spoonacularService : SpoonacularService) { }
+  constructor(private yummyDataService: YummyDataService) { 
+    this.autoComplete = this.autoComplete.bind(this);
+  }
 
   ngOnInit() {
   }
 
   updateIngredients(ingredients:string[]) {
-    this.spoonacularService.findRecipesByIngredients(ingredients, 5).pipe(
-      map(result => {
-        return result.map(item => {
-          return {id: item.id, title: item.title, image: item.image};
-        })
-      })
-    ).subscribe(recipes => {
+    this.yummyDataService.findRecipesByIngredients(ingredients, 5).subscribe(recipes => {
       this.recipe = recipes[0];
     });
   }
 
   autoComplete(value) : Observable<string[]>{
-    return this.spoonacularService.autoCompleteIngredient(value, 5).pipe(
-      map(result => {
-        return result.map(item => {
-          return item.name;
-        })
-      })
-    );
+    return this.yummyDataService.autoCompleteIngredient(value, 5);
   }
 
 }
