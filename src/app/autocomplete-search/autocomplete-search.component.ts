@@ -44,7 +44,6 @@ export class AutocompleteSearchComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
-    debugger
     const input = event.input;
     const value = event.value;
 
