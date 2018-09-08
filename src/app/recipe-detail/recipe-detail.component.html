@@ -1,19 +1,20 @@
-<div *ngIf="recipeDetail">
+<div class="bg">
+  <div *ngIf="recipeDetail" class="shortDiv">
 
-  <h1>{{recipeDetail.title}}</h1>
-  <h2>Minutes: {{recipeDetail.cookingMinutes}}</h2>
-  <h4>{{recipeDetail.instructions}}</h4>
-  <mat-checkbox [checked]=recipeDetail.vegetarian>
-    vegetarian
-  </mat-checkbox>
-  <mat-checkbox [checked]=recipeDetail.vegan>
+    <h1>{{recipeDetail.title}}</h1>
+    <h2>Minutes: {{recipeDetail.cookingMinutes}}</h2>
+    <h4>{{recipeDetail.instructions}}</h4>
+    <mat-checkbox [checked]=recipeDetail.vegetarian>
+      vegetarian
+    </mat-checkbox>
+    <mat-checkbox [checked]=recipeDetail.vegan>
       vegan
     </mat-checkbox>
     <mat-checkbox [checked]=recipeDetail.glutenFree>
-        glutenFree
-      </mat-checkbox>
-  <img src={{recipeDetail.image}} />
-  <!-- <ul>
+      glutenFree
+    </mat-checkbox>
+    <img src={{recipeDetail.image}} />
+    <!-- <ul>
       <li ng-repeat="ingredient in recipeDetail.extendedIngredients">
         <span>{{ingredient.amount}}</span>
         <span>{{ingredient.name}}</span>  
@@ -22,6 +23,7 @@
     </ul> -->
     <h4>{{recipeDetail.extendedIngredients[0].name}}</h4>
     <ul ng-controller="ListCtrl">
-        <li ng-repeat="incredient in recipeDetail.extendedIngredients">{{incredient.name}} | {{incredient.image}}</li>
+      <li ng-repeat="incredient in recipeDetail.extendedIngredients">{{incredient.name}} | {{incredient.image}}</li>
     </ul>
+  </div>
 </div>
