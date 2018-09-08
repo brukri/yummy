@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { PlaygroundComponent } from './playground/playground.component';
 import {MaterialModule} from './material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AppRouters} from './app.routes';
@@ -21,7 +20,6 @@ import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.compo
 @NgModule({
   declarations: [
     AppComponent,
-    PlaygroundComponent,
     WelcomeComponent,
     SearchComponent,
     RecipeCardComponent,
