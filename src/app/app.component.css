@@ -2,6 +2,8 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     height: 100%;
   }
 
+  * { font-family: 'Indie Flower';     color: whitesmoke; }
+
 div{
   overflow-x: hidden;
 }
@@ -27,7 +29,12 @@ div{
     cursor: pointer;
   }
   
+
+  .mat-icon{
+    font-family:'Material Icons';
+  }
   .icon {
+    font-family:'Material Icons';
     display: inline-block;
     height: 30px;
     margin: 10px;

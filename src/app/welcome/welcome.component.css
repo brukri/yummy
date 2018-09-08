@@ -12,8 +12,12 @@
 
   }
   h1{
-    font-family: 'Indie Flower', cursive;
-    font-size: 300%;
+    font-size: 400%;
+    margin: 30px;
+    color: whitesmoke
+  }
+  h3{
+    font-size: 120%;
     margin: 30px;
     color: whitesmoke
   }

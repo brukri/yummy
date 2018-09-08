@@ -16,8 +16,12 @@ export interface RecipeDetail {
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
+
+
+
   @Input() recipeDetail: Object;
   constructor(private route: ActivatedRoute, private location: Location,private spoonacularService:SpoonacularService) { }
+
 
   ngOnInit() {
     this.getRecipe();
