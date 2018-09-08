@@ -1,0 +1,19 @@
+.bg-div{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height:100%;
+        /* The image used */
+        background-image: url("/src/assets/background.jpg");
+        min-height: 850px;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+  }
+  h1{
+    font-family: 'Indie Flower', cursive;
+    font-size: 300%;
+    margin: 30px;
+    color: whitesmoke
+  }
