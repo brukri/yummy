@@ -9,7 +9,8 @@ div{
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-
+        overflow-x: hidden;
+        overflow-y: hidden;
 
   }
   body, html {
