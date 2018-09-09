@@ -7,7 +7,7 @@ import { SearchByRecipeComponent } from './search-by-recipe/search-by-recipe.com
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
-  {path: 'searchByIngridents', component: SearchComponent},
+  {path: 'searchByIngredients', component: SearchComponent},
   {path: 'searchByRecipe', component: SearchByRecipeComponent},
   { path: 'detail/:id', component: RecipeDetailComponent },
 ];
