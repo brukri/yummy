@@ -23,6 +23,16 @@ export interface RecipeDetails {
   diets: string[];
   servings: number;
   recipeAttributes: RecipeAttributes;
+  instructions:Instructions[];
+}
+
+export interface Instructions {
+  steps:InstructionStep[];
+}
+
+export interface InstructionStep {
+  number:number;
+  text:string;
 }
 
 export interface RecipeAttributes {
@@ -107,6 +117,11 @@ export class YummyDataService {
             unit: item.measures.metric.unitLong
           };
         }),
+        instructions: response.analyzedInstructions.map(result => {
+          return{steps: result.steps.map(item => {
+              return{number:item.number,text:item.step};
+          })  
+        }}),
         recipeAttributes: {
           vegetarian: response.vegetarian,
           vegan: response.vegan,

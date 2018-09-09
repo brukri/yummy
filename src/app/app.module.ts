@@ -20,6 +20,7 @@ import {IncredientsComponent} from './incredients/incredients.component';
 import { RecipeAttributesComponent } from './recipe-attributes/recipe-attributes.component';
 import { AutocompleteSingleSearchComponent } from './autocomplete-single-search/autocomplete-single-search.component';
 import { SearchByRecipeComponent } from './search-by-recipe/search-by-recipe.component';
+import { InstructionComponent } from './instruction/instruction.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SearchByRecipeComponent } from './search-by-recipe/search-by-recipe.com
     IncredientsComponent,
     RecipeAttributesComponent,
     AutocompleteSingleSearchComponent,
-    SearchByRecipeComponent
+    SearchByRecipeComponent,
+    InstructionComponent
   ],
   imports: [
     BrowserModule,
