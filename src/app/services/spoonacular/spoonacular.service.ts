@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {apiKey} from '../apiKey';
+import {apiKey} from './apiKey';
 
 const SERVICE_URI = 'http://localhost:3100';
 
