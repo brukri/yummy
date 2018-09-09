@@ -22,7 +22,7 @@ body, html {
 
 mat-icon {
     float: left;
-    margin: 10;
+    margin: 0px 10px;
     vertical-align: text-bottom;
 }
 
