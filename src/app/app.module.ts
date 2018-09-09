@@ -13,11 +13,14 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SearchComponent } from './search/search.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AutocompleteSearchComponent } from './autocomplete-search/autocomplete-search.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 import{IncredientsComponent} from './Incredients/incredients.component';
 import { RecipeAttributesComponent } from './recipe-attributes/recipe-attributes.component';
+import { AutocompleteSingleSearchComponent } from './autocomplete-single-search/autocomplete-single-search.component';
+import { RecipeSearchComponent } from './recipe-search/recipe-search.component';
+import { SearchByRecipeComponent } from './search-by-recipe/search-by-recipe.component';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { RecipeAttributesComponent } from './recipe-attributes/recipe-attributes
     AutocompleteSearchComponent,
     RecipeOverviewComponent,
     IncredientsComponent,
-    RecipeAttributesComponent
+    RecipeAttributesComponent,
+    AutocompleteSingleSearchComponent,
+    RecipeSearchComponent,
+    SearchByRecipeComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +46,7 @@ import { RecipeAttributesComponent } from './recipe-attributes/recipe-attributes
     FlexLayoutModule,
     AppRouters,
     ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

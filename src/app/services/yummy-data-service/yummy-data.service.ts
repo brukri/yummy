@@ -73,6 +73,16 @@ export class YummyDataService {
       );
   }
 
+  findRecipe(recipe : string, numberOfResults : number): Observable<Recipe[]> {
+    return this.spoonacularService.findRecipe(recipe, numberOfResults).pipe(
+      map(result => {
+        return result.results.map(item => {
+          return {id: item.id, title: item.title, image: item.image, imageType: item.imageType, likes: item.likes};
+        });
+      })
+    );
+  }
+
   getRecipeDetailsForId(recipeId: string): Observable<RecipeDetails> {
     return this.spoonacularService.getRecipeDetailsForId(recipeId).pipe(
       map(response => ({
@@ -124,5 +134,15 @@ export class YummyDataService {
           });
         })
       );
+  }
+
+  autoCompleteRecipe(recipe : string, numberOfResults : number): Observable<[string]> {
+    return this.spoonacularService.autoCompleteRecipe(recipe, numberOfResults).pipe(
+      map(result => {
+        return result.map(item => {
+          return item.title;
+        });
+      })
+    );
   }
 }

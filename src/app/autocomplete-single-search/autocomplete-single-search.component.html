@@ -1,0 +1,14 @@
+<form>
+    <mat-form-field class="example-full-width">
+      <input matInput #inputRef
+      [placeholder]="placeholder"
+      [formControl]="inputCtrl"
+      [matAutocomplete]="auto"
+      (keyup.enter)="enterPressed()">
+    </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let term of filteredTerms | async" [value]="term">
+          {{term}}
+        </mat-option>
+      </mat-autocomplete>
+  </form>

@@ -29,6 +29,17 @@ export class SpoonacularService {
     });
   }
 
+  findRecipe(recipe: string, numberOfResults: number): Observable<any> {
+    return this.http.get(`${SERVICE_URI}/recipes/search`, {
+      headers: this.headers,
+      params: {
+        'query' : recipe,
+        'number' : numberOfResults.toString(),
+        'ranking': '1'
+      },
+    });
+  }
+
   getRecipeDetailsForId(recipeId : string): Observable<any> {
     return this.http.get(`${SERVICE_URI}/recipes/${recipeId}/information`, {
       headers: this.headers,
@@ -44,6 +55,16 @@ export class SpoonacularService {
       headers: this.headers,
       params: {
         'query' : ingredient.toString(),
+        'number' : numberOfResults.toString()
+      },
+    });
+  }
+
+  autoCompleteRecipe(recipe : string, numberOfResults : number): Observable<any> {
+    return this.http.get(`${SERVICE_URI}/recipes/autocomplete`, {
+      headers: this.headers,
+      params: {
+        'query' : recipe,
         'number' : numberOfResults.toString()
       },
     });
