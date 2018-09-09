@@ -29,7 +29,7 @@ export class SpoonacularService {
     });
   }
 
-  getRecipeDetailsForId(recipeId : number): Observable<any> {
+  getRecipeDetailsForId(recipeId : string): Observable<any> {
     return this.http.get(`${SERVICE_URI}/recipes/${recipeId}/information`, {
       headers: this.headers,
       params: {

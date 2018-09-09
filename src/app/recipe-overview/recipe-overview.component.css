@@ -1,15 +1,19 @@
 a {
     text-decoration: none;
-    }
+}
 
-    .shortDiv{
-        width: 60%;
-        margin: 20px;
-        overflow-x: hidden;
-        overflow-y: hidden;
-        }
-        div{
-            overflow-x: hidden;
-            overflow-y: hidden;
-        }
+.shortDiv {
+    width: 60%;
+    margin: 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
+div {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.card {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }

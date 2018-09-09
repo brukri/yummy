@@ -1,26 +1,22 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { SpoonacularService } from '../services/spoonacular/spoonacular.service';
+import { Observable } from 'rxjs';
+import { YummyDataService,RecipeDetails } from '../services/yummy-data-service/yummy-data.service';
 
-
-export interface RecipeDetail {
-  title: string;
-  image:string;
-  vegetarian:boolean;
-}
 
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
+
 export class RecipeDetailComponent implements OnInit {
 
+public RecipeDetails
 
-
-  @Input() recipeDetail: Object;
-  constructor(private route: ActivatedRoute, private location: Location,private spoonacularService:SpoonacularService) { }
+  @Input() recipeDetail: RecipeDetails;
+  constructor(private route: ActivatedRoute, private location: Location,private yummyDataService:YummyDataService) { }
 
 
   ngOnInit() {
@@ -28,8 +24,8 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   getRecipe(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.spoonacularService.getRecipeDetailsForId(id).subscribe(recipeDetail => this.recipeDetail = recipeDetail);
+    var id = +this.route.snapshot.paramMap.get('id');
+    this.yummyDataService.getRecipeDetailsForId(id.toString()).subscribe(recipeDetail => this.recipeDetail = recipeDetail);
   }
 
 }

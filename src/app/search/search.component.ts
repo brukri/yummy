@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpoonacularService } from '../services/spoonacular/spoonacular.service';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { YummyDataService, Recipe } from '../services/yummy-data-service/yummy-data.service';
 
 @Component({

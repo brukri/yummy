@@ -16,6 +16,8 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { AutocompleteSearchComponent } from './autocomplete-search/autocomplete-search.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
+import{IncredientsComponent} from './Incredients/incredients.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.compo
     RecipeCardComponent,
     RecipeDetailComponent,
     AutocompleteSearchComponent,
-    RecipeOverviewComponent
+    RecipeOverviewComponent,
+    IncredientsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.compo
     HttpClientModule,
     FlexLayoutModule,
     AppRouters,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

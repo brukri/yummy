@@ -1,22 +1,29 @@
-.bg{
+.bg {
     overflow-x: hidden;
     overflow-y: hidden;
-    height:100%;
-        /* The image used */
-        background-image: url("/src/assets/background.jpg");
-        min-height: 850px;
-        /* Center and scale the image nicely */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+    height: 100%;
+    /* The image used */
+    background-image: url("/src/assets/background.jpg");
+    min-height: 850px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-
-  }
-  body, html {
+body, html {
     height: 100%;
 }
 
-.shortDiv{
-width: 50%;
-margin: 20px;
+.shortDiv {
+    width: 50%;
+    margin: 20px;
+}
+
+
+.card {
+    background: #a19d9d34;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 20px;
 }
