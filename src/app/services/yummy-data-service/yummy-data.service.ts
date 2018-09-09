@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { SpoonacularService } from '../spoonacular/spoonacular.service';
-import { map, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { SpoonacularService } from "../spoonacular/spoonacular.service";
+import { map, tap } from "rxjs/operators";
+import { Observable } from "rxjs";
 
 export interface Recipe {
   id: string;
@@ -21,7 +21,8 @@ export interface RecipeDetails {
   healthScore: number;
   ingredients: Ingredient[];
   diets: string[];
-  servings:number;
+  servings: number;
+  recipeAttributes: RecipeAttributes;
 }
 
 export interface RecipeAttributes {
@@ -44,28 +45,33 @@ export interface Ingredient {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class YummyDataService {
-
-  constructor(private spoonacularService: SpoonacularService) {
-
-  }
+  constructor(private spoonacularService: SpoonacularService) {}
 
   incredientImageSize = "100x100";
 
-  findRecipesByIngredients(ingredients: String[], numberOfResults: number): Observable<Recipe[]> {
-    return this.spoonacularService.findRecipesByIngredients(ingredients, numberOfResults).pipe(
-      map(result => {
-        return result.map(item => {
-          return { id: item.id, title: item.title, image: item.image, imageType: item.imageType, likes: item.likes };
-        });
-      })
-    );
+  findRecipesByIngredients(
+    ingredients: String[],
+    numberOfResults: number
+  ): Observable<Recipe[]> {
+    return this.spoonacularService
+      .findRecipesByIngredients(ingredients, numberOfResults)
+      .pipe(
+        map(result => {
+          return result.map(item => {
+            return {
+              id: item.id,
+              title: item.title,
+              image: item.image,
+              imageType: item.imageType,
+              likes: item.likes
+            };
+          });
+        })
+      );
   }
-
-
-
 
   getRecipeDetailsForId(recipeId: string): Observable<RecipeDetails> {
     return this.spoonacularService.getRecipeDetailsForId(recipeId).pipe(
@@ -76,23 +82,47 @@ export class YummyDataService {
         cookingMinutes: response.cookingMinutes,
         preparationMinutes: response.preparationMinutes,
         healthScore: response.healthScore,
-        servings:response.servings,
+        servings: response.servings,
         ingredients: response.extendedIngredients.map(item => {
-          return { id: item.id, title: item.title, image: 'https://spoonacular.com/cdn/ingredients_' + this.incredientImageSize + '/' + item.image, name: item.name, amount: item.measures.metric.amount, unit: item.measures.metric.unitLong };
+          return {
+            id: item.id,
+            title: item.title,
+            image:
+              "https://spoonacular.com/cdn/ingredients_" +
+              this.incredientImageSize +
+              "/" +
+              item.image,
+            name: item.name,
+            amount: item.measures.metric.amount,
+            unit: item.measures.metric.unitLong
+          };
         }),
-        diets: null,
-      })));
-
+        recipeAttributes: {
+          vegetarian: response.vegetarian,
+          vegan: response.vegan,
+          glutenFree: response.glutenFree,
+          dairyFree: response.dairyFree,
+          veryHealthy: response.veryHealthy,
+          veryPopular:response.veryPopular,
+          sustainable:response.sustainable
+        },
+        diets: null
+      }))
+    );
   }
 
-
-  autoCompleteIngredient(ingredient: String, numberOfResults: number): Observable<[string]> {
-    return this.spoonacularService.autoCompleteIngredient(ingredient, numberOfResults).pipe(
-      map(result => {
-        return result.map(item => {
-          return item.name;
-        });
-      })
-    );
+  autoCompleteIngredient(
+    ingredient: String,
+    numberOfResults: number
+  ): Observable<[string]> {
+    return this.spoonacularService
+      .autoCompleteIngredient(ingredient, numberOfResults)
+      .pipe(
+        map(result => {
+          return result.map(item => {
+            return item.name;
+          });
+        })
+      );
   }
 }

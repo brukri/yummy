@@ -17,6 +17,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { AutocompleteSearchComponent } from './autocomplete-search/autocomplete-search.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 import{IncredientsComponent} from './Incredients/incredients.component';
+import { RecipeAttributesComponent } from './recipe-attributes/recipe-attributes.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import{IncredientsComponent} from './Incredients/incredients.component';
     RecipeDetailComponent,
     AutocompleteSearchComponent,
     RecipeOverviewComponent,
-    IncredientsComponent
+    IncredientsComponent,
+    RecipeAttributesComponent
   ],
   imports: [
     BrowserModule,

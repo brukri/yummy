@@ -5,17 +5,7 @@
     <div>
     <mat-icon class="icon">timer</mat-icon> <h3> {{recipeDetail.cookingMinutes}} minutes</h3>
     </div>
-    <!-- <h4>{{recipeDetail.instructions}}</h4> -->
-    <!-- <mat-checkbox [checked]=recipeDetail.vegetarian>
-      vegetarian
-    </mat-checkbox>
-    <mat-checkbox [checked]=recipeDetail.vegan>
-      vegan
-    </mat-checkbox>
-    <mat-checkbox [checked]=recipeDetail.glutenFree>
-      glutenFree
-    </mat-checkbox> -->
     <img class="card" src={{recipeDetail.image}} />
+    <recipe-attributes [recipeAttributes]="recipeDetail.recipeAttributes"></recipe-attributes>
     <incredients-list [incredients]="recipeDetail.ingredients"></incredients-list>
-
   </div>
