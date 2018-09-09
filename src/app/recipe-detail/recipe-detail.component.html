@@ -2,7 +2,9 @@
   <div *ngIf="recipeDetail" class="shortDiv">
 
     <h1>{{recipeDetail.title}}</h1>
-    <h2>Minutes: {{recipeDetail.cookingMinutes}}</h2>
+    <div>
+    <mat-icon class="icon">timer</mat-icon> <h3> {{recipeDetail.cookingMinutes}} minutes</h3>
+    </div>
     <!-- <h4>{{recipeDetail.instructions}}</h4> -->
     <!-- <mat-checkbox [checked]=recipeDetail.vegetarian>
       vegetarian
