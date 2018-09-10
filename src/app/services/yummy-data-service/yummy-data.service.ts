@@ -83,11 +83,17 @@ export class YummyDataService {
       );
   }
 
-  findRecipe(recipe : string, numberOfResults : number): Observable<Recipe[]> {
+  findRecipe(recipe: string, numberOfResults: number): Observable<Recipe[]> {
     return this.spoonacularService.findRecipe(recipe, numberOfResults).pipe(
       map(result => {
         return result.results.map(item => {
-          return {id: item.id, title: item.title, image: item.image, imageType: item.imageType, likes: item.likes};
+          return {
+            id: item.id,
+            title: item.title,
+            image: 'https://spoonacular.com/recipeImages/' + item.image,
+            imageType: item.imageType,
+            likes: item.likes
+          };
         });
       })
     );
