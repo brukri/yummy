@@ -3,20 +3,20 @@ import { Observable } from 'rxjs';
 import { YummyDataService, Recipe } from '../services/yummy-data-service/yummy-data.service';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'app-search-by-ingredients',
+  templateUrl: './search-by-ingredients.component.html',
+  styleUrls: ['./search-by-ingredients.component.css']
 })
-export class SearchComponent implements OnInit {
-  recipes : Observable<Recipe[]>;
-  constructor(private yummyDataService: YummyDataService) { 
+export class SearchByIngredientsComponent implements OnInit {
+  recipes: Observable<Recipe[]>;
+  constructor(private yummyDataService: YummyDataService) {
     this.autoComplete = this.autoComplete.bind(this);
   }
 
   ngOnInit() {
   }
 
-  updateIngredients(ingredients:string[]) {
+  updateRecipes(ingredients:string[]) {
     this.recipes = this.yummyDataService.findRecipesByIngredients(ingredients, 5);
   }
 

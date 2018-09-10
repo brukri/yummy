@@ -1,0 +1,4 @@
+<div>
+  <autocomplete-multi-search [placeholder]="'Search ingredients...'" [autocompletionCallback]="autoComplete" (chipListChanged)="updateRecipes($event)"></autocomplete-multi-search>
+  <recipe-overview [recipes]="recipes"></recipe-overview>
+</div>

@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
 import { debounceTime, switchMap, skipWhile} from 'rxjs/operators';
 
 @Component({
-  selector: 'autocomplete-search',
-  templateUrl: './autocomplete-search.component.html',
-  styleUrls: ['./autocomplete-search.component.css']
+  selector: 'autocomplete-multi-search',
+  templateUrl: './autocomplete-multi-search.component.html',
+  styleUrls: ['./autocomplete-multi-search.component.css']
 })
-export class AutocompleteSearchComponent implements OnInit {
-  @Input() placeholder : string;
+export class AutocompleteMultiSearchComponent implements OnInit {
+  @Input() placeholder: string;
   @Input() autocompletionCallback: Function;
   @Output() chipListChanged: EventEmitter<string[]> = new EventEmitter();
   visible = true;
@@ -35,7 +35,7 @@ export class AutocompleteSearchComponent implements OnInit {
         return value && value.length < 2;
       }),
       switchMap(value => {
-        if(value===null) {
+        if(value === null) {
           return [];
         }
         return this.autocompletionCallback(value);

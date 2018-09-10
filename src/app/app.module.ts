@@ -10,11 +10,11 @@ import {AppRouters} from './app.routes';
 
 import {HttpClientModule} from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { SearchComponent } from './search/search.component';
+import { SearchByIngredientsComponent } from './search-by-ingredients/search-by-ingredients.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { AutocompleteSearchComponent } from './autocomplete-search/autocomplete-search.component';
+import { AutocompleteMultiSearchComponent } from './autocomplete-multi-search/autocomplete-multi-search.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 import {IncredientsComponent} from './incredients/incredients.component';
 import { RecipeAttributesComponent } from './recipe-attributes/recipe-attributes.component';
@@ -27,10 +27,10 @@ import { InstructionComponent } from './instruction/instruction.component';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    SearchComponent,
+    SearchByIngredientsComponent,
     RecipeCardComponent,
     RecipeDetailComponent,
-    AutocompleteSearchComponent,
+    AutocompleteMultiSearchComponent,
     RecipeOverviewComponent,
     IncredientsComponent,
     RecipeAttributesComponent,
