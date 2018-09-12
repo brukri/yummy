@@ -9,18 +9,18 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {AppRouters} from './app.routes';
 
 import {HttpClientModule} from '@angular/common/http';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { SearchByIngredientsComponent } from './search-by-ingredients/search-by-ingredients.component';
-import { RecipeCardComponent } from './recipe-card/recipe-card.component';
-import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { SearchByIngredientsComponent } from './components/search-by-ingredients/search-by-ingredients.component';
+import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
+import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { AutocompleteMultiSearchComponent } from './autocomplete-multi-search/autocomplete-multi-search.component';
-import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
-import {IngredientsComponent} from './ingredients/ingredients.component';
-import { RecipeAttributesComponent } from './recipe-attributes/recipe-attributes.component';
-import { AutocompleteSingleSearchComponent } from './autocomplete-single-search/autocomplete-single-search.component';
-import { SearchByRecipeComponent } from './search-by-recipe/search-by-recipe.component';
-import { InstructionComponent } from './instruction/instruction.component';
+import { AutocompleteMultiSearchComponent } from './components/autocomplete-multi-search/autocomplete-multi-search.component';
+import { RecipeOverviewComponent } from './components/recipe-overview/recipe-overview.component';
+import {IngredientsComponent} from './components/ingredients/ingredients.component';
+import { RecipeAttributesComponent } from './components/recipe-attributes/recipe-attributes.component';
+import { AutocompleteSingleSearchComponent } from './components/autocomplete-single-search/autocomplete-single-search.component';
+import { SearchByRecipeComponent } from './components/search-by-recipe/search-by-recipe.component';
+import { InstructionComponent } from './components/instruction/instruction.component';
 
 
 @NgModule({

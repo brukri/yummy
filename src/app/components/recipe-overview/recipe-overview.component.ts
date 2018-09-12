@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Recipe } from '../services/yummy-data-service/yummy-data.service';
+import { Recipe } from '../../services/yummy-data-service/yummy-data.service';
 
 @Component({
   selector: 'recipe-overview',

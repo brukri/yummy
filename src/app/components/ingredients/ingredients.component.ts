@@ -1,5 +1,5 @@
 import { Component, OnInit,Input} from '@angular/core';
-import { Ingredient } from '../services/yummy-data-service/yummy-data.service';
+import { Ingredient } from '../../services/yummy-data-service/yummy-data.service';
 
 @Component({
   selector: 'ingredients-list',

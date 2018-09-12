@@ -1,5 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
-import { RecipeAttributes } from '../services/yummy-data-service/yummy-data.service';
+import { RecipeAttributes } from '../../services/yummy-data-service/yummy-data.service';
 import {MAT_CHECKBOX_CLICK_ACTION} from '@angular/material';
 @Component({
   selector: 'recipe-attributes',
