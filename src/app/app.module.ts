@@ -20,7 +20,7 @@ import {IngredientsComponent} from './components/ingredients/ingredients.compone
 import { RecipeAttributesComponent } from './components/recipe-attributes/recipe-attributes.component';
 import { AutocompleteSingleSearchComponent } from './components/autocomplete-single-search/autocomplete-single-search.component';
 import { SearchByRecipeComponent } from './components/search-by-recipe/search-by-recipe.component';
-import { InstructionComponent } from './components/instruction/instruction.component';
+import { InstructionsComponent } from './components/instructions/instructions.component';
 
 
 @NgModule({
@@ -36,7 +36,7 @@ import { InstructionComponent } from './components/instruction/instruction.compo
     RecipeAttributesComponent,
     AutocompleteSingleSearchComponent,
     SearchByRecipeComponent,
-    InstructionComponent
+    InstructionsComponent
   ],
   imports: [
     BrowserModule,

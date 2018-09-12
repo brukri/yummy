@@ -1,7 +1,7 @@
 <div class="card">
-  <div *ngFor="let instruction of instructions">
+  <div *ngFor="let instructions of instructions">
 
-    <div *ngFor="let step of instruction.steps">
+    <div *ngFor="let step of instructions.steps">
         <h2>{{step.number}}</h2>
         <h4>{{step.text}}</h4>
     </div>
