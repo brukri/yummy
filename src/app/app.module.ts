@@ -16,7 +16,7 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AutocompleteMultiSearchComponent } from './autocomplete-multi-search/autocomplete-multi-search.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
-import {IncredientsComponent} from './incredients/incredients.component';
+import {IngredientsComponent} from './ingredients/ingredients.component';
 import { RecipeAttributesComponent } from './recipe-attributes/recipe-attributes.component';
 import { AutocompleteSingleSearchComponent } from './autocomplete-single-search/autocomplete-single-search.component';
 import { SearchByRecipeComponent } from './search-by-recipe/search-by-recipe.component';
@@ -32,7 +32,7 @@ import { InstructionComponent } from './instruction/instruction.component';
     RecipeDetailComponent,
     AutocompleteMultiSearchComponent,
     RecipeOverviewComponent,
-    IncredientsComponent,
+    IngredientsComponent,
     RecipeAttributesComponent,
     AutocompleteSingleSearchComponent,
     SearchByRecipeComponent,

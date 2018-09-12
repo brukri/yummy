@@ -1,13 +1,13 @@
 
 <div  class="card">
-  <div *ngFor="let incredient of incredients">
+  <div *ngFor="let incredient of ingredients">
       <span class="border">
     <h3>{{incredient.amount}} {{incredient.unit}} {{incredient.name}}</h3>
   </span>
   </div>
 </div>
 
-<!--  <table mat-table [dataSource]="incredients" class="mat-elevation-z8">
+<!--  <table mat-table [dataSource]="ingredients" class="mat-elevation-z8">
 
     <ng-container matColumnDef="amount">
         <th mat-header-cell *matHeaderCellDef> amount </th>

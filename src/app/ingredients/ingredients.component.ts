@@ -2,13 +2,13 @@ import { Component, OnInit,Input} from '@angular/core';
 import { Ingredient } from '../services/yummy-data-service/yummy-data.service';
 
 @Component({
-  selector: 'incredients-list',
-  templateUrl: './incredients.component.html',
-  styleUrls: ['./incredients.component.css']
+  selector: 'ingredients-list',
+  templateUrl: './ingredients.component.html',
+  styleUrls: ['./ingredients.component.css']
 })
-export class IncredientsComponent implements OnInit {
+export class IngredientsComponent implements OnInit {
   displayedColumns: string[] = ['amount', 'unit', 'name'];
-  @Input() incredients: Ingredient[];
+  @Input() ingredients: Ingredient[];
   constructor() { }
 
   ngOnInit() {
