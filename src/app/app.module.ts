@@ -21,6 +21,7 @@ import { RecipeAttributesComponent } from './components/recipe-attributes/recipe
 import { AutocompleteSingleSearchComponent } from './components/autocomplete-single-search/autocomplete-single-search.component';
 import { SearchByRecipeComponent } from './components/search-by-recipe/search-by-recipe.component';
 import { InstructionsComponent } from './components/instructions/instructions.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { InstructionsComponent } from './components/instructions/instructions.co
     RecipeAttributesComponent,
     AutocompleteSingleSearchComponent,
     SearchByRecipeComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
