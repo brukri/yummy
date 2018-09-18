@@ -42,8 +42,10 @@ export class AutocompleteMultiSearchComponent implements OnInit {
       })
     );
     this.preselectedChips.subscribe(preselectedChips => {
-      this.chips = preselectedChips;
-      this.chipListChanged.emit(this.chips);
+      if (preselectedChips.length !== this.chips.length) {
+        this.chips = preselectedChips;
+        this.chipListChanged.emit(preselectedChips);
+      }
     });
   }
 

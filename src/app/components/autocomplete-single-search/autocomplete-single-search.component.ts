@@ -48,10 +48,11 @@ export class AutocompleteSingleSearchComponent implements OnInit {
   }
 
   private initPreselectedValue() {
-    this.inputCtrl.setValue('');
     this.preselectedValue.subscribe(preselectedValue => {
-      this.inputCtrl.setValue(preselectedValue);
-      this.resultChanged.emit(preselectedValue);
+      if ((preselectedValue || '') !== this.inputElement.nativeElement.value) {
+        this.inputCtrl.setValue(preselectedValue);
+        this.resultChanged.emit(preselectedValue);
+      }
     });
   }
 
