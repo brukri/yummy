@@ -22,7 +22,7 @@ export class SearchByRecipeComponent implements OnInit {
     this.preselectedRecipe = this.routeService.getQueryParam('selectedRecipe');
   }
 
-  refreshRecipes(recipe: string) {
+  recipeUpdated(recipe: string) {
     this.recipes = this.yummyDataService.findRecipe(recipe, 5);
     this.routeService.updateQueryParam('selectedRecipe', recipe);
   }

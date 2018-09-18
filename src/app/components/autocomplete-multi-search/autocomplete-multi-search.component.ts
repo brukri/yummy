@@ -11,19 +11,19 @@ import { debounceTime, switchMap, skipWhile} from 'rxjs/operators';
   styleUrls: ['./autocomplete-multi-search.component.css']
 })
 export class AutocompleteMultiSearchComponent implements OnInit {
-  @Input() placeholder: string;
-  @Input() autocompletionCallback: Function;
-  @Output() chipListChanged: EventEmitter<string[]> = new EventEmitter();
-  visible = true;
-  selectable = true;
-  removable = true;
-  addOnBlur = false;
-  separatorKeysCodes: number[] = [ENTER, COMMA];
-  inputCtrl = new FormControl();
-  filteredTerms: Observable<string[]>;
-  items: string[] = [];
-
+  @Input() private placeholder: string;
+  @Input() private autocompletionCallback: Function;
+  @Input() private preselectedChips: string[];
+  @Output() private chipListChanged: EventEmitter<string[]> = new EventEmitter();
   @ViewChild('inputRef') ingredientInput: ElementRef<HTMLInputElement>;
+  private visible = true;
+  private selectable = true;
+  private removable = true;
+  private addOnBlur = false;
+  private separatorKeysCodes: number[] = [ENTER, COMMA];
+  private inputCtrl = new FormControl();
+  private filteredTerms: Observable<string[]>;
+  private chips: string[];
 
   constructor() {
   }
@@ -35,12 +35,13 @@ export class AutocompleteMultiSearchComponent implements OnInit {
         return value && value.length < 2;
       }),
       switchMap(value => {
-        if(value === null) {
+        if (value === null) {
           return [];
         }
         return this.autocompletionCallback(value);
       })
      );
+     this.initChips();
   }
 
   add(event: MatChipInputEvent): void {
@@ -48,7 +49,7 @@ export class AutocompleteMultiSearchComponent implements OnInit {
     const value = event.value;
 
     if ((value || '').trim()) {
-      this.items.push(value.trim());
+      this.chips.push(value.trim());
     }
 
     if (input) {
@@ -56,23 +57,32 @@ export class AutocompleteMultiSearchComponent implements OnInit {
     }
 
     this.inputCtrl.setValue(null);
-    this.chipListChanged.emit(this.items);
+    this.chipListChanged.emit(this.chips);
   }
 
   remove(ingredient: string): void {
-    const index = this.items.indexOf(ingredient);
+    const index = this.chips.indexOf(ingredient);
 
     if (index >= 0) {
-      this.items.splice(index, 1);
+      this.chips.splice(index, 1);
     }
-    this.chipListChanged.emit(this.items);
+    this.chipListChanged.emit(this.chips);
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.items.push(event.option.viewValue);
+    this.chips.push(event.option.viewValue);
     this.ingredientInput.nativeElement.value = '';
     this.inputCtrl.setValue(null);
-    this.chipListChanged.emit(this.items);
+    this.chipListChanged.emit(this.chips);
+  }
+
+  private initChips() {
+    if (this.preselectedChips) {
+      this.chips = this.preselectedChips;
+      this.chipListChanged.emit(this.chips);
+    } else {
+      this.chips = [];
+    }
   }
 
 }

@@ -10,13 +10,12 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
   styleUrls: ['./autocomplete-single-search.component.css']
 })
 export class AutocompleteSingleSearchComponent implements OnInit {
-  @Input() public placeholder: string;
-  @Input() public autocompletionCallback: Function;
-  @Input() public preselectedRecipe: string;
-  @Output() public resultChanged: EventEmitter<string> = new EventEmitter();
-  public inputCtrl = new FormControl();
+  @Input() private placeholder: string;
+  @Input() private autocompletionCallback: Function;
+  @Input() private preselectedValue: string;
+  @Output() private resultChanged: EventEmitter<string> = new EventEmitter();
   @ViewChild('inputRef') private inputElement: ElementRef<HTMLInputElement>;
-
+  private inputCtrl = new FormControl();
   private filteredTerms: Observable<string[]>;
 
   constructor() { }
@@ -35,24 +34,26 @@ export class AutocompleteSingleSearchComponent implements OnInit {
       })
      );
 
-    if (this.preselectedRecipe) {
-      this.updatePreselectedRecipe(this.preselectedRecipe);
-    }
+    this.initPreselectedValue();
   }
 
-  public selected(event: MatAutocompleteSelectedEvent): void {
+  selected(event: MatAutocompleteSelectedEvent): void {
     this.filteredTerms = empty();
     this.resultChanged.emit(event.option.viewValue);
   }
 
-  public enterPressed() {
+  enterPressed() {
     this.filteredTerms = empty();
     this.resultChanged.emit(this.inputElement.nativeElement.value);
   }
 
-  private updatePreselectedRecipe(preselectedRecipe: string) {
-    this.inputCtrl.setValue(this.preselectedRecipe);
-    this.resultChanged.emit(this.preselectedRecipe);
+  private initPreselectedValue() {
+    if (this.preselectedValue) {
+      this.inputCtrl.setValue(this.preselectedValue);
+      this.resultChanged.emit(this.preselectedValue);
+    } else {
+      this.inputCtrl.setValue('');
+    }
   }
 
 }

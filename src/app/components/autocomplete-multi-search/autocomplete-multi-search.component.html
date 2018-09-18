@@ -1,11 +1,11 @@
 <mat-form-field class="chip-list">
     <mat-chip-list #chipList>
       <mat-chip
-        *ngFor="let item of items"
+        *ngFor="let chip of chips"
         [selectable]="selectable"
         [removable]="removable"
-        (removed)="remove(item)">
-        {{item}}
+        (removed)="remove(chip)">
+        {{chip}}
         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
       </mat-chip>
       <input
