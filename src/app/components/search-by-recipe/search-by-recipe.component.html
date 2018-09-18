@@ -2,7 +2,8 @@
     <autocomplete-single-search
       [placeholder]="'Search recipe...'"
       [autocompletionCallback]="autoComplete"
-      (resultChanged)="refreshRecipes($event)">
+      (resultChanged)="refreshRecipes($event)"
+      [preselectedRecipe]="preselectedRecipe">
     </autocomplete-single-search>
     <recipe-overview [recipes]="recipes"></recipe-overview>
   </div>

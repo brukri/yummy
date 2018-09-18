@@ -23,7 +23,7 @@ public RecipeDetails
   }
 
   getRecipe(): void {
-    var id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('id');
     this.yummyDataService.getRecipeDetailsForId(id.toString()).subscribe(recipeDetail => this.recipeDetail = recipeDetail);
   }
 

@@ -12,7 +12,8 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
 export class AutocompleteSingleSearchComponent implements OnInit {
   @Input() public placeholder: string;
   @Input() public autocompletionCallback: Function;
-  @Output() resultChanged: EventEmitter<string> = new EventEmitter();
+  @Input() public preselectedRecipe: string;
+  @Output() public resultChanged: EventEmitter<string> = new EventEmitter();
   public inputCtrl = new FormControl();
   @ViewChild('inputRef') private inputElement: ElementRef<HTMLInputElement>;
 
@@ -33,16 +34,25 @@ export class AutocompleteSingleSearchComponent implements OnInit {
         return this.autocompletionCallback(value);
       })
      );
+
+    if (this.preselectedRecipe) {
+      this.updatePreselectedRecipe(this.preselectedRecipe);
+    }
   }
 
-  selected(event: MatAutocompleteSelectedEvent): void {
+  public selected(event: MatAutocompleteSelectedEvent): void {
     this.filteredTerms = empty();
     this.resultChanged.emit(event.option.viewValue);
   }
 
-  enterPressed() {
+  public enterPressed() {
     this.filteredTerms = empty();
     this.resultChanged.emit(this.inputElement.nativeElement.value);
+  }
+
+  private updatePreselectedRecipe(preselectedRecipe: string) {
+    this.inputCtrl.setValue(this.preselectedRecipe);
+    this.resultChanged.emit(this.preselectedRecipe);
   }
 
 }
