@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, empty } from 'rxjs';
 import { YummyDataService, Recipe } from '../../services/yummy-data-service/yummy-data.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { RouteService } from '../../services/route-service/route.service';
 
 const SELECTED_RECIPE_KEY = 'selectedRecipe';
@@ -12,7 +11,7 @@ const SELECTED_RECIPE_KEY = 'selectedRecipe';
 })
 export class SearchByRecipeComponent implements OnInit {
   private recipes: Observable<Recipe[]>;
-  private preselectedRecipe: string;
+  private preselectedRecipe: Observable<string>;
 
   constructor(private yummyDataService: YummyDataService,
     private routeService: RouteService) { 
@@ -20,11 +19,15 @@ export class SearchByRecipeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.preselectedRecipe = this.routeService.getQueryParam(SELECTED_RECIPE_KEY);
+    this.preselectedRecipe = this.routeService.getQueryParamObservable(SELECTED_RECIPE_KEY);
   }
 
-  recipeUpdated(recipe: string) {
-    this.recipes = this.yummyDataService.findRecipe(recipe, 5);
+  recipeChanged(recipe: string) {
+    if (recipe) {
+      this.recipes = this.yummyDataService.findRecipe(recipe, 5);
+    } else {
+      this.recipes = empty();
+    }
     this.routeService.updateQueryParam(SELECTED_RECIPE_KEY, recipe);
   }
 

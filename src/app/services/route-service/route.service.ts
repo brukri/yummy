@@ -13,15 +13,19 @@ export class RouteService {
     private router: Router
   ) { }
 
-  public getQueryParam(key: string): string {
-    return this.route.snapshot.queryParamMap.get(key);
+  public getQueryParamObservable(key: string): Observable<string> {
+    return this.route.queryParamMap.pipe(
+      map((params: ParamMap) => {
+        const value = params.get(key);
+        return value ? value : null;
+      })
+    );
   }
 
   public getMultiValuesQueryParamObservable(key: string): Observable<string[]> {
-    return this.route.queryParamMap.pipe(
-      map((params: ParamMap) => {
-        const selectedIngredients = params.get(key);
-        return selectedIngredients ? selectedIngredients.split(',') : null;
+    return this.getQueryParamObservable(key).pipe(
+      map((value: string) => {
+        return value ? value.split(',') : [];
       })
     );
   }

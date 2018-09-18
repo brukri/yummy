@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, empty } from 'rxjs';
 import { YummyDataService, Recipe } from '../../services/yummy-data-service/yummy-data.service';
 import { RouteService } from '../../services/route-service/route.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
 
 const SELECTED_INGREDIENTS_KEY = 'selectedIngredients';
 
@@ -16,8 +15,7 @@ export class SearchByIngredientsComponent implements OnInit {
   public preselectedIngredients: Observable<string[]>;
 
   constructor(private yummyDataService: YummyDataService,
-    private routeService: RouteService,
-    private route: ActivatedRoute) {
+    private routeService: RouteService) {
     this.autoComplete = this.autoComplete.bind(this);
   }
 
@@ -26,7 +24,11 @@ export class SearchByIngredientsComponent implements OnInit {
   }
 
   updateRecipes(ingredients: string[]) {
-    this.recipes = this.yummyDataService.findRecipesByIngredients(ingredients, 5);
+    if (ingredients.length > 0) {
+      this.recipes = this.yummyDataService.findRecipesByIngredients(ingredients, 5);
+    } else {
+      this.recipes = empty();
+    }
     this.routeService.updateMultiValuesQueryParam(SELECTED_INGREDIENTS_KEY, ingredients);
   }
 

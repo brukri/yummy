@@ -12,7 +12,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
 export class AutocompleteSingleSearchComponent implements OnInit {
   @Input() private placeholder: string;
   @Input() private autocompletionCallback: Function;
-  @Input() private preselectedValue: string;
+  @Input() private preselectedValue: Observable<string>;
   @Output() private resultChanged: EventEmitter<string> = new EventEmitter();
   @ViewChild('inputRef') private inputElement: ElementRef<HTMLInputElement>;
   private inputCtrl = new FormControl();
@@ -48,12 +48,11 @@ export class AutocompleteSingleSearchComponent implements OnInit {
   }
 
   private initPreselectedValue() {
-    if (this.preselectedValue) {
-      this.inputCtrl.setValue(this.preselectedValue);
-      this.resultChanged.emit(this.preselectedValue);
-    } else {
-      this.inputCtrl.setValue('');
-    }
+    this.inputCtrl.setValue('');
+    this.preselectedValue.subscribe(preselectedValue => {
+      this.inputCtrl.setValue(preselectedValue);
+      this.resultChanged.emit(preselectedValue);
+    });
   }
 
 }
