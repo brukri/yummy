@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +17,13 @@ export class RouteService {
     return this.route.snapshot.queryParamMap.get(key);
   }
 
-  public getMultiValuesQueryParam(key: string): string[] {
-    const values = this.route.snapshot.queryParamMap.get(key);
-    return values ? values.split(',') : null;
+  public getMultiValuesQueryParamObservable(key: string): Observable<string[]> {
+    return this.route.queryParamMap.pipe(
+      map((params: ParamMap) => {
+        const selectedIngredients = params.get(key);
+        return selectedIngredients ? selectedIngredients.split(',') : null;
+      })
+    );
   }
 
   public updateQueryParam(key: string, value: string) {

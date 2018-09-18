@@ -3,7 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild, EventEmitter, Output, Input }
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent, MatChipInputEvent } from '@angular/material';
 import { Observable } from 'rxjs';
-import { debounceTime, switchMap, skipWhile} from 'rxjs/operators';
+import { debounceTime, switchMap, skipWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'autocomplete-multi-search',
@@ -13,7 +13,7 @@ import { debounceTime, switchMap, skipWhile} from 'rxjs/operators';
 export class AutocompleteMultiSearchComponent implements OnInit {
   @Input() private placeholder: string;
   @Input() private autocompletionCallback: Function;
-  @Input() private preselectedChips: string[];
+  @Input() private preselectedChips: Observable<string[]>;
   @Output() private chipListChanged: EventEmitter<string[]> = new EventEmitter();
   @ViewChild('inputRef') ingredientInput: ElementRef<HTMLInputElement>;
   private visible = true;
@@ -23,7 +23,7 @@ export class AutocompleteMultiSearchComponent implements OnInit {
   private separatorKeysCodes: number[] = [ENTER, COMMA];
   private inputCtrl = new FormControl();
   private filteredTerms: Observable<string[]>;
-  private chips: string[];
+  private chips: string[] = [];
 
   constructor() {
   }
@@ -40,8 +40,11 @@ export class AutocompleteMultiSearchComponent implements OnInit {
         }
         return this.autocompletionCallback(value);
       })
-     );
-     this.initChips();
+    );
+    this.preselectedChips.subscribe(preselectedChips => {
+      this.chips = preselectedChips;
+      this.chipListChanged.emit(this.chips);
+    });
   }
 
   add(event: MatChipInputEvent): void {
@@ -74,15 +77,6 @@ export class AutocompleteMultiSearchComponent implements OnInit {
     this.ingredientInput.nativeElement.value = '';
     this.inputCtrl.setValue(null);
     this.chipListChanged.emit(this.chips);
-  }
-
-  private initChips() {
-    if (this.preselectedChips) {
-      this.chips = this.preselectedChips;
-      this.chipListChanged.emit(this.chips);
-    } else {
-      this.chips = [];
-    }
   }
 
 }

@@ -4,6 +4,7 @@ import { YummyDataService, Recipe } from '../../services/yummy-data-service/yumm
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouteService } from '../../services/route-service/route.service';
 
+const SELECTED_RECIPE_KEY = 'selectedRecipe';
 @Component({
   selector: 'search-by-recipe',
   templateUrl: './search-by-recipe.component.html',
@@ -19,12 +20,12 @@ export class SearchByRecipeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.preselectedRecipe = this.routeService.getQueryParam('selectedRecipe');
+    this.preselectedRecipe = this.routeService.getQueryParam(SELECTED_RECIPE_KEY);
   }
 
   recipeUpdated(recipe: string) {
     this.recipes = this.yummyDataService.findRecipe(recipe, 5);
-    this.routeService.updateQueryParam('selectedRecipe', recipe);
+    this.routeService.updateQueryParam(SELECTED_RECIPE_KEY, recipe);
   }
 
   public autoComplete(value): Observable<string[]> {
