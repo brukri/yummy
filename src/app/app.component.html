@@ -36,14 +36,14 @@
           </li>
           <li>
             <a
-              routerLink="/searchByIngredients">
+              routerLink="/searchByIngredients" [queryParams]="{ selectedIngredients: '' }">
               <mat-icon class="icon">search</mat-icon>
               <span class="label">By Ingredients</span>
             </a>
           </li>
           <li>
               <a
-                routerLink="/searchByRecipe">
+                routerLink="/searchByRecipe" [queryParams]="{ selectedRecipe: '' }">
                 <mat-icon class="icon">search</mat-icon>
                 <span class="label">By Recipe</span>
               </a>
