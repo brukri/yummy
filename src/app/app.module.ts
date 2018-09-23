@@ -22,6 +22,7 @@ import { AutocompleteSingleSearchComponent } from './components/autocomplete-sin
 import { SearchByRecipeComponent } from './components/search-by-recipe/search-by-recipe.component';
 import { InstructionsComponent } from './components/instructions/instructions.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     AutocompleteSingleSearchComponent,
     SearchByRecipeComponent,
     InstructionsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
