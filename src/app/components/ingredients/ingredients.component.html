@@ -1,11 +1,11 @@
 
-<div  class="card">
-  <div *ngFor="let incredient of ingredients">
-      <span class="border">
-    <h3>{{incredient.amount}} {{incredient.unit}} {{incredient.name}}</h3>
-  </span>
-  </div>
-</div>
+  <table class="table" >
+    <tr *ngFor="let incredient of ingredients">
+      <td class="td1">{{incredient.amount}} {{incredient.unit}}</td>
+      <td class="td2">{{incredient.name}}</td> 
+    </tr>
+  </table>
+
 
 <!--  <table mat-table [dataSource]="ingredients" class="mat-elevation-z8">
 
@@ -26,6 +26,3 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
  </table> -->
-
-
-

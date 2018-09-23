@@ -1,11 +1,22 @@
-.card {
-    background: #a19d9d34;
-
+.table {
+  background: #a19d9d34;
   border-radius: 5px;
-  height: 300px;
+  color: whitesmoke;
   margin: 1rem;
-  width: 300px;
-  padding: 20px;
+  width: 400px;
+  padding: 10px;
+  font-family: 'Indie Flower';
+}
 
+.td1 {
+  margin: 3px;
+  text-align: left;
+  font-weight: bold;
+  min-width: 100px;
+}
 
-  }
+.td2 {
+  margin: 3px;
+  text-align: left;
+  min-width: 300px;
+}
