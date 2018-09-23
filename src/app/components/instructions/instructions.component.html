@@ -2,8 +2,11 @@
   <div *ngFor="let instructions of instructions">
 
     <div *ngFor="let step of instructions.steps">
-        <h2>{{step.number}}</h2>
+
+      <div class="entry">
+        <h4 class=numberCircle>{{step.number}}</h4>
         <h4>{{step.text}}</h4>
+      </div>
     </div>
   </div>
 </div>
