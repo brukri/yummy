@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { SpoonacularService } from "../spoonacular/spoonacular.service";
-import { map, tap } from "rxjs/operators";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { SpoonacularService } from '../spoonacular/spoonacular.service';
+import { map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 export interface Recipe {
   id: string;
@@ -11,7 +11,7 @@ export interface Recipe {
   likes: string;
 }
 
-//Todo: Use inheritance?
+// Todo: Use inheritance?
 export interface RecipeDetails {
   id: string;
   title: string;
@@ -23,16 +23,16 @@ export interface RecipeDetails {
   diets: string[];
   servings: number;
   recipeAttributes: RecipeAttributes;
-  instructions:Instructions[];
+  instructions: Instructions[];
 }
 
 export interface Instructions {
-  steps:InstructionStep[];
+  steps: InstructionStep[];
 }
 
 export interface InstructionStep {
-  number:number;
-  text:string;
+  number: number;
+  text: string;
 }
 
 export interface RecipeAttributes {
@@ -55,12 +55,12 @@ export interface Ingredient {
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class YummyDataService {
   constructor(private spoonacularService: SpoonacularService) {}
 
-  incredientImageSize = "100x100";
+  incredientImageSize = '100x100';
 
   findRecipesByIngredients(
     ingredients: String[],
@@ -114,9 +114,9 @@ export class YummyDataService {
             id: item.id,
             title: item.title,
             image:
-              "https://spoonacular.com/cdn/ingredients_" +
+              'https://spoonacular.com/cdn/ingredients_' +
               this.incredientImageSize +
-              "/" +
+              '/' +
               item.image,
             name: item.name,
             amount: item.measures.metric.amount,
@@ -125,17 +125,17 @@ export class YummyDataService {
         }),
         instructions: response.analyzedInstructions.map(result => {
           return{steps: result.steps.map(item => {
-              return{number:item.number,text:item.step};
-          })  
-        }}),
+              return{number: item.number, text: item.step};
+          })
+        }; }),
         recipeAttributes: {
           vegetarian: response.vegetarian,
           vegan: response.vegan,
           glutenFree: response.glutenFree,
           dairyFree: response.dairyFree,
           veryHealthy: response.veryHealthy,
-          veryPopular:response.veryPopular,
-          sustainable:response.sustainable
+          veryPopular: response.veryPopular,
+          sustainable: response.sustainable
         },
         diets: null
       }))
@@ -157,7 +157,7 @@ export class YummyDataService {
       );
   }
 
-  autoCompleteRecipe(recipe : string, numberOfResults : number): Observable<[string]> {
+  autoCompleteRecipe(recipe: string, numberOfResults: number): Observable<[string]> {
     return this.spoonacularService.autoCompleteRecipe(recipe, numberOfResults).pipe(
       map(result => {
         return result.map(item => {
