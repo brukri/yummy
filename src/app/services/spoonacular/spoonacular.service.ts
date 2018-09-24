@@ -79,4 +79,13 @@ export class SpoonacularService {
       },
     });
   }
+
+  guessNutritionByRecipe(recipeTitle: string): Observable<any> {
+    return this.http.get(`${SERVICE_URI}/recipes/guessNutrition`, {
+      headers: this.headers,
+      params: {
+        'title' : recipeTitle,
+      },
+    });
+  }
 }

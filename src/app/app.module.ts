@@ -24,6 +24,7 @@ import { InstructionsComponent } from './components/instructions/instructions.co
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { WinePairingComponent } from './components/wine-pairing/wine-pairing.component';
+import { NutritionComponent } from './components/nutrition/nutrition.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { WinePairingComponent } from './components/wine-pairing/wine-pairing.com
     InstructionsComponent,
     PageNotFoundComponent,
     FavoritesComponent,
-    WinePairingComponent
+    WinePairingComponent,
+    NutritionComponent
   ],
   imports: [
     BrowserModule,

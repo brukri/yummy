@@ -60,6 +60,20 @@ export interface WinePairing {
   pairingText: string;
 }
 
+export interface Nutrition {
+  readonly calories: EstimatedValues;
+  readonly fat: EstimatedValues;
+  readonly protein: EstimatedValues;
+  readonly carbs: EstimatedValues;
+}
+
+export interface EstimatedValues {
+  readonly unit: string;
+  readonly value: number;
+  readonly minValue: number;
+  readonly maxValue: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -190,6 +204,19 @@ export class YummyDataService {
     );
   }
 
+  guessNutritionByRecipe(recipeTitle: string): Observable<Nutrition> {
+    return this.spoonacularService.guessNutritionByRecipe(recipeTitle).pipe(
+      map(result => {
+        return {
+          calories: this.createEstimatedValues(result.calories),
+          fat: this.createEstimatedValues(result.fat),
+          protein: this.createEstimatedValues(result.protein),
+          carbs: this.createEstimatedValues(result.carbs),
+        };
+      })
+    );
+  }
+
   private createWineParing(response): WinePairing {
     if (!response.winePairing.pairingText) {
       return null;
@@ -198,6 +225,15 @@ export class YummyDataService {
     return {
       grapeVarieties: response.winePairing.pairedWines,
       pairingText: response.winePairing.pairingText
+    };
+  }
+
+  private createEstimatedValues(nutritionItem): EstimatedValues {
+    return {
+      unit: nutritionItem.unit,
+      value: nutritionItem.value,
+      minValue: nutritionItem.minValue,
+      maxValue: nutritionItem.maxValue
     };
   }
 }

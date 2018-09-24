@@ -18,4 +18,12 @@
       </mat-expansion-panel-header>
       <app-wine-pairing [winePairing] = "recipeDetail.winePairing"></app-wine-pairing>
     </mat-expansion-panel>
+    <mat-expansion-panel [disabled]="isNutritionPanelDisabled()" (opened)=onNutritionPanelOpen() (closed)=onNutritionPanelClose()>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Estimated Nutrition
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-nutrition [nutrition] = "nutrition"></app-nutrition>
+      </mat-expansion-panel>
   </div>
