@@ -14,10 +14,7 @@ import { Observable } from 'rxjs';
 export class RecipeDetailComponent implements OnInit {
 
 public RecipeDetails
-
-  @Input() recipeDetail: RecipeDetails;
-  recipe$: Observable<RecipeDetails>;
-  winePairing$: Observable<WinePairing>;
+  recipeDetail: RecipeDetails;
 
   constructor(private route: ActivatedRoute, private location: Location,private yummyDataService:YummyDataService) { }
 
@@ -28,20 +25,11 @@ public RecipeDetails
 
   getRecipe(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.recipe$ = this.yummyDataService.getRecipeDetailsForId(id.toString());
-    this.recipe$.subscribe(recipeDetail => this.recipeDetail = recipeDetail);
+    this.yummyDataService.getRecipeDetailsForId(id.toString()).subscribe(recipeDetail => this.recipeDetail = recipeDetail);
   }
 
-  onWinePairingPanelOpen() {
-    if (this.winePairing$ === null) {
-      this.recipe$.subscribe(recipeDetail => {
-        this.winePairing$ = this.yummyDataService.findWinePairingByFood(recipeDetail.title, 50);
-      });
-    }
-  }
-
-  onWinePairingPanelClose() {
-    return null;
+  isWinePairingPanelDisabled(): boolean {
+    return !(this.recipeDetail && this.recipeDetail.winePairing);
   }
 
 }

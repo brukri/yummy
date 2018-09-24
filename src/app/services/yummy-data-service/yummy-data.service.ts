@@ -24,6 +24,7 @@ export interface RecipeDetails {
   servings: number;
   recipeAttributes: RecipeAttributes;
   instructions: Instructions[];
+  winePairing: WinePairing;
 }
 
 export interface Instructions {
@@ -55,7 +56,7 @@ export interface Ingredient {
 }
 
 export interface WinePairing {
-  grapeVariety: string[];
+  grapeVarieties: string[];
   pairingText: string;
 }
 
@@ -142,7 +143,8 @@ export class YummyDataService {
           veryPopular: response.veryPopular,
           sustainable: response.sustainable
         },
-        diets: null
+        diets: null,
+        winePairing: this.createWineParing(response)
       }))
     );
   }
@@ -175,6 +177,9 @@ export class YummyDataService {
   findWinePairingByFood(food: string, maxPrice: number): Observable<WinePairing> {
     return this.spoonacularService.findWinePairingByFood(food, maxPrice).pipe(
       map(result => {
+        if (result.status === 'failure') {
+          return null;
+        }
         return result.map(pairing => {
           return {
             grapeVariety: pairing.pairedWines,
@@ -183,5 +188,16 @@ export class YummyDataService {
         });
       })
     );
+  }
+
+  private createWineParing(response): WinePairing {
+    if (!response.winePairing.pairingText) {
+      return null;
+    }
+
+    return {
+      grapeVarieties: response.winePairing.pairedWines,
+      pairingText: response.winePairing.pairingText
+    };
   }
 }
