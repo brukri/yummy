@@ -10,4 +10,13 @@
     <recipe-attributes [recipeAttributes]="recipeDetail.recipeAttributes"></recipe-attributes>
     <ingredients-list [ingredients]="recipeDetail.ingredients"></ingredients-list>
     <instructions-list [instructions]="recipeDetail.instructions"></instructions-list>
+    <mat-expansion-panel (opened)="onWinePairingPanelOpen()"
+    (closed)="onWinePairingPanelClosed()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Wine Pairings
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-wine-pairing></app-wine-pairing>
+    </mat-expansion-panel>
   </div>

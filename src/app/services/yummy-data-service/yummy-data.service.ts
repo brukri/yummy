@@ -54,6 +54,11 @@ export interface Ingredient {
   unit: string;
 }
 
+export interface WinePairing {
+  grapeVariety: string[];
+  pairingText: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -162,6 +167,19 @@ export class YummyDataService {
       map(result => {
         return result.map(item => {
           return item.title;
+        });
+      })
+    );
+  }
+
+  findWinePairingByFood(food: string, maxPrice: number): Observable<WinePairing> {
+    return this.spoonacularService.findWinePairingByFood(food, maxPrice).pipe(
+      map(result => {
+        return result.map(pairing => {
+          return {
+            grapeVariety: pairing.pairedWines,
+            pairingText: pairing.pairingText
+          };
         });
       })
     );

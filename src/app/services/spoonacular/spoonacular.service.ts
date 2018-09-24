@@ -69,4 +69,14 @@ export class SpoonacularService {
       },
     });
   }
+
+  findWinePairingByFood(food: string, maxPrice: number): Observable<any> {
+    return this.http.get(`${SERVICE_URI}/food/wine/pairing`, {
+      headers: this.headers,
+      params: {
+        'food' : food,
+        'maxPrice' : maxPrice.toString()
+      },
+    });
+  }
 }
