@@ -6,18 +6,20 @@ import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.
 import { SearchByRecipeComponent } from './components/search-by-recipe/search-by-recipe.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AuthGuard } from './services/auth/auth.guard';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'searchByIngredients', component: SearchByIngredientsComponent},
   {path: 'searchByRecipe', component: SearchByRecipeComponent},
   {path: 'detail/:id', component: RecipeDetailComponent},
-  {path: 'favorites', component: FavoritesComponent},
+  {path: 'favorites', component: FavoritesComponent, canActivate: [AuthGuard]},
   {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRouters {}

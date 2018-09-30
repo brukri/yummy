@@ -50,12 +50,23 @@
             </li>
             <li>
                 <a
-                  routerLink="/favorites">
+                  routerLink="/favorites" *ngIf="authService.isLoggedIn" routerLinkActive="active">
                   <mat-icon class="icon">favorites</mat-icon>
                   <span class="label">Favorites</span>
                 </a>
               </li>
+              <li>
+                <a *ngIf="!authService.isLoggedIn" (click)="authService.login()">
+                  <mat-icon class="icon">person</mat-icon>
+                  <span class="label">Log In</span></a>
+              </li>
+              <li>
+                <a (click)="authService.logout()" *ngIf="authService.isLoggedIn">
+                    <mat-icon class="icon">person</mat-icon>
+                  <span class="label">Log Out</span></a>
+              </li>
         </ul>
+
       </div>
     </mat-toolbar>
     <main>

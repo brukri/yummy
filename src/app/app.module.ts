@@ -25,6 +25,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { WinePairingComponent } from './components/wine-pairing/wine-pairing.component';
 import { NutritionComponent } from './components/nutrition/nutrition.component';
+import { AuthService } from './services/auth/auth.service';
+import { CallbackComponent } from './components/callback/callback.component';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { NutritionComponent } from './components/nutrition/nutrition.component';
     PageNotFoundComponent,
     FavoritesComponent,
     WinePairingComponent,
-    NutritionComponent
+    NutritionComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,7 @@ import { NutritionComponent } from './components/nutrition/nutrition.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
