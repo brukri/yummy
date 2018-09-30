@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 
 import {
-  MatChipsModule, 
+  MatChipsModule,
   MatFormFieldModule,
   MatSidenavModule,
   MatToolbarModule,
@@ -15,11 +15,12 @@ import {
   MatSelectModule,
   MatCheckboxModule,
   MatAutocompleteModule,
+  MatButtonToggleModule
 } from '@angular/material';
 
 @NgModule({
   imports: [
-    MatChipsModule, 
+    MatChipsModule,
     MatFormFieldModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -33,6 +34,7 @@ import {
     MatSelectModule,
     MatCheckboxModule,
     MatAutocompleteModule,
+    MatButtonToggleModule
   ],
   exports: [
     MatChipsModule,
@@ -49,6 +51,7 @@ import {
     MatSelectModule,
     MatCheckboxModule,
     MatAutocompleteModule,
+    MatButtonToggleModule
   ]
 })
 export class MaterialModule {}
