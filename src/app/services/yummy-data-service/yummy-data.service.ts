@@ -24,6 +24,7 @@ export interface RecipeDetails {
   servings: number;
   recipeAttributes: RecipeAttributes;
   instructions: Instructions[];
+  winePairing: WinePairing;
 }
 
 export interface Instructions {
@@ -52,6 +53,25 @@ export interface Ingredient {
   name: string;
   amount: number;
   unit: string;
+}
+
+export interface WinePairing {
+  grapeVarieties: string[];
+  pairingText: string;
+}
+
+export interface Nutrition {
+  readonly calories: EstimatedValues;
+  readonly fat: EstimatedValues;
+  readonly protein: EstimatedValues;
+  readonly carbs: EstimatedValues;
+}
+
+export interface EstimatedValues {
+  readonly unit: string;
+  readonly value: number;
+  readonly minValue: number;
+  readonly maxValue: number;
 }
 
 @Injectable({
@@ -137,7 +157,8 @@ export class YummyDataService {
           veryPopular: response.veryPopular,
           sustainable: response.sustainable
         },
-        diets: null
+        diets: null,
+        winePairing: this.createWineParing(response)
       }))
     );
   }
@@ -165,5 +186,54 @@ export class YummyDataService {
         });
       })
     );
+  }
+
+  findWinePairingByFood(food: string, maxPrice: number): Observable<WinePairing> {
+    return this.spoonacularService.findWinePairingByFood(food, maxPrice).pipe(
+      map(result => {
+        if (result.status === 'failure') {
+          return null;
+        }
+        return result.map(pairing => {
+          return {
+            grapeVariety: pairing.pairedWines,
+            pairingText: pairing.pairingText
+          };
+        });
+      })
+    );
+  }
+
+  guessNutritionByRecipe(recipeTitle: string): Observable<Nutrition> {
+    return this.spoonacularService.guessNutritionByRecipe(recipeTitle).pipe(
+      map(result => {
+        return {
+          calories: this.createEstimatedValues(result.calories),
+          fat: this.createEstimatedValues(result.fat),
+          protein: this.createEstimatedValues(result.protein),
+          carbs: this.createEstimatedValues(result.carbs),
+        };
+      })
+    );
+  }
+
+  private createWineParing(response): WinePairing {
+    if (!response.winePairing.pairingText) {
+      return null;
+    }
+
+    return {
+      grapeVarieties: response.winePairing.pairedWines,
+      pairingText: response.winePairing.pairingText
+    };
+  }
+
+  private createEstimatedValues(nutritionItem): EstimatedValues {
+    return {
+      unit: nutritionItem.unit,
+      value: nutritionItem.value,
+      minValue: nutritionItem.minValue,
+      maxValue: nutritionItem.maxValue
+    };
   }
 }

@@ -15,6 +15,9 @@ import {
   MatSelectModule,
   MatCheckboxModule,
   MatAutocompleteModule,
+  MatExpansionPanel,
+  MatExpansionModule,
+  MatButtonToggle,
   MatButtonToggleModule
 } from '@angular/material';
 
@@ -34,6 +37,7 @@ import {
     MatSelectModule,
     MatCheckboxModule,
     MatAutocompleteModule,
+    MatExpansionModule,
     MatButtonToggleModule
   ],
   exports: [
@@ -51,6 +55,7 @@ import {
     MatSelectModule,
     MatCheckboxModule,
     MatAutocompleteModule,
+    MatExpansionModule,
     MatButtonToggleModule
   ]
 })

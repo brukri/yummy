@@ -1,0 +1,18 @@
+<div *ngIf="nutrition">
+  <div>
+    <div>Calories</div>
+    <div>{{nutrition.calories.value}} {{nutrition.calories.unit}}</div>
+  </div>
+  <div>
+    <div>Fat</div>
+    <div>{{nutrition.fat.value}}{{nutrition.fat.unit}}</div>
+  </div>
+  <div>
+    <div>Protein</div>
+    <div>{{nutrition.protein.value}}{{nutrition.protein.unit}}</div>
+  </div>
+  <div>
+    <div>Carbs</div>
+    <div>{{nutrition.carbs.value}}{{nutrition.carbs.unit}}</div>
+  </div>
+</div>

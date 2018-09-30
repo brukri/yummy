@@ -23,6 +23,8 @@ import { SearchByRecipeComponent } from './components/search-by-recipe/search-by
 import { InstructionsComponent } from './components/instructions/instructions.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { WinePairingComponent } from './components/wine-pairing/wine-pairing.component';
+import { NutritionComponent } from './components/nutrition/nutrition.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     SearchByRecipeComponent,
     InstructionsComponent,
     PageNotFoundComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    WinePairingComponent,
+    NutritionComponent
   ],
   imports: [
     BrowserModule,
