@@ -18,7 +18,8 @@ import {
   MatExpansionPanel,
   MatExpansionModule,
   MatButtonToggle,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatMenuModule
 } from '@angular/material';
 
 @NgModule({
@@ -38,7 +39,8 @@ import {
     MatCheckboxModule,
     MatAutocompleteModule,
     MatExpansionModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatMenuModule
   ],
   exports: [
     MatChipsModule,
@@ -56,7 +58,8 @@ import {
     MatCheckboxModule,
     MatAutocompleteModule,
     MatExpansionModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatMenuModule
   ]
 })
 export class MaterialModule {}

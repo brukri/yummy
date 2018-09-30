@@ -10,7 +10,6 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 div {
   overflow-x: hidden;
 }
-
 mat-sidenav {
   width: 250px;
 }
@@ -51,4 +50,20 @@ a:hover, a:active {
   line-height: 30px;
   margin: 0;
   width: 85%;
+}
+
+.menu-label {
+  display: inline-block;
+  line-height: 30px;
+  margin: 0;
+  width: 85%;
+  color: darkslategrey;
+}
+
+mat-icon-button{
+  margin: 20px
+}
+
+mat-menu{
+background: yellow
 }
