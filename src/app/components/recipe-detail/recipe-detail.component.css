@@ -1,37 +1,10 @@
-.bg {
-    overflow-x: hidden;
-    overflow-y: hidden;
-    height: 100%;
-    /* The image used */
-    background-image: url("/src/assets/background.jpg");
-    min-height: 850px;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-body, html {
-    height: 100%;
-}
-
-.shortDiv {
-    width: 50%;
-    margin: 20px;
-}
-
 mat-icon {
     float: left;
     margin: 0px 10px;
     vertical-align: text-bottom;
 }
 
-.card {
+.expansion-panel {
     background: #a19d9d34;
-    border-radius: 5px;
-    margin: 1rem;
-    padding: 20px;
-}
-
-mat-button-toggle {
-}
+    width: 40em;
+  }

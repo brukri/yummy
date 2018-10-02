@@ -1,9 +1,8 @@
 .card {
   background: #a19d9d34;
   border-radius: 5px;
-  margin: 1rem;
-  width: 600px;
-  padding: 20px;
+  width: 40em;
+  padding: 2em;
 }
 
 .entry {

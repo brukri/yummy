@@ -23,3 +23,10 @@ a {
   text-decoration: none;
 }
 
+.card {
+  background: #a19d9d34;
+  border-radius: 5px;
+  width: 40em;
+  padding: 2em;
+}
+
