@@ -1,0 +1,8 @@
+<button mat-button [matMenuTriggerFor]="menuSearch">
+  <mat-icon>search</mat-icon>
+  Search By
+</button>
+<mat-menu #menuSearch="matMenu">
+  <button mat-menu-item [routerLink]="['/searchByIngredients']" [queryParams]="{ selectedIngredients: '' }">Ingredients</button>
+  <button mat-menu-item [routerLink]="['/searchByRecipe']" [queryParams]="{ selectedRecipe: '' }">Recipe</button>
+</mat-menu>

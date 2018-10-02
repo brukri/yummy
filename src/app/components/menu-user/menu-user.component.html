@@ -1,0 +1,16 @@
+<button mat-button [matMenuTriggerFor]="menuUser">
+  <mat-icon>person_outline</mat-icon>
+  <span *ngIf="authService.isLoggedIn">{{authService.userProfile.nickname}}</span>
+</button>
+<mat-menu #menuUser="matMenu">
+  <button mat-menu-item *ngIf="authService.isLoggedIn" [routerLink]="['/preferences']">
+      <mat-icon class="icon">settings</mat-icon>
+      Preferences
+  </button>
+  <button mat-menu-item *ngIf="!authService.isLoggedIn" (click)="authService.login()">
+    Log In
+  </button>
+  <button mat-menu-item *ngIf="authService.isLoggedIn" (click)="authService.logout()">
+    Log Out
+  </button>
+</mat-menu>

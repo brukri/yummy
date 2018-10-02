@@ -27,6 +27,9 @@ import { WinePairingComponent } from './components/wine-pairing/wine-pairing.com
 import { NutritionComponent } from './components/nutrition/nutrition.component';
 import { AuthService } from './services/auth/auth.service';
 import { CallbackComponent } from './components/callback/callback.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { MenuSearchComponent } from './components/menu-search/menu-search.component';
+import { MenuUserComponent } from './components/menu-user/menu-user.component';
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import { CallbackComponent } from './components/callback/callback.component';
     FavoritesComponent,
     WinePairingComponent,
     NutritionComponent,
-    CallbackComponent
+    CallbackComponent,
+    NavigationComponent,
+    MenuSearchComponent,
+    MenuUserComponent
   ],
   imports: [
     BrowserModule,
