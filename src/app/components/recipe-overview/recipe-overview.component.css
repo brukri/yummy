@@ -2,15 +2,4 @@ a {
     text-decoration: none;
 }
 
-.shortDiv {
-    width: 60%;
-    margin: 20px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
-
-div {
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
 

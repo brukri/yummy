@@ -1,6 +1,6 @@
 <div *ngIf="winePairing" >
   {{winePairing.pairingText}}
-  <div *ngIf="winePairing.grapeVariety.length > 0">
+  <div *ngIf="winePairing.grapeVariety && winePairing.grapeVariety.length > 0">
     Recommended Grape Varieties:
     <ul *ngFor="let grapeVariety of winePairing.grapeVarieties">
         <li>

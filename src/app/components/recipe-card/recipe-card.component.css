@@ -3,15 +3,14 @@ image {
 }
 
 mat-card {
-    font-family: 'Indie Flower';
-    background: rgba(255,255,255,0.22);
+    background: #ffffff38;
     border-radius: 5px;
     margin: 10px;
+    width: 25em;
+    min-height: 30em;
 }
 mat-card:hover {
-
     box-shadow: 0 7px 14px rgba(255, 255, 255, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22);
-
 }
 
 

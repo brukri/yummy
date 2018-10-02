@@ -2,8 +2,25 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "https://fonts.googleapis.com/css?family=Indie+Flower";
 
-/* body {
-    margin: 20;
-  }
- */
+:root {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+  font-family: 'Indie Flower';
+  color: whitesmoke;
+}
+
+body {
+  height: 100vh;
+  background-image: url("/src/assets/background_greyscale.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none;
+}
 

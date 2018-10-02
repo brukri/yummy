@@ -1,4 +1,4 @@
-<div fxLayout="row wrap"  fxLayoutGap="30px"  class="shortDiv">
+<div fxLayout="row wrap"  fxLayoutGap="2em">
   <div *ngFor="let recipe of recipes | async">
     <a routerLink="/detail/{{recipe.id}}">
       <recipe-card [recipe]="recipe"></recipe-card>

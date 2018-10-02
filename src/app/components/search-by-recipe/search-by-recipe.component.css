@@ -1,19 +1,2 @@
-div{
-    overflow-x: hidden;
-    overflow-y: hidden;
-    height:100%;
-        /* The image used */
-        background-image: url("/src/assets/background.jpg");
-        min-height: 850px;
-        /* Center and scale the image nicely */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        overflow-x: hidden;
-        overflow-y: hidden;
 
-  }
-  body, html {
-    height: 100%;
-}
   
