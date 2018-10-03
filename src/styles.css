@@ -1,5 +1,10 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
-@import "https://fonts.googleapis.com/css?family=Indie+Flower";
+
+@font-face {
+  font-display: swap;
+  font-family: "Indie Flower";
+  src: url("https://fonts.gstatic.com/s/indieflower/v9/m8JVjfNVeKWVnh3QMuKkFcZVaUuH99GUDg.woff2");
+}
 
 :root {
   box-sizing: border-box;
