@@ -10,8 +10,12 @@ export const environment = {
     audience: 'https://yummyproject.eu.auth0.com/api/v2/',
     redirect: 'http://localhost:4200',
     scope: 'openid profile email'
+  },
+  spoonacular: {
+    baseUrl: 'http://localhost:3100'
   }
 };
+
 
 /*
  * In development mode, for easier debugging, you can ignore zone related error

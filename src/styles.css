@@ -18,7 +18,7 @@
 
 body {
   height: 100vh;
-  background-image: url("/src/assets/background_greyscale.jpg");
+  background-image: url("./assets/background_greyscale.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
