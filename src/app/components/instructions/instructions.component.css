@@ -1,17 +1,9 @@
-.card {
-  background: #a19d9d34;
-  border-radius: 5px;
-  width: 40em;
-  padding: 2em;
-}
-
 .entry {
   display: inline-block;
   font-family: 'Indie Flower';
   overflow-x: auto;
   
 }
-
 
 .numberCircle {
   margin: 20px;

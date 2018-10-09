@@ -13,14 +13,14 @@
       </mat-button-toggle>
     </div>
     <div fxLayout="column" fxLayoutGap="2em">
-      <div fxLayout="row wrap" fxLayoutGap="2em">
+      <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
         <div fxLayout="column">
           <ingredients-list class="card" [ingredients]="recipeDetail.ingredients"></ingredients-list>
           <recipe-attributes fxFlexOffset="2em" [recipeAttributes]="recipeDetail.recipeAttributes"></recipe-attributes>
         </div>
         <img class="card" src={{recipeDetail.image}} />
       </div>
-      <div fxLayout="row wrap" fxLayoutGap="2em" class="margin-top-m">
+      <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
         <instructions-list [instructions]="recipeDetail.instructions"></instructions-list>
         <div>
           <mat-expansion-panel class="expansion-panel" [disabled]="isWinePairingPanelDisabled()">
