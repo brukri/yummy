@@ -1,28 +1,7 @@
+<div fxLayout="column">
+  <div *ngFor="let incredient of ingredients" fxLayout="row">
+      <div fxFlex="25%">{{incredient.amount}} {{incredient.unit}}</div>
+      <div>{{incredient.name}}</div> 
+    </div>
+</div>
 
-  <table class="table" >
-    <tr *ngFor="let incredient of ingredients">
-      <td class="td1">{{incredient.amount}} {{incredient.unit}}</td>
-      <td class="td2">{{incredient.name}}</td> 
-    </tr>
-  </table>
-
-
-<!--  <table mat-table [dataSource]="ingredients" class="mat-elevation-z8">
-
-    <ng-container matColumnDef="amount">
-        <th mat-header-cell *matHeaderCellDef> amount </th>
-        <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="unit">
-        <th mat-header-cell *matHeaderCellDef> unit </th>
-        <td mat-cell *matCellDef="let element"> {{element.unit}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
- </table> -->

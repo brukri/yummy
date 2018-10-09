@@ -35,3 +35,23 @@ a {
   padding: 2em;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-rows: 5em 1fr; 
+  grid-column-gap: 0.8em;
+  height: 100vh
+}
+
+.grid-item-header {
+  grid-row: 1/2;
+}
+
+.grid-item-main {
+  grid-row: 2/3;
+  overflow: auto;
+}
+
+.margin-top-m {
+  margin-top: 1em;
+}
+
