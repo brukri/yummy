@@ -11,7 +11,7 @@ import { debounceTime, switchMap, skipWhile } from 'rxjs/operators';
   styleUrls: ['./autocomplete-multi-search.component.css']
 })
 export class AutocompleteMultiSearchComponent implements OnInit {
-  @Input() private placeholder: string;
+  @Input() placeholder: string;
   @Input() private autocompletionCallback: Function;
   @Input() private preselectedChips: Observable<string[]>;
   @Output() private chipListChanged: EventEmitter<string[]> = new EventEmitter();
@@ -19,11 +19,11 @@ export class AutocompleteMultiSearchComponent implements OnInit {
   private visible = true;
   private selectable = true;
   private removable = true;
-  private addOnBlur = false;
-  private separatorKeysCodes: number[] = [ENTER, COMMA];
-  private inputCtrl = new FormControl();
-  private filteredTerms: Observable<string[]>;
-  private chips: string[] = [];
+  addOnBlur = false;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  inputCtrl = new FormControl();
+  filteredTerms: Observable<string[]>;
+  chips: string[] = [];
 
   constructor() {
   }

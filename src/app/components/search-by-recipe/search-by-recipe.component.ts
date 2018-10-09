@@ -10,8 +10,8 @@ const SELECTED_RECIPE_KEY = 'selectedRecipe';
   styleUrls: ['./search-by-recipe.component.css']
 })
 export class SearchByRecipeComponent implements OnInit {
-  private recipes: Observable<Recipe[]>;
-  private preselectedRecipe: Observable<string>;
+  recipes: Observable<Recipe[]>;
+  preselectedRecipe: Observable<string>;
 
   constructor(private yummyDataService: YummyDataService,
     private routeService: RouteService) { 

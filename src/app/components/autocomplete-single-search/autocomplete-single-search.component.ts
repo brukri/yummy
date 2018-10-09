@@ -10,13 +10,13 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
   styleUrls: ['./autocomplete-single-search.component.css']
 })
 export class AutocompleteSingleSearchComponent implements OnInit {
-  @Input() private placeholder: string;
+  @Input() placeholder: string;
   @Input() private autocompletionCallback: Function;
   @Input() private preselectedValue: Observable<string>;
   @Output() private resultChanged: EventEmitter<string> = new EventEmitter();
   @ViewChild('inputRef') private inputElement: ElementRef<HTMLInputElement>;
-  private inputCtrl = new FormControl();
-  private filteredTerms: Observable<string[]>;
+  inputCtrl = new FormControl();
+  filteredTerms: Observable<string[]>;
 
   constructor() { }
 
