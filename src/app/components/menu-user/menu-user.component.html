@@ -3,6 +3,10 @@
   <span *ngIf="authService.isLoggedIn">{{authService.userProfile.nickname}}</span>
 </button>
 <mat-menu #menuUser="matMenu">
+    <button mat-menu-item *ngIf="authService.isLoggedIn" [routerLink]="['/favorites']">
+      <mat-icon class="icon">favorites</mat-icon>
+      Preferences
+  </button>
   <button mat-menu-item *ngIf="authService.isLoggedIn" [routerLink]="['/preferences']">
       <mat-icon class="icon">settings</mat-icon>
       Preferences

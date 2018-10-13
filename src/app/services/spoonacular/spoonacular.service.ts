@@ -90,4 +90,10 @@ export class SpoonacularService {
       },
     });
   }
+
+  getRandomFoodTrivia(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/food/trivia/random`, {
+      headers: this.headers
+    });
+  }
 }

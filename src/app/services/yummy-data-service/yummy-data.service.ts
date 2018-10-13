@@ -36,6 +36,10 @@ export interface InstructionStep {
   text: string;
 }
 
+export interface FoodTrivia {
+  text: string;
+}
+
 export interface RecipeAttributes {
   vegetarian: boolean;
   vegan: boolean;
@@ -212,6 +216,16 @@ export class YummyDataService {
           fat: this.createEstimatedValues(result.fat),
           protein: this.createEstimatedValues(result.protein),
           carbs: this.createEstimatedValues(result.carbs),
+        };
+      })
+    );
+  }
+
+  getRandomFoodTrivia(): Observable<FoodTrivia> {
+    return this.spoonacularService.getRandomFoodTrivia().pipe(
+      map(result => {
+        return {
+          text: result.text
         };
       })
     );
