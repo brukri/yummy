@@ -1,8 +1,8 @@
 # Yummy
 
 ## Development server
-Add the following line to your etc/hosts file:
-127.0.0.1       yummy
+Add the following line to your `etc/hosts` file:
+`127.0.0.1       yummy`
 
 Run `npm start` for a dev server and record/replay HTTP mock. Navigate to `http://yumme:4200/`.
 The app will automatically reload if you change any of the source files.
