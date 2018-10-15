@@ -9,22 +9,37 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
   // Create Auth0 web auth instance
-  auth0 = new auth0.WebAuth({
-    clientID: environment.auth.clientID,
-    domain: environment.auth.domain,
-    responseType: 'token',
-    redirectUri: environment.auth.redirect,
-    audience: environment.auth.audience,
-    scope: environment.auth.scope
-  });
+  auth0: any;
+  auth0Management: any;
   // Store authentication data
   expiresAt: number;
   userProfile: any;
   accessToken: string;
   authenticated: boolean;
+  userId: string;
 
   constructor(private router: Router) {
+    this.initAuth0();
     this.getAccessToken();
+  }
+
+  initAuth0() {
+    // Create Auth0 web auth instance
+    this.auth0 = new auth0.WebAuth({
+      clientID: environment.auth.clientID,
+      domain: environment.auth.domain,
+      responseType: 'token',
+      redirectUri: environment.auth.redirect,
+      audience: environment.auth.audience,
+      scope: environment.auth.scope
+    });
+  }
+
+  intiAuth0Mangement(accessToken) {
+    this.auth0Management = new auth0.Management({
+      domain: environment.auth.domain,
+      token: accessToken
+    });
   }
 
   login() {
@@ -48,6 +63,8 @@ export class AuthService {
   getAccessToken() {
     this.auth0.checkSession({}, (err, authResult) => {
       if (authResult && authResult.accessToken) {
+        this.accessToken = authResult.accessToken;
+        this.intiAuth0Mangement(authResult.accessToken);
         this.getUserInfo(authResult);
       }
     });
@@ -66,9 +83,11 @@ export class AuthService {
   private _setSession(authResult, profile) {
     // Save authentication data and update login status subject
     this.expiresAt = authResult.expiresIn * 1000 + Date.now();
-    this.accessToken = authResult.accessToken;
     this.userProfile = profile;
     this.authenticated = true;
+    this.userId = profile.sub;
+    this.loadUserMetadata(this.userId);
+
   }
 
   logout() {
@@ -76,14 +95,24 @@ export class AuthService {
     // Ensure that returnTo URL is specified in Auth0
     // Application settings for Allowed Logout URLs
     this.auth0.logout({
-      returnTo: 'http://localhost:4200',
+      returnTo: environment.auth.redirect,
       clientID: environment.auth.clientID
     });
+    this.accessToken = null;
   }
 
   get isLoggedIn(): boolean {
     // Check if current date is before token
     // expiration and user is signed in locally
     return Date.now() < this.expiresAt && this.authenticated;
+  }
+
+  loadUserMetadata(userId) {
+    this.auth0Management.patchUserMetadata(userId, {abc: 'abc'}, (err, userResult) => {
+      console.log(userResult);
+    });
+    this.auth0Management.getUser(userId, (err, userResult) => {
+      console.log(userResult);
+    });
   }
 }

@@ -1,12 +1,11 @@
 # Yummy
 
 ## Development server
+Add the following line to your etc/hosts file:
+127.0.0.1       yummy
 
-Run `npm start` for a dev server and record/replay HTTP mock. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm start` for a dev server and record/replay HTTP mock. Navigate to `http://yumme:4200/`.
+The app will automatically reload if you change any of the source files.
 
 ## Build
 
@@ -19,6 +18,16 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Deploy
+Deploy yummy to firebase with the following command sequence:
+`npm install -g firebase-tools`
+`firebase login`
+`firebase deploy`
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Further help
 

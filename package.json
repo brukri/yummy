@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run mock & npm run serve",
+    "start": "npm run mock & ng serve --host yummy",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
