@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import * as auth0 from 'auth0-js';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
+import { UserPreferencesService } from '../user-preferences/user-preferences.service';
 
 (window as any).global = window;
 
@@ -18,7 +19,7 @@ export class AuthService {
   authenticated: boolean;
   userId: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userPreferencesService: UserPreferencesService) {
     this.initAuth0();
     this.getAccessToken();
   }
@@ -76,6 +77,7 @@ export class AuthService {
       if (profile) {
         console.log(profile);
         this._setSession(authResult, profile);
+        this.userPreferencesService.init(this.accessToken, this.userId);
       }
     });
   }
@@ -99,6 +101,7 @@ export class AuthService {
       clientID: environment.auth.clientID
     });
     this.accessToken = null;
+    this.userPreferencesService.invalidate();
   }
 
   get isLoggedIn(): boolean {
