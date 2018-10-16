@@ -5,11 +5,13 @@
     "ng": "ng",
     "start": "npm run mock & ng serve --host yummy",
     "build": "ng build",
+    "build.prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "serve": "ng serve --open",
-    "mock": "node ./mock/yakbak.js"
+    "mock": "node ./mock/yakbak.js",
+    "deploy": "npm run build.prod && firebase login && firebase deploy"
   },
   "private": true,
   "dependencies": {

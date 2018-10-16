@@ -21,9 +21,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Deploy
 Deploy yummy to firebase with the following command sequence:
-`npm install -g firebase-tools`
-`firebase login`
-`firebase deploy`
+`npm install -g firebase-tools` (once)
+`npm run deploy`
 
 ## Code scaffolding
 
