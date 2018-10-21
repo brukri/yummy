@@ -20,12 +20,16 @@ export class SpoonacularService {
     this.baseUrl = environment.spoonacular.baseUrl;
   }
 
-  findRecipesByIngredients(ingredients: String[], numberOfResults: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/recipes/findByIngredients`, {
+  findRecipesByIngredients(ingredients: String[], intolerances: String[], numberOfResults: number): Observable<any> {
+    console.log(intolerances);
+    return this.http.get(`${this.baseUrl}/recipes/searchComplex`, {
       headers: this.headers,
       params: {
-        'ingredients' : ingredients.join(','),
+        'includeIngredients' : ingredients.join(','),
+        'intolerances' : intolerances.join(','),
+        'limitLicense' : 'false', 
         'number' : numberOfResults.toString(),
+        'offset' : '0',
         'ranking': '1'
       },
     });

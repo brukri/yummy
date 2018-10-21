@@ -22,7 +22,7 @@ import { AutocompleteSingleSearchComponent } from './components/autocomplete-sin
 import { SearchByRecipeComponent } from './components/search-by-recipe/search-by-recipe.component';
 import { InstructionsComponent } from './components/instructions/instructions.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { FavoritesComponent } from './components/favorites/favorites.component';
+import { UserFavoritesComponent } from './components/user-favorites/user-favorites.component';
 import { WinePairingComponent } from './components/wine-pairing/wine-pairing.component';
 import { NutritionComponent } from './components/nutrition/nutrition.component';
 import { AuthService } from './services/auth/auth.service';
@@ -30,6 +30,7 @@ import { CallbackComponent } from './components/callback/callback.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { MenuSearchComponent } from './components/menu-search/menu-search.component';
 import { MenuUserComponent } from './components/menu-user/menu-user.component';
+import { UserPreferencesComponent } from './components/user-preferences/user-preferences.component';
 
 
 @NgModule({
@@ -47,13 +48,14 @@ import { MenuUserComponent } from './components/menu-user/menu-user.component';
     SearchByRecipeComponent,
     InstructionsComponent,
     PageNotFoundComponent,
-    FavoritesComponent,
+    UserFavoritesComponent,
     WinePairingComponent,
     NutritionComponent,
     CallbackComponent,
     NavigationComponent,
     MenuSearchComponent,
-    MenuUserComponent
+    MenuUserComponent,
+    UserPreferencesComponent
   ],
   imports: [
     BrowserModule,

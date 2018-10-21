@@ -85,16 +85,18 @@ export class YummyDataService {
   constructor(private spoonacularService: SpoonacularService) {}
 
   incredientImageSize = '100x100';
+  // Todo: Take from prefereces
+  intolerances: Array<string> = ['egg'];
 
   findRecipesByIngredients(
     ingredients: String[],
     numberOfResults: number
   ): Observable<Recipe[]> {
     return this.spoonacularService
-      .findRecipesByIngredients(ingredients, numberOfResults)
+      .findRecipesByIngredients(ingredients, this.intolerances, numberOfResults)
       .pipe(
         map(result => {
-          return result.map(item => {
+          return result.results.map(item => {
             return {
               id: item.id,
               title: item.title,
