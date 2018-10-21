@@ -93,7 +93,8 @@ export class YummyDataService {
     numberOfResults: number
   ): Observable<Recipe[]> {
     return this.spoonacularService
-      .findRecipesByIngredients(ingredients, this.userPreferencesService.getIntolerances(), numberOfResults)
+      .findRecipesByIngredients(ingredients, this.userPreferencesService.getIntolerances(),
+      this.userPreferencesService.getDiets(), numberOfResults)
       .pipe(
         map(result => {
           return result.results.map(item => {

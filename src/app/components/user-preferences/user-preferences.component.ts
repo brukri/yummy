@@ -9,12 +9,14 @@ import { UserPreferencesService } from '../../services/user-preferences/user-pre
 })
 export class UserPreferencesComponent implements OnInit {
   @Input() intoleranceOptions = Array<CheckboxItem>();
+  @Input() dietOptions = Array<CheckboxItem>();
   constructor(private userPreferencesService: UserPreferencesService) { }
 
   ngOnInit() {
-    this.setIntolerances();
+    this.createIntolerances();
+    this.createDiets();
     this.loadIntolerances();
-
+    this.loadDiets();
   }
 
   loadIntolerances() {
@@ -23,12 +25,33 @@ export class UserPreferencesComponent implements OnInit {
     }
   }
 
-  onToggle()
-  {
+  loadDiets() {
+    for (const entry of this.userPreferencesService.getDiets()) {
+      this.dietOptions.filter(e => e.label === entry)[0].checked = true;
+    }
+  }
+
+  onToggleIntolerance() {
     this.userPreferencesService.saveIntolerances(this.intoleranceOptions.filter(e => e.checked).map(e => e.label));
   }
 
-  setIntolerances() {
+  onToggleDiets() {
+    this.userPreferencesService.saveDiets(this.dietOptions.filter(e => e.checked).map(e => e.label));
+  }
+
+  createDiets() {
+    this.dietOptions = [
+      new CheckboxItem('vegetarian', false),
+      new CheckboxItem('vegan', false),
+      new CheckboxItem('pescetarian', false),
+      new CheckboxItem('lacto vegetarian', false),
+      new CheckboxItem('ovo vegetarian', false),
+      new CheckboxItem('paleo', false),
+      new CheckboxItem('primal', false),
+    ];
+  }
+
+  createIntolerances() {
     this.intoleranceOptions = [
       new CheckboxItem('dairy', false),
       new CheckboxItem('egg', false),

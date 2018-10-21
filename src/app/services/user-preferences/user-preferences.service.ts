@@ -49,6 +49,16 @@ export class UserPreferencesService {
     return this.userMetadata.intolerances || [];
   }
 
+  getDiets(): string[] {
+    return this.userMetadata.diets || [];
+  }
+
+  saveDiets(diets: string[]): void {
+    this.updateMetadataPartial({
+      diets
+    });
+  }
+
   saveIntolerances(intolerances: string[]): void {
     this.updateMetadataPartial({
       intolerances
