@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SpoonacularService } from '../spoonacular/spoonacular.service';
+import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
 import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -82,18 +83,17 @@ export interface EstimatedValues {
   providedIn: 'root'
 })
 export class YummyDataService {
-  constructor(private spoonacularService: SpoonacularService) {}
+  constructor(private spoonacularService: SpoonacularService,private userPreferencesService: UserPreferencesService) {}
 
   incredientImageSize = '100x100';
   // Todo: Take from prefereces
-  intolerances: Array<string> = ['egg'];
 
   findRecipesByIngredients(
     ingredients: String[],
     numberOfResults: number
   ): Observable<Recipe[]> {
     return this.spoonacularService
-      .findRecipesByIngredients(ingredients, this.intolerances, numberOfResults)
+      .findRecipesByIngredients(ingredients, this.userPreferencesService.getIntolerances(), numberOfResults)
       .pipe(
         map(result => {
           return result.results.map(item => {

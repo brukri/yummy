@@ -2,38 +2,8 @@
     </div>
     <h1>My food intolerances:</h1>
     <div class="card">
-      <mat-checkbox readonly="readonly" [checked]=dairy>
-        dairy
-      </mat-checkbox>
-      <mat-checkbox readonly="readonly" [checked]=gluten>
-        gluten
-      </mat-checkbox>
-      <mat-checkbox readonly="readonly" [checked]=egg>
-        egg
-      </mat-checkbox>
-      <mat-checkbox readonly="readonly" [checked]=peanut>
-        peanut
-      </mat-checkbox>
-      <mat-checkbox readonly="readonly" [checked]=sesame>
-        sesame
-      </mat-checkbox>
-      <mat-checkbox readonly="readonly" [checked]=seafood>
-        seafood
-      </mat-checkbox>
-      <mat-checkbox readonly="readonly" [checked]=shellfish>
-        shellfish
-      </mat-checkbox>
-      <mat-checkbox readonly="readonly" [checked]=soy>
-        soy
-      </mat-checkbox>
-      <mat-checkbox readonly="readonly" [checked]=sulfite>
-        sulfite
-      </mat-checkbox>
-      <mat-checkbox readonly="readonly" [checked]=nut>
-        nut
-      </mat-checkbox>
-      <mat-checkbox readonly="readonly" [checked]=wheat>
-        wheat
-      </mat-checkbox>
+      <div *ngFor='let item of intoleranceOptions'>
+        <input type='checkbox' [(ngModel)]='item.checked' (change)='onToggle()'>{{item.label}}
+        </div>
     </div>
     <h4>We will only show you recipes which will not cause problems for you.</h4>
