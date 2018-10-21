@@ -53,6 +53,16 @@ export class UserPreferencesService {
     return this.userMetadata.diets || [];
   }
 
+  getFavorites(): string[] {
+    return this.userMetadata.favorites || [];
+  }
+
+  saveFavorites(favorites: string[]): void {
+    this.updateMetadataPartial({
+      favorites
+    });
+  }
+
   saveDiets(diets: string[]): void {
     this.updateMetadataPartial({
       diets
