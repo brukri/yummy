@@ -8,7 +8,7 @@
       <h3> prep: {{recipeDetail.preparationMinutes}} minutes</h3>
       <mat-icon class="icon">timer</mat-icon>
       <h3> cook: {{recipeDetail.cookingMinutes}} minutes</h3>
-      <mat-button-toggle value="favorite">
+      <mat-button-toggle  value="IsFavorite" (change)="onFavoriteChange(value)">
         <mat-icon>favorite</mat-icon>
       </mat-button-toggle>
     </div>

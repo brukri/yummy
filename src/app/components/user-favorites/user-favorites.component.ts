@@ -9,8 +9,9 @@ import { UserPreferencesService } from '../../services/user-preferences/user-pre
 export class UserFavoritesComponent implements OnInit {
 
   constructor(private userPreferencesService: UserPreferencesService) { }
-
+  public favorites: string[];
   ngOnInit() {
+    this.favorites = this.userPreferencesService.getFavorites();
   }
 
 }

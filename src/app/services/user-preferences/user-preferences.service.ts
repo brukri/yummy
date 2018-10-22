@@ -57,6 +57,20 @@ export class UserPreferencesService {
     return this.userMetadata.favorites || [];
   }
 
+  addToFavorites(id: string): void {
+    this.getFavorites().push(id);
+    this.saveFavorites(this.userMetadata.favorites);
+  }
+
+  isFavorite(id: string) {
+    return this.getFavorites().includes(id);
+  }
+
+  removeFromFavorites(id: string): void {
+    this.userMetadata.favorites = this.getFavorites().filter(item => item !== id);
+    this.saveFavorites(this.userMetadata.favorites);
+  }
+
   saveFavorites(favorites: string[]): void {
     this.updateMetadataPartial({
       favorites
