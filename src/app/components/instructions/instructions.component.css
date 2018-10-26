@@ -1,14 +1,12 @@
 .entry {
   display: inline-block;
-  font-family: 'Indie Flower';
-  overflow-x: auto;
 }
 
 .numberCircle {
-  margin: 20px;
+  margin-right: 20px;
   float: left;
   border-radius: 50%;
-  width: 28px;
+  min-width: 28px;
   height: 28px;
   font-size: 120%;
   padding: 4px, 4px;
@@ -16,5 +14,4 @@
   border: 1px solid #666;
   color: #666;
   text-align: center;
-  font-family: 'Indie Flower';
 }

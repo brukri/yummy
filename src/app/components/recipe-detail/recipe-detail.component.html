@@ -16,12 +16,14 @@
       <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
         <div fxLayout="column">
           <ingredients-list class="card" [ingredients]="recipeDetail.ingredients"></ingredients-list>
-          <recipe-attributes fxFlexOffset="2em" [recipeAttributes]="recipeDetail.recipeAttributes"></recipe-attributes>
+          <recipe-attributes  class="card" fxFlexOffset="2em" [recipeAttributes]="recipeDetail.recipeAttributes"></recipe-attributes>
         </div>
-        <img class="card" src={{recipeDetail.image}} />
+        <div class="card">
+          <img src={{recipeDetail.image}} />
+        </div>
       </div>
       <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-        <instructions-list [instructions]="recipeDetail.instructions"></instructions-list>
+        <instructions-list class="card" [instructions]="recipeDetail.instructions"></instructions-list>
         <div>
           <mat-expansion-panel class="expansion-panel" [disabled]="isWinePairingPanelDisabled()">
             <mat-expansion-panel-header>

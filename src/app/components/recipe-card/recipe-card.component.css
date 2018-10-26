@@ -6,7 +6,8 @@ mat-card {
     background: #ffffff38;
     border-radius: 5px;
     margin: 10px;
-    width: 25em;
+    min-width: 22em;
+    max-width: 30em;
     min-height: 30em;
 }
 mat-card:hover {

@@ -6,6 +6,7 @@ mat-icon {
 
 .expansion-panel {
     background: #a19d9d34;
-    width: 38em;
+    min-width: 22em;
+    max-width: 50em;
     border-radius: 1em;
 }
