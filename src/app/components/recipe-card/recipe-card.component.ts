@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {MatCard} from '@angular/material';
 import { Recipe } from '../../services/yummy-data-service/yummy-data.service';
+import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
 
 @Component({
   selector: 'recipe-card',
@@ -9,9 +10,19 @@ import { Recipe } from '../../services/yummy-data-service/yummy-data.service';
 })
 export class RecipeCardComponent implements OnInit {
   @Input() recipe: Recipe;
-  constructor() { }
+  public IsFavorite: boolean;
+  constructor( private userPreferencesService: UserPreferencesService) { }
 
   ngOnInit() {
+    this.IsFavorite = this.userPreferencesService.isFavorite(this.recipe.id.toString());
   }
 
+  public onFavoriteChange() {
+    this.IsFavorite = !this.IsFavorite;
+    if (this.IsFavorite) {
+      this.userPreferencesService.addToFavorites(this.recipe.id.toString());
+    } else {
+      this.userPreferencesService.removeFromFavorites(this.recipe.id.toString());
+    }
+  }
 }
