@@ -46,11 +46,11 @@ export class SpoonacularService {
     });
   }
 
-  getRecipeDetailsForId(recipeId : string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/recipes/${recipeId}/information`, {
+  getRecipeDetailsForIds(recipeIds : string[]): Observable<any> {
+    return this.http.get(`${this.baseUrl}/recipes/informationBulk`, {
       headers: this.headers,
       params: {
-        'id' : recipeId.toString(),
+        'ids' : recipeIds.join(','),
         'includeNutrition': false.toString()
       },
     });

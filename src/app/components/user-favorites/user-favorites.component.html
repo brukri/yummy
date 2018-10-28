@@ -1,8 +1,4 @@
 <div class="bg-div">
 <h1>Your Favorites</h1>
-<ul>
-  <li *ngFor="let favorite of favorites">
-    {{ favorite }}
-  </li>
-</ul>
+<recipe-overview [recipes]="recipes"></recipe-overview>
 </div>

@@ -126,6 +126,22 @@ export class YummyDataService {
     );
   }
 
+  getRecipesByIds(recipeIds: string[]): Observable<Recipe[]> {
+    return this.spoonacularService.getRecipeDetailsForIds(recipeIds).pipe(
+      map(result => {
+        return result.map(item => {
+          return {
+            id: item.id,
+            title: item.title,
+            image: item.image,
+            imageType: item.imageType,
+            likes: item.likes
+          };
+        });
+      })
+    );
+  }
+
   getRecipeDetailsForId(recipeId: string): Observable<RecipeDetails> {
     return this.spoonacularService.getRecipeDetailsForId(recipeId).pipe(
       map(response => ({
