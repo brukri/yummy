@@ -1,15 +1,15 @@
 <button mat-button [matMenuTriggerFor]="menuUser">
-  <mat-icon>person_outline</mat-icon>
-  <span *ngIf="authService.isLoggedIn">{{authService.userProfile.nickname}}</span>
+  <mat-icon *ngIf="!authService.isLoggedIn">person_outline</mat-icon>
+  <img *ngIf="authService.isLoggedIn" class="avatar-image" src={{authService.userProfile.picture}}>
 </button>
 <mat-menu #menuUser="matMenu">
-    <button mat-menu-item *ngIf="authService.isLoggedIn" [routerLink]="['/favorites']">
-      <mat-icon class="icon">favorites</mat-icon>
-      Favorites
+  <button mat-menu-item *ngIf="authService.isLoggedIn" [routerLink]="['/favorites']">
+    <mat-icon class="icon">favorites</mat-icon>
+    Favorites
   </button>
   <button mat-menu-item *ngIf="authService.isLoggedIn" [routerLink]="['/preferences']">
-      <mat-icon class="icon">settings</mat-icon>
-      Preferences
+    <mat-icon class="icon">settings</mat-icon>
+    Preferences
   </button>
   <button mat-menu-item *ngIf="!authService.isLoggedIn" (click)="authService.login()">
     Log In
