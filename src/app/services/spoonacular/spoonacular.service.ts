@@ -56,6 +56,16 @@ export class SpoonacularService {
     });
   }
 
+  getRecipeDetailsForId(recipeId : string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/recipes/${recipeId}/information`, {
+      headers: this.headers,
+      params: {
+        'id' : recipeId.toString(),
+        'includeNutrition': false.toString()
+      },
+    });
+  }
+
   autoCompleteIngredient(ingredient: String, numberOfResults: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/food/ingredients/autocomplete`, {
       headers: this.headers,
