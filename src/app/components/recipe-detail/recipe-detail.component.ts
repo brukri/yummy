@@ -46,9 +46,9 @@ public RecipeDetails
   public onFavoriteChange() {
     this.IsFavorite = !this.IsFavorite;
     if (this.IsFavorite) {
-      this.userPreferencesService.addToFavorites(this.recipeDetail.id);
+      this.userPreferencesService.addToFavorites(this.recipeDetail.id.toString());
     } else {
-      this.userPreferencesService.removeFromFavorites(this.recipeDetail.id);
+      this.userPreferencesService.removeFromFavorites(this.recipeDetail.id.toString());
     }
   }
 
