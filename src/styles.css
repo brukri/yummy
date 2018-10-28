@@ -6,8 +6,16 @@
   src: url("https://fonts.gstatic.com/s/indieflower/v9/m8JVjfNVeKWVnh3QMuKkFcZVaUuH99GUDg.woff2");
 }
 
+div {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 :root {
   box-sizing: border-box;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
 }
 
 * {
