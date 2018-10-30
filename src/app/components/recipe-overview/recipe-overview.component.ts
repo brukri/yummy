@@ -8,11 +8,10 @@ import { Recipe } from '../../services/yummy-data-service/yummy-data.service';
   styleUrls: ['./recipe-overview.component.css']
 })
 export class RecipeOverviewComponent implements OnInit {
-  @Input() recipes : Observable<Recipe[]>;
+  @Input() recipes$: Observable<Recipe[]>;
+  @Input() expectData: boolean;
 
   constructor() { }
-
-
 
   ngOnInit() {
   }

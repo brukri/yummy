@@ -75,7 +75,6 @@ export class AuthService {
     // Use access token to retrieve user's profile and set session
     this.auth0.client.userInfo(authResult.accessToken, (err, profile) => {
       if (profile) {
-        console.log(profile);
         this._setSession(authResult, profile);
         this.userPreferencesService.init(this.accessToken, this.userId);
       }
@@ -88,7 +87,6 @@ export class AuthService {
     this.userProfile = profile;
     this.authenticated = true;
     this.userId = profile.sub;
-    this.loadUserMetadata(this.userId);
 
   }
 
@@ -108,14 +106,5 @@ export class AuthService {
     // Check if current date is before token
     // expiration and user is signed in locally
     return Date.now() < this.expiresAt && this.authenticated;
-  }
-
-  loadUserMetadata(userId) {
-    this.auth0Management.patchUserMetadata(userId, {abc: 'abc'}, (err, userResult) => {
-      console.log(userResult);
-    });
-    this.auth0Management.getUser(userId, (err, userResult) => {
-      console.log(userResult);
-    });
   }
 }

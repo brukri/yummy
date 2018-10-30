@@ -31,6 +31,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { MenuSearchComponent } from './components/menu-search/menu-search.component';
 import { MenuUserComponent } from './components/menu-user/menu-user.component';
 import { UserPreferencesComponent } from './components/user-preferences/user-preferences.component';
+import { NoDataFoundComponent } from './no-data-found/no-data-found.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { UserPreferencesComponent } from './components/user-preferences/user-pre
     NavigationComponent,
     MenuSearchComponent,
     MenuUserComponent,
-    UserPreferencesComponent
+    UserPreferencesComponent,
+    NoDataFoundComponent
   ],
   imports: [
     BrowserModule,

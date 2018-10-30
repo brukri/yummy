@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SpoonacularService } from '../spoonacular/spoonacular.service';
 import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
-import { map, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Observable, empty } from 'rxjs';
 
 export interface Recipe {
   id: string;
@@ -97,15 +97,19 @@ export class YummyDataService {
       this.userPreferencesService.getDiets(), numberOfResults)
       .pipe(
         map(result => {
-          return result.results.map(item => {
-            return {
-              id: item.id,
-              title: item.title,
-              image: item.image,
-              imageType: item.imageType,
-              likes: item.likes
-            };
-          });
+          if (result.results.length === 0) {
+            return empty();
+          } else {
+            return result.results.length === 0 ? empty() : result.results.map(item => {
+              return {
+                id: item.id,
+                title: item.title,
+                image: item.image,
+                imageType: item.imageType,
+                likes: item.likes
+              };
+            });
+          }
         })
       );
   }
@@ -113,15 +117,19 @@ export class YummyDataService {
   findRecipe(recipe: string, numberOfResults: number): Observable<Recipe[]> {
     return this.spoonacularService.findRecipe(recipe, numberOfResults).pipe(
       map(result => {
-        return result.results.map(item => {
-          return {
-            id: item.id,
-            title: item.title,
-            image: 'https://spoonacular.com/recipeImages/' + item.image,
-            imageType: item.imageType,
-            likes: item.likes
-          };
-        });
+        if (result.results.length === 0) {
+          return empty();
+        } else {
+          return result.results.map(item => {
+            return {
+              id: item.id,
+              title: item.title,
+              image: 'https://spoonacular.com/recipeImages/' + item.image,
+              imageType: item.imageType,
+              likes: item.likes
+            };
+          });
+        }
       })
     );
   }

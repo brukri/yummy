@@ -4,20 +4,20 @@ import { UserPreferencesService } from "../../services/user-preferences/user-pre
 import {
   YummyDataService,
   Recipe
-} from "../../services/yummy-data-service/yummy-data.service";
+} from '../../services/yummy-data-service/yummy-data.service';
 @Component({
-  selector: "app-favorites",
-  templateUrl: "./user-favorites.component.html",
-  styleUrls: ["./user-favorites.component.css"]
+  selector: 'app-favorites',
+  templateUrl: './user-favorites.component.html',
+  styleUrls: ['./user-favorites.component.css']
 })
 export class UserFavoritesComponent implements OnInit {
   constructor(
     private userPreferencesService: UserPreferencesService,
     private yummyDataService: YummyDataService
   ) {}
-  public recipes: Observable<Recipe[]>;
+  public recipes$: Observable<Recipe[]>;
   ngOnInit() {
     const ids = this.userPreferencesService.getFavorites();
-    this.recipes = this.yummyDataService.getRecipesByIds(ids);
+    this.recipes$ = this.yummyDataService.getRecipesByIds(ids);
   }
 }

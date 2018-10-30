@@ -5,5 +5,5 @@
     [preselectedValue]="preselectedRecipe"
     (resultChanged)="recipeChanged($event)">
   </autocomplete-single-search>
-  <recipe-overview [recipes]="recipes"></recipe-overview>
+  <recipe-overview [recipes$]="recipes$" expectData="searchCriteriasEntered"></recipe-overview>
 </div>

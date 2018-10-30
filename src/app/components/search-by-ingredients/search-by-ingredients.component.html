@@ -1,4 +1,5 @@
 <div>
-  <autocomplete-multi-search [placeholder]="'Search ingredients...'" [autocompletionCallback]="autoComplete" [preselectedChips]="preselectedIngredients" (chipListChanged)="updateRecipes($event)"></autocomplete-multi-search>
-  <recipe-overview [recipes]="recipes"></recipe-overview>
+  <autocomplete-multi-search [placeholder]="'Search ingredients...'" [autocompletionCallback]="autoComplete"
+    [preselectedChips]="preselectedIngredients$" (chipListChanged)="updateRecipes($event)"></autocomplete-multi-search>
+  <recipe-overview [recipes$]="recipes$" [expectData]="searchCriteriasEntered"></recipe-overview>
 </div>
