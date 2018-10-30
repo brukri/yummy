@@ -1,16 +1,12 @@
 <div>
-  <div *ngIf="(recipes$ | async)?.length > 0; else noRecipesFound">
+  <div *ngIf="recipes?.length > 0">
     <div fxLayout="row wrap" fxLayoutGap="2em" fxLayout.lt-md="column">
-        <div *ngFor="let recipe of recipes$ | async">
+        <div *ngFor="let recipe of recipes">
             <recipe-card [recipe]="recipe"></recipe-card>
         </div>
     </div>
   </div>
-  <ng-template #noRecipesFound>
-      <div *ngIf="expectData">
-          <app-no-data-found></app-no-data-found>
-      </div>
-    </ng-template>
+  <app-no-data-found *ngIf="recipes?.length === 0"></app-no-data-found>
 </div>
 
 

@@ -11,9 +11,9 @@ const SELECTED_INGREDIENTS_KEY = 'selectedIngredients';
   styleUrls: ['./search-by-ingredients.component.css']
 })
 export class SearchByIngredientsComponent implements OnInit {
-  recipes$: Observable<Recipe[]>;
+  recipes: Recipe[];
   preselectedIngredients$: Observable<string[]>;
-  searchCriteriasEntered = false;
+  isLoading = false;
 
   constructor(private yummyDataService: YummyDataService,
     private routeService: RouteService) {
@@ -26,11 +26,14 @@ export class SearchByIngredientsComponent implements OnInit {
 
   updateRecipes(ingredients: string[]) {
     if (ingredients.length > 0) {
-      this.searchCriteriasEntered = true;
-      this.recipes$ = this.yummyDataService.findRecipesByIngredients(ingredients, 5);
+      this.isLoading = true;
+      const recipes$ = this.yummyDataService.findRecipesByIngredients(ingredients, 5);
+      recipes$.subscribe(recipes => {
+        this.recipes = recipes;
+        this.isLoading = false;
+      });
     } else {
-      this.searchCriteriasEntered = false;
-      this.recipes$ = empty();
+      this.recipes = null;
     }
     this.routeService.updateMultiValuesQueryParam(SELECTED_INGREDIENTS_KEY, ingredients);
   }
