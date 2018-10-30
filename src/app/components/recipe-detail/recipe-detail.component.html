@@ -39,6 +39,7 @@
                 Estimated Nutrition
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <mat-spinner *ngIf="!nutrition"></mat-spinner>
             <app-nutrition [nutrition] = "nutrition"></app-nutrition>
           </mat-expansion-panel>
         </div>

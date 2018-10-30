@@ -15,11 +15,10 @@ import {
   MatSelectModule,
   MatCheckboxModule,
   MatAutocompleteModule,
-  MatExpansionPanel,
   MatExpansionModule,
-  MatButtonToggle,
   MatButtonToggleModule,
-  MatMenuModule
+  MatMenuModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 @NgModule({
@@ -40,7 +39,8 @@ import {
     MatAutocompleteModule,
     MatExpansionModule,
     MatButtonToggleModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatChipsModule,
@@ -59,7 +59,8 @@ import {
     MatAutocompleteModule,
     MatExpansionModule,
     MatButtonToggleModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule {}
