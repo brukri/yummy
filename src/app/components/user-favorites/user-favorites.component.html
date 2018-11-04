@@ -1,4 +1,4 @@
 <div class="bg-div">
 <h1>Your Favorites</h1>
-<recipe-overview [recipes]="recipes"></recipe-overview>
-</div>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<recipe-overview [recipes]="recipes" *ngIf="!isLoading"></recipe-overview>
