@@ -1,6 +1,5 @@
-import { Component, OnInit,Input } from "@angular/core";
-import { Observable, empty } from "rxjs";
-import { UserPreferencesService } from "../../services/user-preferences/user-preferences.service";
+import { Component, OnInit, Input } from '@angular/core';
+import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
 import {
   YummyDataService,
   Recipe
@@ -15,19 +14,18 @@ export class UserFavoritesComponent implements OnInit {
   constructor(
     private userPreferencesService: UserPreferencesService,
     private yummyDataService: YummyDataService
-  ) {}
+  ) { }
   @Input() recipes: Recipe[];
   ngOnInit() {
     const ids = this.userPreferencesService.getFavorites();
-    if (ids.length > 0){
-    this.isLoading = true;
-    const recipes$ = this.yummyDataService.getRecipesByIds(ids);
-    recipes$.subscribe(result => {
-      this.recipes = result;
-      this.isLoading = false;
-    });
+    if (ids.length > 0) {
+      this.isLoading = true;
+      const recipes$ = this.yummyDataService.getRecipesByIds(ids);
+      recipes$.subscribe(result => {
+        this.recipes = result;
+        this.isLoading = false;
+      });
     }
     this.recipes = null;
-  }
   }
 }

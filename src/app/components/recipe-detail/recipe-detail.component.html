@@ -1,5 +1,5 @@
 <div *ngIf="recipeDetail" data-test-selector="recipe-detail-component">
-  <h1>{{recipeDetail.title}}</h1>
+  <h1 data-test-selector="recipe-detail-title">{{recipeDetail.title}}</h1>
 
   <div>
     <mat-icon class="icon">timer</mat-icon>
@@ -13,15 +13,15 @@
   <div fxLayout="column" fxLayoutGap="2em">
     <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
       <div fxLayout="column">
-        <ingredients-list class="card" [ingredients]="recipeDetail.ingredients"></ingredients-list>
-        <recipe-attributes class="card" fxFlexOffset="2em" [recipeAttributes]="recipeDetail.recipeAttributes"></recipe-attributes>
+        <ingredients-list class="card" [ingredients]="recipeDetail.ingredients" data-test-selector="recipe-detail-ingredients-list"></ingredients-list>
+        <recipe-attributes class="card" fxFlexOffset="2em" [recipeAttributes]="recipeDetail.recipeAttributes" data-test-selector="recipe-detail-attributes"></recipe-attributes>
       </div>
       <div class="card">
-        <img src={{recipeDetail.image}} />
+        <img src={{recipeDetail.image}} data-test-selector="recipe-detail-img"/>
       </div>
     </div>
     <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-      <instructions-list class="card" [instructions]="recipeDetail.instructions"></instructions-list>
+      <instructions-list class="card" [instructions]="recipeDetail.instructions" data-test-selector="recipe-detail-instructions-list"></instructions-list>
       <div>
         <mat-expansion-panel class="expansion-panel" [disabled]="isWinePairingPanelDisabled()">
           <mat-expansion-panel-header>

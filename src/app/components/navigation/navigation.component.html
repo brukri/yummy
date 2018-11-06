@@ -2,11 +2,11 @@
   <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="end center">
     <span fxFlex="<grow>">yummy</span>
     <div>
-      <button mat-icon-button [routerLink]="['']">
+      <button mat-icon-button [routerLink]="['']" data-test-selector="menu-home-button">
         <mat-icon>home</mat-icon>
       </button>
       <app-menu-search></app-menu-search>
-      <app-menu-user data-test-selector="menu-user"></app-menu-user>
+      <app-menu-user></app-menu-user>
     </div>
   </mat-toolbar>
 </nav>

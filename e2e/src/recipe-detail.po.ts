@@ -8,4 +8,12 @@ export class RecipeDetailPage {
     return component;
   }
 
+  verifyRecipeDetailSubcomponents(recipeDetailComponent) {
+    ProtractorHelper.getElementByTestSelector('recipe-detail-title', recipeDetailComponent).isDisplayed();
+    ProtractorHelper.getElementByTestSelector('recipe-detail-ingredients-list', recipeDetailComponent).isDisplayed();
+    ProtractorHelper.getElementByTestSelector('recipe-detail-instructions-list', recipeDetailComponent).isDisplayed();
+    ProtractorHelper.getElementByTestSelector('recipe-detail-attributes', recipeDetailComponent).isDisplayed();
+    ProtractorHelper.getElementByTestSelector('recipe-detail-img', recipeDetailComponent).isDisplayed();
+  }
+
 }

@@ -12,8 +12,8 @@ export class YummyPage {
     browser.get(url);
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  navigateToRecipeDetailPage(recipeId) {
+    browser.get(`/detail/${recipeId}`);
   }
 
 }

@@ -8,8 +8,20 @@ export class NavigationPage {
     button.click();
   }
 
+  verifyAndClickHomeButton() {
+    const button = ProtractorHelper.getElementByTestSelector('menu-home-button');
+    button.isDisplayed();
+    button.click();
+  }
+
   verifyAndClickSearchByIngredientsButton() {
     const button = ProtractorHelper.getElementByTestSelector('search-by-ingredients-button');
+    button.isDisplayed();
+    button.click();
+  }
+
+  verifyAndClickSearchByRecipeButton() {
+    const button = ProtractorHelper.getElementByTestSelector('search-by-recipe-button');
     button.isDisplayed();
     button.click();
   }
