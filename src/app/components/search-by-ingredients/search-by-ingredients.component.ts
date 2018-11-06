@@ -28,8 +28,8 @@ export class SearchByIngredientsComponent implements OnInit {
     if (ingredients.length > 0) {
       this.isLoading = true;
       const recipes$ = this.yummyDataService.findRecipesByIngredients(ingredients, 5);
-      recipes$.subscribe(recipes => {
-        this.recipes = recipes;
+      recipes$.subscribe(resolvedRecipes => {
+        this.recipes = resolvedRecipes;
         this.isLoading = false;
       });
     } else {

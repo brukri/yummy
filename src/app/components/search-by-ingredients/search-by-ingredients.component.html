@@ -1,4 +1,4 @@
-<div>
+<div data-test-selector="search-by-ingredients-component">
   <autocomplete-multi-search [placeholder]="'Search ingredients...'" [autocompletionCallback]="autoComplete"
     [preselectedChips]="preselectedIngredients$" (chipListChanged)="updateRecipes($event)"></autocomplete-multi-search>
   <mat-spinner *ngIf="isLoading"></mat-spinner>

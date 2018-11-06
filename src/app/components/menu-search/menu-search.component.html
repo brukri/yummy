@@ -1,7 +1,7 @@
-<button mat-icon-button [matMenuTriggerFor]="menuSearch">
+<button mat-icon-button [matMenuTriggerFor]="menuSearch" data-test-selector="menu-search-button">
   <mat-icon>search</mat-icon>
 </button>
 <mat-menu #menuSearch="matMenu">
-  <button mat-menu-item [routerLink]="['/searchByIngredients']" [queryParams]="{ selectedIngredients: '' }">By Ingredients</button>
-  <button mat-menu-item [routerLink]="['/searchByRecipe']" [queryParams]="{ selectedRecipe: '' }">By Recipe</button>
+  <button mat-menu-item [routerLink]="['/searchByIngredients']" [queryParams]="{ selectedIngredients: '' }" data-test-selector="search-by-ingredients-button">By Ingredients</button>
+  <button mat-menu-item [routerLink]="['/searchByRecipe']" [queryParams]="{ selectedRecipe: '' }" data-test-selector="search-by-recipe-button">By Recipe</button>
 </mat-menu>

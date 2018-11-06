@@ -2,11 +2,11 @@
     <a routerLink="/detail/{{recipe.id}}">
         <mat-card-header>
             <mat-card-title>
-                <span class="mat-card-title">{{recipe.title}}</span>
+                <span class="mat-card-title" data-test-selector="recipe-card-title">{{recipe.title}}</span>
             </mat-card-title>
-            <mat-card-subtitle>{{recipe.likes}} Likes</mat-card-subtitle>
+            <mat-card-subtitle data-test-selector="recipe-card-likes">{{recipe.likes}} Likes</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src={{recipe.image}}/>
+        <img mat-card-image src={{recipe.image}} data-test-selector="recipe-card-img"/>
     </a>
     <mat-card-actions>
         <mat-button-toggle [checked]="IsFavorite" (change)="onFavoriteChange(value)">

@@ -98,9 +98,9 @@ export class YummyDataService {
       .pipe(
         map(result => {
           if (result.results.length === 0) {
-            return empty();
+            return [];
           } else {
-            return result.results.length === 0 ? empty() : result.results.map(item => {
+            return result.results.map(item => {
               return {
                 id: item.id,
                 title: item.title,
@@ -118,7 +118,7 @@ export class YummyDataService {
     return this.spoonacularService.findRecipe(recipe, numberOfResults).pipe(
       map(result => {
         if (result.results.length === 0) {
-          return empty();
+          return [];
         } else {
           return result.results.map(item => {
             return {
