@@ -39,7 +39,7 @@ a {
 .card {
   background: #a19d9d34;
   border-radius: 1em;
-  min-width:22em;
+  min-width:20em;
   max-width: 50em;
   padding: 2em;
 }

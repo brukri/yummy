@@ -9,7 +9,7 @@
         <img mat-card-image src={{recipe.image}} data-test-selector="recipe-card-img"/>
     </a>
     <mat-card-actions>
-        <mat-button-toggle [checked]="IsFavorite" (change)="onFavoriteChange(value)">
+        <mat-button-toggle [checked]="IsFavorite" (change)="onFavoriteChange()">
             <mat-icon>favorite</mat-icon>
         </mat-button-toggle>
     </mat-card-actions>
