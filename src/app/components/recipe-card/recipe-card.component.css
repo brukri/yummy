@@ -1,18 +1,3 @@
-image {
-    margin: 0px;
-}
 
-mat-card {
-    background: #ffffff38;
-    border-radius: 5px;
-    margin: 10px;
-    min-width: 20em;
-    max-width: 25em;
-    min-height: 25em;
-}
-
-mat-card:hover {
-    box-shadow: 0 7px 14px rgba(255, 255, 255, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22);
-}
 
 

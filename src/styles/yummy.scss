@@ -1,0 +1,148 @@
+
+@font-face {
+    font-display: swap;
+    font-family: "Indie Flower";
+    src: url("https://fonts.gstatic.com/s/indieflower/v9/m8JVjfNVeKWVnh3QMuKkFcZVaUuH99GUDg.woff2");
+}
+
+div {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+:root {
+    box-sizing: border-box;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+}
+
+* {
+    box-sizing: inherit;
+    font-family: 'Indie Flower';
+    color: whitesmoke;
+}
+
+body {
+    height: 100vh;
+    background-image: url("../assets/background_greyscale.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card {
+    background: #a19d9d34;
+    border-radius: 1em;
+    min-width: 20em;
+    max-width: 50em;
+    padding: 2em;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 5em 1fr;
+    grid-column-gap: 0.8em;
+    height: 100vh
+}
+
+.grid-item-header {
+    grid-row: 1/2;
+}
+
+.grid-item-main {
+    grid-row: 2/3;
+    overflow: auto;
+}
+
+.margin-top-m {
+    margin-top: 1em;
+}
+
+main {
+    padding-bottom: 2em;
+}
+
+.chip-list {
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.entry {
+    display: inline-block;
+}
+
+.numberCircle {
+    margin-right: 20px;
+    float: left;
+    border-radius: 50%;
+    min-width: 28px;
+    height: 28px;
+    font-size: 120%;
+    padding: 4px, 4px;
+    background: #fff;
+    border: 1px solid #666;
+    color: #666;
+    text-align: center;
+}
+
+.avatar-image{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+mat-checkbox{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.navigation-menu {
+    min-width: 6em;
+}
+
+image {
+    margin: 0px;
+}
+
+mat-card {
+    background: #ffffff38;
+    border-radius: 5px;
+    margin: 10px;
+    min-width: 20em;
+    max-width: 25em;
+    min-height: 25em;
+}
+
+mat-card:hover {
+    box-shadow: 0 7px 14px rgba(255, 255, 255, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22);
+}
+
+mat-icon {
+    float: left;
+    margin: 0px 10px;
+    vertical-align: text-bottom;
+}
+
+.expansion-panel {
+    background: #a19d9d34;
+    min-width: 20em;
+    max-width: 50em;
+    border-radius: 1em;
+}
+
+mat-checkbox{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.trivia{
+    width: 50%;
+}
