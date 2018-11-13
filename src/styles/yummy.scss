@@ -1,3 +1,4 @@
+@import 'yummy-variables'; 
 
 @font-face {
     font-display: swap;
@@ -5,42 +6,44 @@
     src: url("https://fonts.gstatic.com/s/indieflower/v9/m8JVjfNVeKWVnh3QMuKkFcZVaUuH99GUDg.woff2");
 }
 
-div {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-
 :root {
     box-sizing: border-box;
-    overflow-y: hidden;
-    overflow-x: hidden;
-
 }
 
 * {
     box-sizing: inherit;
-    font-family: 'Indie Flower';
-    color: whitesmoke;
+    font-family: "Indie Flower";
+    color: $color-whitesmoke;
 }
 
 body {
     height: 100vh;
-    background-image: url("../assets/background_greyscale.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: $color-dark-grey
+}
+
+main {
+    padding-bottom: 2em;
 }
 
 a {
     text-decoration: none;
 }
 
-.card {
-    background: #a19d9d34;
-    border-radius: 1em;
-    min-width: 20em;
-    max-width: 50em;
-    padding: 2em;
+.recipe-card {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    min-width: 18em;
+    min-height: 25em;
+}
+
+.recipe-card:hover {
+    background:#A5A5A5
+}
+
+.recipe-card-icon {
+    float: left;
+    margin: 0px 10px;
+    vertical-align: text-bottom;
 }
 
 .grid-container {
@@ -59,12 +62,16 @@ a {
     overflow: auto;
 }
 
-.margin-top-m {
-    margin-top: 1em;
+.card {
+    background: #b1b1b134;
+    border-radius: 1em;
+    min-width: 20em;
+    max-width: 50em;
+    padding: 2em;
 }
 
-main {
-    padding-bottom: 2em;
+.margin-top-m {
+    margin-top: 1em;
 }
 
 .chip-list {
@@ -112,35 +119,11 @@ image {
     margin: 0px;
 }
 
-mat-card {
-    background: #ffffff38;
-    border-radius: 5px;
-    margin: 10px;
-    min-width: 20em;
-    max-width: 25em;
-    min-height: 25em;
-}
-
-mat-card:hover {
-    box-shadow: 0 7px 14px rgba(255, 255, 255, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22);
-}
-
-mat-icon {
-    float: left;
-    margin: 0px 10px;
-    vertical-align: text-bottom;
-}
-
 .expansion-panel {
     background: #a19d9d34;
     min-width: 20em;
     max-width: 50em;
     border-radius: 1em;
-}
-
-mat-checkbox{
-    margin-left: 0.5em;
-    margin-right: 0.5em;
 }
 
 .trivia{

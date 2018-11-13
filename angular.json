@@ -24,7 +24,6 @@
             ],
             "styles": [
               "src/styles/yummy.scss",
-              "src/styles/material-icons.css",
               "src/styles/material-theme.scss"
             ],
             "scripts": []

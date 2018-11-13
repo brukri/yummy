@@ -1,47 +1,51 @@
-<div *ngIf="recipeDetail" data-test-selector="recipe-detail-component">
-  <h1 data-test-selector="recipe-detail-title">{{recipeDetail.title}}</h1>
+<div>
+  <div *ngIf="recipeDetail" data-test-selector="recipe-detail-component">
+    <h1 data-test-selector="recipe-detail-title">{{recipeDetail.title}}</h1>
 
-  <div>
-    <mat-icon class="icon">timer</mat-icon>
-    <h3> prep: {{recipeDetail.preparationMinutes}} minutes</h3>
-    <mat-icon class="icon">timer</mat-icon>
-    <h3> cook: {{recipeDetail.cookingMinutes}} minutes</h3>
-    <mat-button-toggle [checked]="IsFavorite" (change)="onFavoriteChange(value)">
-      <mat-icon>favorite</mat-icon>
-    </mat-button-toggle>
-  </div>
-  <div fxLayout="column" fxLayoutGap="2em">
-    <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-      <div fxLayout="column">
-        <ingredients-list class="card" [ingredients]="recipeDetail.ingredients" data-test-selector="recipe-detail-ingredients-list"></ingredients-list>
-        <recipe-attributes class="card" fxFlexOffset="2em" [recipeAttributes]="recipeDetail.recipeAttributes" data-test-selector="recipe-detail-attributes"></recipe-attributes>
+    <div>
+      <mat-icon class="icon">timer</mat-icon>
+      <h3> prep: {{recipeDetail.preparationMinutes}} minutes</h3>
+      <mat-icon class="icon">timer</mat-icon>
+      <h3> cook: {{recipeDetail.cookingMinutes}} minutes</h3>
+      <mat-button-toggle [checked]="isFavorite" (change)="onFavoriteChange(value)">
+        <mat-icon>favorite</mat-icon>
+      </mat-button-toggle>
+    </div>
+    <div fxLayout="column" fxLayoutGap="2em">
+      <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
+        <div fxLayout="column">
+          <ingredients-list class="card" [ingredients]="recipeDetail.ingredients" data-test-selector="recipe-detail-ingredients-list"></ingredients-list>
+          <recipe-attributes class="card" fxFlexOffset="2em" [recipeAttributes]="recipeDetail.recipeAttributes"
+            data-test-selector="recipe-detail-attributes"></recipe-attributes>
+        </div>
+        <div class="card">
+          <img src={{recipeDetail.image}} data-test-selector="recipe-detail-img" />
+        </div>
       </div>
-      <div class="card">
-        <img src={{recipeDetail.image}} data-test-selector="recipe-detail-img"/>
+      <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
+        <instructions-list class="card" [instructions]="recipeDetail.instructions" data-test-selector="recipe-detail-instructions-list"></instructions-list>
+        <div>
+          <mat-expansion-panel class="expansion-panel" [disabled]="isWinePairingPanelDisabled()">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Wine Pairings
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-wine-pairing [winePairing]="recipeDetail.winePairing"></app-wine-pairing>
+          </mat-expansion-panel>
+          <mat-expansion-panel class="expansion-panel" [disabled]="isNutritionPanelDisabled()" (opened)=onNutritionPanelOpen()
+            (closed)=onNutritionPanelClose()>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Estimated Nutrition
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-spinner *ngIf="!nutrition"></mat-spinner>
+            <app-nutrition [nutrition]="nutrition"></app-nutrition>
+          </mat-expansion-panel>
+        </div>
       </div>
     </div>
-    <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-      <instructions-list class="card" [instructions]="recipeDetail.instructions" data-test-selector="recipe-detail-instructions-list"></instructions-list>
-      <div>
-        <mat-expansion-panel class="expansion-panel" [disabled]="isWinePairingPanelDisabled()">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Wine Pairings
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <app-wine-pairing [winePairing]="recipeDetail.winePairing"></app-wine-pairing>
-        </mat-expansion-panel>
-        <mat-expansion-panel class="expansion-panel" [disabled]="isNutritionPanelDisabled()" (opened)=onNutritionPanelOpen()
-          (closed)=onNutritionPanelClose()>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Estimated Nutrition
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <mat-spinner *ngIf="!nutrition"></mat-spinner>
-          <app-nutrition [nutrition]="nutrition"></app-nutrition>
-        </mat-expansion-panel>
-      </div>
-    </div>
   </div>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
 </div>

@@ -1,8 +1,8 @@
-<mat-card>
+<mat-card class="recipe-card">
     <a routerLink="/detail/{{recipe.id}}">
         <mat-card-header>
             <mat-card-title>
-                <span class="mat-card-title" data-test-selector="recipe-card-title">{{recipe.title}}</span>
+                <span data-test-selector="recipe-card-title">{{recipe.title}}</span>
             </mat-card-title>
             <mat-card-subtitle data-test-selector="recipe-card-likes">{{recipe.likes}} Likes</mat-card-subtitle>
         </mat-card-header>

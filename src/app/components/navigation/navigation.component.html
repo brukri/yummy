@@ -2,9 +2,11 @@
   <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="end center">
     <div fxFlex="<grow>">yummy</div>
     <div fxLayout="row" class="navigation-menu">
-      <button fxLayoutAlign="cross-axis: center" mat-icon-button [routerLink]="['']" data-test-selector="menu-home-button">
-        <mat-icon>home</mat-icon>
-      </button>
+      <div fxLayoutAlign="cross-axis: center">
+          <button mat-icon-button [routerLink]="['']" data-test-selector="menu-home-button">
+              <mat-icon>home</mat-icon>
+            </button>
+      </div>
       <app-menu-search fxLayoutAlign="cross-axis: center"></app-menu-search>
       <app-menu-user fxLayoutAlign="cross-axis: center"></app-menu-user>
     </div>

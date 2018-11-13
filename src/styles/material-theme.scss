@@ -9,8 +9,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$yummy-app-primary: mat-palette($mat-teal);
-$yummy-app-secondary:  mat-palette($mat-grey);
+$yummy-app-primary: mat-palette($mat-green, 700, 200, 900);
+$yummy-app-secondary:  mat-palette($mat-deep-purple, 700, 200, 900);
 
 // The warn palette is optional (defaults to red).
 $yummy-app-warn:    mat-palette($mat-red);

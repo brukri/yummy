@@ -13,26 +13,28 @@ import { UserPreferencesService } from '../../services/user-preferences/user-pre
 })
 
 export class RecipeDetailComponent implements OnInit {
-
-public RecipeDetails
   nutrition: Nutrition;
   recipeDetail: RecipeDetails;
   recipeDetail$: Observable<RecipeDetails>;
+  isFavorite: boolean;
+  isLoading: boolean;
 
   constructor(private route: ActivatedRoute,
     private location: Location, private yummyDataService: YummyDataService,
     private userPreferencesService: UserPreferencesService) { }
-    public IsFavorite: boolean;
    ngOnInit() {
-    this.getRecipe();
-
+    this.loadRecipe();
   }
 
-  getRecipe(): void {
+  loadRecipe(): void {
+    this.isLoading = true;
     const id = +this.route.snapshot.paramMap.get('id');
     this.recipeDetail$ = this.yummyDataService.getRecipeDetailsForId(id.toString());
-    this.yummyDataService.getRecipeDetailsForId(id.toString()).subscribe(recipeDetail => this.recipeDetail = recipeDetail);
-    this.IsFavorite = this.userPreferencesService.isFavorite(id.toString());
+    this.yummyDataService.getRecipeDetailsForId(id.toString()).subscribe(recipeDetail => {
+      this.recipeDetail = recipeDetail;
+      this.isLoading = false;
+    });
+    this.isFavorite = this.userPreferencesService.isFavorite(id.toString());
   }
 
   isWinePairingPanelDisabled(): boolean {
@@ -44,8 +46,8 @@ public RecipeDetails
   }
 
   public onFavoriteChange() {
-    this.IsFavorite = !this.IsFavorite;
-    if (this.IsFavorite) {
+    this.isFavorite = !this.isFavorite;
+    if (this.isFavorite) {
       this.userPreferencesService.addToFavorites(this.recipeDetail.id.toString());
     } else {
       this.userPreferencesService.removeFromFavorites(this.recipeDetail.id.toString());
