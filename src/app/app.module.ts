@@ -32,6 +32,7 @@ import { MenuSearchComponent } from './components/menu-search/menu-search.compon
 import { MenuUserComponent } from './components/menu-user/menu-user.component';
 import { UserPreferencesComponent } from './components/user-preferences/user-preferences.component';
 import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
+import { StepDurationComponent } from './components/step-duration/step-duration.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { NoDataFoundComponent } from './components/no-data-found/no-data-found.c
     MenuSearchComponent,
     MenuUserComponent,
     UserPreferencesComponent,
-    NoDataFoundComponent
+    NoDataFoundComponent,
+    StepDurationComponent
   ],
   imports: [
     BrowserModule,

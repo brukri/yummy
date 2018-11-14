@@ -2,26 +2,24 @@
   <div *ngIf="recipeDetail" data-test-selector="recipe-detail-component">
     <h1 data-test-selector="recipe-detail-title">{{recipeDetail.title}}</h1>
 
-    <div>
-      <mat-icon class="icon">timer</mat-icon>
-      <h3> prep: {{recipeDetail.preparationMinutes}} minutes</h3>
-      <mat-icon class="icon">timer</mat-icon>
-      <h3> cook: {{recipeDetail.cookingMinutes}} minutes</h3>
-      <mat-button-toggle [checked]="isFavorite" (change)="onFavoriteChange(value)">
-        <mat-icon>favorite</mat-icon>
-      </mat-button-toggle>
+    <div fxLayout="column" fxLayoutGap="1em">
+      <app-step-duration [step]="'Preparation'" [duration]="recipeDetail.preparationMinutes"></app-step-duration>
+      <app-step-duration [step]="'Cooking'" [duration]="recipeDetail.cookingMinutes"></app-step-duration>
     </div>
+    <mat-button-toggle [checked]="isFavorite" (change)="onFavoriteChange(value)">
+      <mat-icon>favorite</mat-icon>
+    </mat-button-toggle>
     <div fxLayout="column" fxLayoutGap="2em">
       <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-        <div fxLayout="column">
+        <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
           <ingredients-list class="card" [ingredients]="recipeDetail.ingredients" data-test-selector="recipe-detail-ingredients-list"></ingredients-list>
-          <recipe-attributes class="card" fxFlexOffset="2em" [recipeAttributes]="recipeDetail.recipeAttributes"
-            data-test-selector="recipe-detail-attributes"></recipe-attributes>
-        </div>
-        <div class="card">
-          <img src={{recipeDetail.image}} data-test-selector="recipe-detail-img" />
+          <div class="card">
+              <img src={{recipeDetail.image}} data-test-selector="recipe-detail-img" />
+            </div>
         </div>
       </div>
+      <recipe-attributes class="card" fxFlexOffset="2em" [recipeAttributes]="recipeDetail.recipeAttributes"
+      data-test-selector="recipe-detail-attributes"></recipe-attributes>
       <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
         <instructions-list class="card" [instructions]="recipeDetail.instructions" data-test-selector="recipe-detail-instructions-list"></instructions-list>
         <div>
