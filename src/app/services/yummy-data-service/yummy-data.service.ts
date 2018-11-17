@@ -100,15 +100,7 @@ export class YummyDataService {
           if (result.results.length === 0) {
             return [];
           } else {
-            return result.results.map(item => {
-              return {
-                id: item.id,
-                title: item.title,
-                image: item.image,
-                imageType: item.imageType,
-                likes: item.likes
-              };
-            });
+            return result.results.map(this.transformRecipe);
           }
         })
       );
@@ -120,15 +112,7 @@ export class YummyDataService {
         if (result.results.length === 0) {
           return [];
         } else {
-          return result.results.map(item => {
-            return {
-              id: item.id,
-              title: item.title,
-              image: 'https://spoonacular.com/recipeImages/' + item.image,
-              imageType: item.imageType,
-              likes: item.likes
-            };
-          });
+          return result.results.map(this.transformRecipe);
         }
       })
     );
@@ -137,15 +121,7 @@ export class YummyDataService {
   getRecipesByIds(recipeIds: string[]): Observable<Recipe[]> {
     return this.spoonacularService.getRecipeDetailsForIds(recipeIds).pipe(
       map(result => {
-        return result.map(item => {
-          return {
-            id: item.id,
-            title: item.title,
-            image: item.image,
-            imageType: item.imageType,
-            likes: item.likes
-          };
-        });
+        return result.map(this.transformRecipe);
       })
     );
   }
@@ -275,6 +251,16 @@ export class YummyDataService {
       value: nutritionItem.value,
       minValue: nutritionItem.minValue,
       maxValue: nutritionItem.maxValue
+    };
+  }
+
+  private transformRecipe(recipeItem): Recipe {
+    return {
+      id: recipeItem.id,
+      title: recipeItem.title,
+      image: recipeItem.image.startsWith('http') ? recipeItem.image : 'https://spoonacular.com/recipeImages/' + recipeItem.image,
+      imageType: recipeItem.imageType,
+      likes: recipeItem.likes
     };
   }
 }
