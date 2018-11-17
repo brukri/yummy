@@ -1,0 +1,9 @@
+<div fxLayout="column" class="post-it-container">
+  <i class="post-it-pin"></i>
+  <h2 *ngIf="title">
+    {{title}}
+  </h2>
+  <div class="post-it-content">
+    <ng-content></ng-content>
+  </div>
+</div>

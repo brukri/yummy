@@ -1,17 +1,19 @@
-<div>
-  <mat-checkbox readonly="readonly" [checked]=recipeAttributes.vegetarian>
-    vegetarian
-  </mat-checkbox>
-  <mat-checkbox readonly="readonly" [checked]=recipeAttributes.vegan>
-    vegan
-  </mat-checkbox>
-  <mat-checkbox readonly="readonly" [checked]=recipeAttributes.glutenFree>
-    gluten free
-  </mat-checkbox>
-  <mat-checkbox readonly="readonly" [checked]=recipeAttributes.dairyFree>
-    dairy free
-  </mat-checkbox>
-  <mat-checkbox readonly="readonly" [checked]=recipeAttributes.veryHealthy>
-    very healthy
-  </mat-checkbox>
-</div>
+<app-post-it-note title="Intolerances">
+  <div fxLayout="column" fxLayoutGap="0.5em" class="recipe-attributes">
+    <mat-checkbox readonly="readonly" [checked]=recipeAttributes.vegetarian>
+      vegetarian
+    </mat-checkbox>
+    <mat-checkbox readonly="readonly" [checked]=recipeAttributes.vegan>
+      vegan
+    </mat-checkbox>
+    <mat-checkbox readonly="readonly" [checked]=recipeAttributes.glutenFree>
+      gluten free
+    </mat-checkbox>
+    <mat-checkbox readonly="readonly" [checked]=recipeAttributes.dairyFree>
+      dairy free
+    </mat-checkbox>
+    <mat-checkbox readonly="readonly" [checked]=recipeAttributes.veryHealthy>
+      very healthy
+    </mat-checkbox>
+  </div>
+</app-post-it-note>

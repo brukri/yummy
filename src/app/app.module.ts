@@ -33,6 +33,7 @@ import { MenuUserComponent } from './components/menu-user/menu-user.component';
 import { UserPreferencesComponent } from './components/user-preferences/user-preferences.component';
 import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
 import { StepDurationComponent } from './components/step-duration/step-duration.component';
+import { PostItNoteComponent } from './components/post-it-note/post-it-note.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { StepDurationComponent } from './components/step-duration/step-duration.
     MenuUserComponent,
     UserPreferencesComponent,
     NoDataFoundComponent,
-    StepDurationComponent
+    StepDurationComponent,
+    PostItNoteComponent
   ],
   imports: [
     BrowserModule,

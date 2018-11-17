@@ -1,10 +1,8 @@
-<div>
-  <div *ngFor="let instructions of instructions">
-    <div *ngFor="let step of instructions.steps">
-      <div class="entry">
-        <h4 class=numberCircle>{{step.number}}</h4>
-        <p>{{step.text}}</p>
-      </div>
+<app-post-it-note title="Instructions">
+  <div *ngFor="let instructions of instructions" fxLayout="column" fxLayoutGap="0.5em">
+    <div *ngFor="let step of instructions.steps" fxLayout="row" fxLayoutGap="1em">
+          <div class=numberCircle fxLayoutAlign="center">{{step.number}}</div>
+          <div fxLayoutAlign="">{{step.text}}</div>
     </div>
   </div>
-</div>
+</app-post-it-note>
