@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { YummyDataService,RecipeDetails, WinePairing, Nutrition } from '../../services/yummy-data-service/yummy-data.service';
 import { Observable, empty } from 'rxjs';
 import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class RecipeDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private location: Location, private yummyDataService: YummyDataService,
-    private userPreferencesService: UserPreferencesService) { }
+    private userPreferencesService: UserPreferencesService, private authService: AuthService) { }
    ngOnInit() {
     this.loadRecipe();
   }
@@ -62,7 +63,7 @@ export class RecipeDetailComponent implements OnInit {
     }
   }
 
-  onNutritionPanelClose() {
-    
+  shouldDisplayFavoriteButton () {
+    return this.authService.isLoggedIn;
   }
 }

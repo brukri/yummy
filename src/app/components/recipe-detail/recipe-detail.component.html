@@ -5,7 +5,7 @@
       <app-step-duration [step]="'Preparation'" [duration]="recipeDetail.preparationMinutes"></app-step-duration>
       <app-step-duration [step]="'Cooking'" [duration]="recipeDetail.cookingMinutes"></app-step-duration>
     </div>
-    <mat-button-toggle [checked]="isFavorite" (change)="onFavoriteChange(value)">
+    <mat-button-toggle *ngIf="shouldDisplayFavoriteButton()" [checked]="isFavorite" (change)="onFavoriteChange(value)" class="favorite-button">
       <mat-icon>favorite</mat-icon>
     </mat-button-toggle>
     <div fxLayout="column">

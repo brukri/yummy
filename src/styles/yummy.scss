@@ -17,41 +17,23 @@
 }
 
 body {
-    height: 100vh;
-    background-color: $color-dark-grey
+    background-color: $color-dark-grey;
+    margin: 0.6em;
 }
 
 main {
-    padding-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 a {
     text-decoration: none;
 }
 
-.recipe-card {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    min-width: 18em;
-    max-width: 30em;
-    min-height: 25em;
-}
-
-.recipe-card:hover {
-    background: #A5A5A5
-}
-
-.recipe-card-icon {
-    float: left;
-    margin: 0px 10px;
-    vertical-align: text-bottom;
-}
-
 .grid-container {
     display: grid;
-    grid-template-rows: 5em 1fr;
-    grid-column-gap: 0.8em;
-    height: 100vh
+    grid-template-rows: 4em 1fr;
+    grid-row-gap: 0.8em;
+    height: 96vh
 }
 
 .grid-item-header {
@@ -63,11 +45,23 @@ a {
     overflow: auto;
 }
 
+.recipe-card {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    min-width: 18em;
+    max-width: 30em;
+    min-height: 25em;
+}
+
+.recipe-card:hover {
+    background: $color-light-grey;
+}
+
 .card {
     background: #b1b1b134;
     border-radius: 1em;
-    min-width: 20em;
-    max-width: 50em;
+    min-width: 18em;
+    max-width: 30em;
     padding: 1.5em;
 }
 
@@ -75,11 +69,7 @@ a {
     margin-top: 1em;
 }
 
-.chip-list {
-    width: 100%;
-}
-
-.example-full-width {
+.autocomplete-search {
     width: 100%;
 }
 
@@ -100,11 +90,6 @@ a {
     border-radius: 50%;
 }
 
-mat-checkbox {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-}
-
 .navigation-menu {
     min-width: 6em;
 }
@@ -114,13 +99,16 @@ image {
 }
 
 .expansion-panel {
-    background: #a19d9d34;
-    min-width: 23em;
-    max-width: 50em;
+    background: $color-grey;
+    min-width: 18em;
 }
 
 .expansion-panel-margin {
-    margin-top: 1.8em;
+    margin-top: 1.9em;
+}
+
+.favorite-button {
+    background-color: $color-green;
 }
 
 .trivia {
@@ -169,7 +157,6 @@ image {
     width: 12px;
 }
 
-
 .post-it-pin:before {
     background-color: hsla(0, 0%, 0%, 0.1);
     box-shadow: 0 0 .25em hsla(0, 0%, 0%, .1);
@@ -192,8 +179,4 @@ image {
     -webkit-transform-origin: 50% 100%;
     -ms-transform-origin: 50% 100%;
     -o-transform-origin: 50% 100%;
-}
-
-.expansion-panel-margin {
-    width: 10em;
 }
