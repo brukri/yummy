@@ -1,20 +1,22 @@
-<div class="bg-div">
-  <section>
-  <h1>My food intolerances:</h1>
-  <h4>We will only show you recipes which will not cause problems for you.</h4>
-  <div class="card">
-    <div *ngFor='let item of intoleranceOptions'>
-      <input type='checkbox' [(ngModel)]='item.checked' (change)='onToggleIntolerance()'>{{item.label}}
+<div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
+    <app-post-it-note>
+    <h1>My food intolerances:</h1>
+    <h4>
+      We will only show you recipes which will not cause problems for you.
+    </h4>
+      <div *ngFor="let item of intoleranceOptions">
+        <mat-slide-toggle
+          [(ngModel)]="item.checked"
+          (change)="onToggleIntolerance()">{{ item.label }}</mat-slide-toggle>
     </div>
-  </div>
-</section>
-<section>
+  </app-post-it-note>
+  <app-post-it-note>
     <h1>My diets:</h1>
     <h4>We will only show you recipes compliant with your diets.</h4>
-    <div class="card">
-      <div *ngFor='let item of dietOptions'>
-        <input type='checkbox' [(ngModel)]='item.checked' (change)='onToggleDiets()'>{{item.label}}
+      <div *ngFor="let item of dietOptions">
+        <mat-slide-toggle
+          [(ngModel)]="item.checked"
+          (change)="onToggleDiets()">{{ item.label }}</mat-slide-toggle>
       </div>
-    </div>
-  </section>
+  </app-post-it-note>
 </div>
