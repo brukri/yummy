@@ -107,9 +107,10 @@ image {
     margin-top: 1.9em;
 }
 
-.favorite-button {
+.mat-button-toggle.mat-button-toggle-checked {
     background-color: $color-green;
 }
+
 
 .trivia {
     width: 50%;
