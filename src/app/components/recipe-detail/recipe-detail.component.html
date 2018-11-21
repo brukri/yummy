@@ -27,8 +27,7 @@
             </mat-expansion-panel-header>
             <app-wine-pairing [winePairing]="recipeDetail.winePairing"></app-wine-pairing>
           </mat-expansion-panel>
-          <mat-expansion-panel class="expansion-panel" [disabled]="isNutritionPanelDisabled()" (opened)=onNutritionPanelOpen()
-            (closed)=onNutritionPanelClose()>
+          <mat-expansion-panel class="expansion-panel" [disabled]="isNutritionPanelDisabled()" (opened)=onNutritionPanelOpen()>
             <mat-expansion-panel-header>
               <mat-panel-title>
                 Estimated Nutrition
