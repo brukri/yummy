@@ -1,19 +1,16 @@
 <app-post-it-note title="Recipe Attributes">
-  <div fxLayout="column" fxLayoutGap="0.5em" class="recipe-attributes">
-    <mat-checkbox readonly="readonly" [checked]=recipeAttributes.vegetarian>
-      vegetarian
-    </mat-checkbox>
-    <mat-checkbox readonly="readonly" [checked]=recipeAttributes.vegan>
-      vegan
-    </mat-checkbox>
-    <mat-checkbox readonly="readonly" [checked]=recipeAttributes.glutenFree>
-      gluten free
-    </mat-checkbox>
-    <mat-checkbox readonly="readonly" [checked]=recipeAttributes.dairyFree>
-      dairy free
-    </mat-checkbox>
-    <mat-checkbox readonly="readonly" [checked]=recipeAttributes.veryHealthy>
-      very healthy
-    </mat-checkbox>
+  <div *ngFor="let item of attributes" class="attribute-div">
+    <div *ngIf="item.checked; else: notApplicable">
+      <div>
+      <mat-icon class="green-icon">check_circle</mat-icon>
+      <label class="underline-lable">{{ item.label }}</label>
+    </div>
+    </div>
+    <ng-template #notApplicable>
+        <div>
+      <mat-icon class="red-icon">cancel</mat-icon>
+      <label>{{ item.label }}</label>
+      </div>
+    </ng-template>
   </div>
 </app-post-it-note>

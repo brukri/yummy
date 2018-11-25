@@ -111,6 +111,25 @@ image {
     background-color: $color-green;
 }
 
+.underline-lable{
+    text-decoration: underline;
+}
+
+.attribute-div{
+    min-width: 150px;;
+}
+
+.green-icon {
+    color: $color-green;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+.red-icon {
+    color: $color-red;
+    vertical-align: middle;
+    margin: 10px;
+}
 
 .trivia {
     width: 50%;

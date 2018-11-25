@@ -9,10 +9,8 @@ export interface Recipe {
   title: string;
   image: string;
   imageType: string;
-  likes: string;
 }
 
-// Todo: Use inheritance?
 export interface RecipeDetails {
   id: string;
   title: string;
@@ -260,7 +258,6 @@ export class YummyDataService {
       title: recipeItem.title,
       image: recipeItem.image.startsWith('http') ? recipeItem.image : 'https://spoonacular.com/recipeImages/' + recipeItem.image,
       imageType: recipeItem.imageType,
-      likes: recipeItem.likes
     };
   }
 }
