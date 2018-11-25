@@ -36,6 +36,9 @@ export class UserPreferencesService {
   loadUserMetadata() {
     this.auth0Management.getUser(this.userId, (err, userResult) => {
       this.userMetadata = userResult.user_metadata;
+      if (! this.userMetadata) {
+        this.userMetadata = {intolerances: [], diets: [], favorites: []};
+      }
     });
   }
 
@@ -46,15 +49,17 @@ export class UserPreferencesService {
   }
 
   getIntolerances(): string[] {
-    return this.userMetadata.intolerances || [];
+    return this.userMetadata.intolerances;
   }
 
+
+
   getDiets(): string[] {
-    return this.userMetadata.diets || [];
+    return this.userMetadata.diets;
   }
 
   getFavorites(): string[] {
-    return this.userMetadata.favorites || [];
+    return this.userMetadata.favorites;
   }
 
   addToFavorites(id: string): void {
