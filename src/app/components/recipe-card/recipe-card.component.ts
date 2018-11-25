@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import {MatCard} from '@angular/material';
 import { Recipe } from '../../services/yummy-data-service/yummy-data.service';
 import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'recipe-card',
@@ -11,7 +12,7 @@ import { UserPreferencesService } from '../../services/user-preferences/user-pre
 export class RecipeCardComponent implements OnInit {
   @Input() recipe: Recipe;
   public IsFavorite: boolean;
-  constructor( private userPreferencesService: UserPreferencesService) { }
+  constructor( private userPreferencesService: UserPreferencesService, private authService: AuthService) { }
 
   ngOnInit() {
     this.IsFavorite = this.userPreferencesService.isFavorite(this.recipe.id.toString());
@@ -24,5 +25,9 @@ export class RecipeCardComponent implements OnInit {
     } else {
       this.userPreferencesService.removeFromFavorites(this.recipe.id.toString());
     }
+  }
+
+  shouldDisplayFavoriteButton () {
+    return this.authService.isLoggedIn;
   }
 }
