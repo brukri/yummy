@@ -1,11 +1,24 @@
-<div class="bg-div">
-  <h1 data-test-selector="welcome-trivia-title">
-    Welcome to yummy...
-  </h1>
-  <br/>
-  <br/>
-  <div class="trivia">
+<div class="container" fxLayout="row wrap" fxLayoutGap="2em">
+  <div >
+    <a [routerLink]="['/searchByIngredients']">
+      <div class="card">
+        <div class="incredients"><mat-icon class="icon">search</mat-icon></div>
+        <div class="card-title">Search by incredients</div>
+      </div>
+    </a>
+  </div>
+  <div >
+    <a [routerLink]="['/searchByRecipe']">
+      <div class="card">
+        <mat-icon class="icon">search</mat-icon>
+        <div class="card-title">Search by recipe name</div>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="container" fxLayout="row wrap" fxLayoutGap="2em">
+  <div class="quote">
     <h2>Did you know?</h2>
-    <h3 data-test-selector="welcome-trivia-text">"{{trivia}}"</h3>
+    <blockquote>"{{trivia}}"</blockquote>
   </div>
 </div>
