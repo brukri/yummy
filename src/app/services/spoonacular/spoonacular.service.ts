@@ -66,12 +66,13 @@ export class SpoonacularService {
     });
   }
 
-  autoCompleteIngredient(ingredient: String, numberOfResults: number): Observable<any> {
+  autoCompleteIngredient(ingredient: String, numberOfResults: number, provideMetaInformation: boolean): Observable<any> {
     return this.http.get(`${this.baseUrl}/food/ingredients/autocomplete`, {
       headers: this.headers,
       params: {
         'query' : ingredient.toString(),
-        'number' : numberOfResults.toString()
+        'number' : numberOfResults.toString(),
+        'metaInformation': provideMetaInformation.toString()
       },
     });
   }
@@ -108,6 +109,15 @@ export class SpoonacularService {
   getRandomFoodTrivia(): Observable<any> {
     return this.http.get(`${this.baseUrl}/food/trivia/random`, {
       headers: this.headers
+    });
+  }
+
+  findDishPairingForGrape(grape: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/food/wine/dishes`, {
+      headers: this.headers,
+      params: {
+        'wine' : grape
+      }
     });
   }
 }

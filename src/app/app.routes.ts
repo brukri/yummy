@@ -8,11 +8,13 @@ import { UserFavoritesComponent } from './components/user-favorites/user-favorit
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AuthGuard } from './services/auth/auth.guard';
 import { UserPreferencesComponent } from './components/user-preferences/user-preferences.component';
+import { SearchByGrapeComponent } from './components/search-by-grape/search-by-grape.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'searchByIngredients', component: SearchByIngredientsComponent},
   {path: 'searchByRecipe', component: SearchByRecipeComponent},
+  {path: 'searchByGrape', component: SearchByGrapeComponent},
   {path: 'detail/:id', component: RecipeDetailComponent},
   {path: 'favorites', component: UserFavoritesComponent, canActivate: [AuthGuard]},
   {path: 'preferences', component: UserPreferencesComponent, canActivate: [AuthGuard]},

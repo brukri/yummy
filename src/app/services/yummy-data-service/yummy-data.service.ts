@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SpoonacularService } from '../spoonacular/spoonacular.service';
 import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
-import { map } from 'rxjs/operators';
-import { Observable, empty } from 'rxjs';
+import { map, concatAll, concatMap, mergeMap, mergeAll } from 'rxjs/operators';
+import { Observable, empty, forkJoin } from 'rxjs';
 
 export interface Recipe {
   id: string;
@@ -56,6 +56,12 @@ export interface Ingredient {
   name: string;
   amount: number;
   unit: string;
+}
+
+export interface IngredientResult {
+  id: string;
+  name: string;
+  aisle: string;
 }
 
 export interface WinePairing {
@@ -171,13 +177,17 @@ export class YummyDataService {
   autoCompleteIngredient(
     ingredient: String,
     numberOfResults: number
-  ): Observable<[string]> {
+  ): Observable<[IngredientResult]> {
     return this.spoonacularService
-      .autoCompleteIngredient(ingredient, numberOfResults)
+      .autoCompleteIngredient(ingredient, numberOfResults, true)
       .pipe(
         map(result => {
           return result.map(item => {
-            return item.name;
+            return {
+              id: item.id,
+              name: item.name,
+              aisle: item.aisle
+            };
           });
         })
       );
@@ -228,6 +238,19 @@ export class YummyDataService {
         return {
           text: result.text
         };
+      })
+    );
+  }
+
+  findRecipesByDishPairingForGrape(grape): Observable<[Observable<Recipe>]> {
+    const dishPairings$ = this.spoonacularService.findDishPairingForGrape(grape);
+    return dishPairings$.pipe(
+      map(result => {
+        const recipe$ = result.pairings.map(pairing => {
+          return this.findRecipe(pairing, 1);
+        });
+
+        return recipe$;
       })
     );
   }

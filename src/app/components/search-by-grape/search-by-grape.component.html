@@ -1,0 +1,10 @@
+<div data-test-selector="search-by-grape-component">
+  <autocomplete-single-search
+    [placeholder]="'Search grape...'"
+    [autocompletionCallback]="autoComplete"
+    [preselectedValue]="preselectedGrape"
+    (resultChanged)="grapeChanged($event)">
+  </autocomplete-single-search>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <recipe-overview *ngIf="!isLoading" [recipes]="recipes"></recipe-overview>
+</div>

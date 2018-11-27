@@ -34,6 +34,7 @@ import { UserPreferencesComponent } from './components/user-preferences/user-pre
 import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
 import { StepDurationComponent } from './components/step-duration/step-duration.component';
 import { PostItNoteComponent } from './components/post-it-note/post-it-note.component';
+import { SearchByGrapeComponent } from './components/search-by-grape/search-by-grape.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { PostItNoteComponent } from './components/post-it-note/post-it-note.comp
     UserPreferencesComponent,
     NoDataFoundComponent,
     StepDurationComponent,
-    PostItNoteComponent
+    PostItNoteComponent,
+    SearchByGrapeComponent
   ],
   imports: [
     BrowserModule,
