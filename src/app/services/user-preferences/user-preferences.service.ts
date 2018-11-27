@@ -57,6 +57,10 @@ export class UserPreferencesService {
     return this.userMetadata.favorites || [];
   }
 
+  getNumberOfResults(): number {
+    return this.userMetadata.numberOfResults || 5;
+  }
+
   addToFavorites(id: string): void {
     this.getFavorites().push(id);
     this.saveFavorites(this.userMetadata.favorites);
@@ -86,6 +90,12 @@ export class UserPreferencesService {
   saveIntolerances(intolerances: string[]): void {
     this.updateMetadataPartial({
       intolerances
+    });
+  }
+
+  saveNumberOfResults(numberOfResults: number): void {
+    this.updateMetadataPartial({
+      numberOfResults
     });
   }
 }

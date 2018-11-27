@@ -19,4 +19,18 @@
           (change)="onToggleDiets()">{{ item.label }}</mat-slide-toggle>
       </div>
   </app-post-it-note>
+  <app-post-it-note>
+    <h1>General Settings:</h1>
+    <div>
+      Number or recipe results
+      <mat-slider
+      class="slider"
+      min="0"
+      max="100"
+      step="5"
+      thumbLabel
+      [(ngModel)]="numberOfResults"
+      (change)="onNumberOfResultsChange($event)"></mat-slider>
+    </div>
+  </app-post-it-note>
 </div>

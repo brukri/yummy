@@ -28,7 +28,7 @@ export class SearchByIngredientsComponent implements OnInit {
   updateRecipes(ingredients: string[]) {
     if (ingredients.length > 0) {
       this.isLoading = true;
-      const recipes$ = this.yummyDataService.findRecipesByIngredients(ingredients, 5);
+      const recipes$ = this.yummyDataService.findRecipesByIngredients(ingredients);
       recipes$.subscribe(resolvedRecipes => {
         this.recipes = resolvedRecipes;
         this.isLoading = false;

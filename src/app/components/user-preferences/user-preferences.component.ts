@@ -10,6 +10,7 @@ import { UserPreferencesService } from '../../services/user-preferences/user-pre
 export class UserPreferencesComponent implements OnInit {
   @Input() intoleranceOptions = Array<CheckboxItem>();
   @Input() dietOptions = Array<CheckboxItem>();
+  numberOfResults: number;
   constructor(private userPreferencesService: UserPreferencesService) { }
 
   ngOnInit() {
@@ -17,6 +18,7 @@ export class UserPreferencesComponent implements OnInit {
     this.createDiets();
     this.loadIntolerances();
     this.loadDiets();
+    this.numberOfResults = this.userPreferencesService.getNumberOfResults();
   }
 
   loadIntolerances() {
@@ -37,6 +39,10 @@ export class UserPreferencesComponent implements OnInit {
 
   onToggleDiets() {
     this.userPreferencesService.saveDiets(this.dietOptions.filter(e => e.checked).map(e => e.label));
+  }
+
+  onNumberOfResultsChange(event) {
+    this.userPreferencesService.saveNumberOfResults(event.value);
   }
 
   createDiets() {

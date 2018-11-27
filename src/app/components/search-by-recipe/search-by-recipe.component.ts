@@ -26,7 +26,7 @@ export class SearchByRecipeComponent implements OnInit {
   recipeChanged(recipe: string) {
     if (recipe) {
       this.isLoading = true;
-      const recipes$ = this.yummyDataService.findRecipe(recipe, 5);
+      const recipes$ = this.yummyDataService.findRecipe(recipe);
       recipes$.subscribe(result => {
         this.recipes = result;
         this.isLoading = false;

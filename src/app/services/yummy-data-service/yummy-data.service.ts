@@ -87,18 +87,18 @@ export interface EstimatedValues {
   providedIn: 'root'
 })
 export class YummyDataService {
-  constructor(private spoonacularService: SpoonacularService,private userPreferencesService: UserPreferencesService) {}
+  constructor(private spoonacularService: SpoonacularService, private userPreferencesService: UserPreferencesService) {}
 
   incredientImageSize = '100x100';
   // Todo: Take from prefereces
 
   findRecipesByIngredients(
     ingredients: String[],
-    numberOfResults: number
+    numberOfResults?: number
   ): Observable<Recipe[]> {
     return this.spoonacularService
       .findRecipesByIngredients(ingredients, this.userPreferencesService.getIntolerances(),
-      this.userPreferencesService.getDiets(), numberOfResults)
+      this.userPreferencesService.getDiets(), numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults())
       .pipe(
         map(result => {
           if (result.results.length === 0) {
@@ -110,8 +110,9 @@ export class YummyDataService {
       );
   }
 
-  findRecipe(recipe: string, numberOfResults: number): Observable<Recipe[]> {
-    return this.spoonacularService.findRecipe(recipe, numberOfResults).pipe(
+  findRecipe(recipe: string, numberOfResults?: number): Observable<Recipe[]> {
+    return this.spoonacularService.findRecipe(recipe,
+      numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults()).pipe(
       map(result => {
         if (result.results.length === 0) {
           return [];
@@ -246,6 +247,9 @@ export class YummyDataService {
     const dishPairings$ = this.spoonacularService.findDishPairingForGrape(grape);
     return dishPairings$.pipe(
       map(result => {
+        if (result.status === 'failure') {
+          return empty();
+        }
         const recipe$ = result.pairings.map(pairing => {
           return this.findRecipe(pairing, 1);
         });
