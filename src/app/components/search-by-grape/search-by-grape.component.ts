@@ -45,7 +45,8 @@ export class SearchByGrapeComponent implements OnInit {
   public autoComplete(value): Observable<string[]> {
     const ingredients$ = this.yummyDataService.autoCompleteIngredient(value, 100);
     return ingredients$.pipe(map(result => {
-      return result.filter(item => item.aisle === 'Alcoholic Beverages').map(item => item.name);
+      return result.filter(item => item.aisle === 'Alcoholic Beverages'
+        && item.image.toLowerCase().includes('wine')).map(item => item.name);
     }));
   }
 

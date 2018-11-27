@@ -62,6 +62,7 @@ export interface IngredientResult {
   id: string;
   name: string;
   aisle: string;
+  image: string;
 }
 
 export interface WinePairing {
@@ -187,7 +188,8 @@ export class YummyDataService {
             return {
               id: item.id,
               name: item.name,
-              aisle: item.aisle
+              aisle: item.aisle,
+              image: item.image
             };
           });
         })

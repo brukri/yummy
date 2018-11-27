@@ -72,7 +72,7 @@ export class SpoonacularService {
       params: {
         'query' : ingredient.toString(),
         'number' : numberOfResults.toString(),
-        'metaInformation': provideMetaInformation.toString()
+        'metaInformation': provideMetaInformation.toString(),
       },
     });
   }
