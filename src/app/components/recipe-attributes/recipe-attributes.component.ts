@@ -46,3 +46,4 @@ export class AttributeItem {
    this.label = label;
    this.checked = checked ? checked : false;
   }
+}
