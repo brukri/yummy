@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { switchMap, debounceTime, skipWhile } from 'rxjs/operators';
-import { Observable, empty } from 'rxjs';
+import { Observable} from 'rxjs';
 import { MatAutocompleteSelectedEvent } from '@angular/material';
 
 @Component({
@@ -21,30 +21,18 @@ export class AutocompleteSingleSearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.filteredTerms = this.inputCtrl.valueChanges.pipe(
-      debounceTime(500),
-      skipWhile(value => {
-        return value && value.length < 2;
-      }),
-      switchMap(value => {
-        if (value === null) {
-          return [];
-        }
-        return this.autocompletionCallback(value);
-      })
-     );
-
+    this.initFilteredTerms();
     this.initPreselectedValue();
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.filteredTerms = empty();
     this.resultChanged.emit(event.option.viewValue);
+    this.initFilteredTerms();
   }
 
   enterPressed() {
-    this.filteredTerms = empty();
     this.resultChanged.emit(this.inputElement.nativeElement.value);
+    this.initFilteredTerms();
   }
 
   private initPreselectedValue() {
@@ -54,6 +42,21 @@ export class AutocompleteSingleSearchComponent implements OnInit {
         this.resultChanged.emit(preselectedValue);
       }
     });
+  }
+
+  initFilteredTerms() {
+    this.filteredTerms = this.inputCtrl.valueChanges.pipe(
+      debounceTime(500),
+      skipWhile(value => {
+        return value && value.length < 2;
+      }),
+      switchMap(value => {
+        if (!value) {
+          return [];
+        }
+        return this.autocompletionCallback(value);
+      })
+     );
   }
 
 }

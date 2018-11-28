@@ -88,7 +88,7 @@ export interface EstimatedValues {
   providedIn: 'root'
 })
 export class YummyDataService {
-  constructor(private spoonacularService: SpoonacularService, private userPreferencesService: UserPreferencesService) {}
+  constructor(private spoonacularService: SpoonacularService, private userPreferencesService: UserPreferencesService) { }
 
   incredientImageSize = '100x100';
   // Todo: Take from prefereces
@@ -99,7 +99,7 @@ export class YummyDataService {
   ): Observable<Recipe[]> {
     return this.spoonacularService
       .findRecipesByIngredients(ingredients, this.userPreferencesService.getIntolerances(),
-      this.userPreferencesService.getDiets(), numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults())
+        this.userPreferencesService.getDiets(), numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults())
       .pipe(
         map(result => {
           if (result.results.length === 0) {
@@ -114,14 +114,14 @@ export class YummyDataService {
   findRecipe(recipe: string, numberOfResults?: number): Observable<Recipe[]> {
     return this.spoonacularService.findRecipe(recipe,
       numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults()).pipe(
-      map(result => {
-        if (result.results.length === 0) {
-          return [];
-        } else {
-          return result.results.map(this.transformRecipe);
-        }
-      })
-    );
+        map(result => {
+          if (result.results.length === 0) {
+            return [];
+          } else {
+            return result.results.map(this.transformRecipe);
+          }
+        })
+      );
   }
 
   getRecipesByIds(recipeIds: string[]): Observable<Recipe[]> {
@@ -129,7 +129,7 @@ export class YummyDataService {
       map(result => {
         return result.map(this.transformRecipe);
       })
-    );  
+    );
   }
 
   getRandomRecipes(): Observable<Recipe[]> {
@@ -165,10 +165,12 @@ export class YummyDataService {
           };
         }),
         instructions: response.analyzedInstructions.map(result => {
-          return{steps: result.steps.map(item => {
-              return{number: item.number, text: item.step};
-          })
-        }; }),
+          return {
+            steps: result.steps.map(item => {
+              return { number: item.number, text: item.step };
+            })
+          };
+        }),
         recipeAttributes: {
           vegetarian: response.vegetarian,
           vegan: response.vegan,
@@ -293,7 +295,8 @@ export class YummyDataService {
     return {
       id: recipeItem.id,
       title: recipeItem.title,
-      image: recipeItem.image.startsWith('http') ? recipeItem.image : 'https://spoonacular.com/recipeImages/' + recipeItem.image,
+      image: recipeItem.image && recipeItem.image.startsWith('http') ? recipeItem.image
+        : 'https://spoonacular.com/recipeImages/' + recipeItem.image,
       imageType: recipeItem.imageType,
     };
   }

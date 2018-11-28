@@ -12,13 +12,13 @@ import { debounceTime, switchMap, skipWhile } from 'rxjs/operators';
 })
 export class AutocompleteMultiSearchComponent implements OnInit {
   @Input() placeholder: string;
-  @Input() private autocompletionCallback: Function;
-  @Input() private preselectedChips: Observable<string[]>;
-  @Output() private chipListChanged: EventEmitter<string[]> = new EventEmitter();
+  @Input() autocompletionCallback: Function;
+  @Input() preselectedChips: Observable<string[]>;
+  @Output() chipListChanged: EventEmitter<string[]> = new EventEmitter();
   @ViewChild('inputRef') ingredientInput: ElementRef<HTMLInputElement>;
-  private visible = true;
-  private selectable = true;
-  private removable = true;
+  visible = true;
+  selectable = true;
+  removable = true;
   addOnBlur = false;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   inputCtrl = new FormControl();
@@ -29,18 +29,7 @@ export class AutocompleteMultiSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.filteredTerms = this.inputCtrl.valueChanges.pipe(
-      debounceTime(1000),
-      skipWhile(value => {
-        return value && value.length < 2;
-      }),
-      switchMap(value => {
-        if (value === null) {
-          return [];
-        }
-        return this.autocompletionCallback(value);
-      })
-    );
+    this.initFilteredTerms();
     this.preselectedChips.subscribe(preselectedChips => {
       if (preselectedChips.length !== this.chips.length) {
         this.chips = preselectedChips;
@@ -50,19 +39,13 @@ export class AutocompleteMultiSearchComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
+    const {value} = event;
 
-    if ((value || '').trim()) {
+    if (value) {
       this.chips.push(value.trim());
     }
 
-    if (input) {
-      input.value = '';
-    }
-
-    this.inputCtrl.setValue(null);
-    this.chipListChanged.emit(this.chips);
+    this.resetState();
   }
 
   remove(ingredient: string): void {
@@ -77,8 +60,28 @@ export class AutocompleteMultiSearchComponent implements OnInit {
   selected(event: MatAutocompleteSelectedEvent): void {
     this.chips.push(event.option.viewValue);
     this.ingredientInput.nativeElement.value = '';
+    this.resetState();
+  }
+
+  private initFilteredTerms() {
+    this.filteredTerms = this.inputCtrl.valueChanges.pipe(
+      debounceTime(500),
+      skipWhile(value => {
+        return value && value.length < 2;
+      }),
+      switchMap(value => {
+        if (!value) {
+          return [];
+        }
+        return this.autocompletionCallback(value);
+      })
+    );
+  }
+
+  private resetState() {
     this.inputCtrl.setValue(null);
     this.chipListChanged.emit(this.chips);
+    this.initFilteredTerms();
   }
 
 }
