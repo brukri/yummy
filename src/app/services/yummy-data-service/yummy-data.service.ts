@@ -129,6 +129,14 @@ export class YummyDataService {
       map(result => {
         return result.map(this.transformRecipe);
       })
+    );  
+  }
+
+  getRandomRecipes(): Observable<Recipe[]> {
+    return this.spoonacularService.getRandomRecipes().pipe(
+      map(result => {
+        return result.recipes.map(this.transformRecipe);
+      })
     );
   }
 

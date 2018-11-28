@@ -66,6 +66,16 @@ export class SpoonacularService {
     });
   }
 
+  getRandomRecipes(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/recipes/random`, {
+      headers: this.headers,
+      params: {
+        'limitLicense' : false.toString(),
+        'number': '3'
+      },
+    });
+  }
+
   autoCompleteIngredient(ingredient: String, numberOfResults: number, provideMetaInformation: boolean): Observable<any> {
     return this.http.get(`${this.baseUrl}/food/ingredients/autocomplete`, {
       headers: this.headers,

@@ -24,6 +24,8 @@
       </a>
     </div>
 </div>
+<h2>Recipes of the day  </h2>
+<recipe-overview [recipes]="recipes" *ngIf="!isLoading"></recipe-overview>
 <div class="container" fxLayout="row wrap" fxLayoutGap="2em">
   <div class="quote">
     <h2>Did you know?</h2>
