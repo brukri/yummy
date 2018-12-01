@@ -8,13 +8,16 @@
   padding: 20px;
   font-size: 20px;
 }
-
+.container {
+  justify-content: center;
+  align-items: center;
+}
 
 
 
 .card {
     background-color: #fff;
-    margin: 10px;
+    margin: 20px;
     align-content: center;
     justify-content: center;
     align-items: center;

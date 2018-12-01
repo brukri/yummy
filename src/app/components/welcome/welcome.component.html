@@ -1,5 +1,5 @@
 <div class="container" fxLayout="row wrap" fxLayoutGap="2em">
-  <div >
+  <div>
     <a [routerLink]="['/searchByIngredients']">
       <div class="card">
         <div class="incredients"><mat-icon class="icon">search</mat-icon></div>
@@ -7,7 +7,7 @@
       </div>
     </a>
   </div>
-  <div >
+  <div>
     <a [routerLink]="['/searchByRecipe']">
       <div class="card">
         <mat-icon class="icon">search</mat-icon>
@@ -16,19 +16,17 @@
     </a>
   </div>
   <div>
-      <a [routerLink]="['/searchByGrape']">
-        <div class="card">
-          <mat-icon class="icon">search</mat-icon>
-          <div class="card-title">Search by grape</div>
-        </div>
-      </a>
-    </div>
-</div>
-<h2>Recipes of the day  </h2>
-<recipe-overview [recipes]="recipes" *ngIf="!isLoading"></recipe-overview>
-<div class="container" fxLayout="row wrap" fxLayoutGap="2em">
-  <div class="quote">
-    <h2>Did you know?</h2>
-    <blockquote>"{{trivia}}"</blockquote>
+    <a [routerLink]="['/searchByGrape']">
+      <div class="card">
+        <mat-icon class="icon">search</mat-icon>
+        <div class="card-title">Search by grape</div>
+      </div>
+    </a>
   </div>
+</div>
+<h1>Recipes of the day</h1>
+<recipe-overview [recipes]="recipes" *ngIf="!isLoading"></recipe-overview>
+<div class="quote">
+  <h2>Did you know?</h2>
+  <blockquote>"{{ trivia }}"</blockquote>
 </div>
