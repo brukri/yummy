@@ -32,7 +32,7 @@ export class SearchByIngredientsComponent implements OnInit {
     );
   }
 
-  get ShowMore(): boolean {
+  get CanShowMore(): boolean {
     return this.recipes && this.recipes.length > 0 && !this.isLoading;
   }
 
