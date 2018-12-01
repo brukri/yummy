@@ -20,7 +20,7 @@ export class SpoonacularService {
     this.baseUrl = environment.spoonacular.baseUrl;
   }
 
-  findRecipesByIngredients(ingredients: String[], intolerances: String[], diets: String[], numberOfResults: number,startIndex=0): Observable<any> {
+  findRecipesByIngredients(ingredients: String[], intolerances: String[], diets: String[], numberOfResults: number, startIndex = 0): Observable<any> {
     return this.http.get(`${this.baseUrl}/recipes/searchComplex`, {
       headers: this.headers,
       params: {
@@ -35,12 +35,13 @@ export class SpoonacularService {
     });
   }
 
-  findRecipe(recipe: string, numberOfResults: number): Observable<any> {
+  findRecipe(recipe: string, numberOfResults: number, startIndex = 0): Observable<any> {
     return this.http.get(`${this.baseUrl}/recipes/search`, {
       headers: this.headers,
       params: {
         'query' : recipe,
         'number' : numberOfResults.toString(),
+        'offset' : startIndex.toString(),
         'ranking': '1'
       },
     });

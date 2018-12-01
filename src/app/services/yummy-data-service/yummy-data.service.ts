@@ -112,9 +112,9 @@ export class YummyDataService {
       );
   }
 
-  findRecipe(recipe: string, numberOfResults?: number): Observable<Recipe[]> {
+  findRecipe(recipe: string, numberOfResults?: number, startIndex: number = 0): Observable<Recipe[]> {
     return this.spoonacularService.findRecipe(recipe,
-      numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults()).pipe(
+      numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults(), startIndex).pipe(
         map(result => {
           if (result.results.length === 0) {
             return [];

@@ -7,4 +7,5 @@
   </autocomplete-single-search>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
   <recipe-overview *ngIf="!isLoading" [recipes]="recipes"></recipe-overview>
+  <button mat-button *ngIf="CanShowMore" (click)="loadMore()">Show more</button>
 </div>

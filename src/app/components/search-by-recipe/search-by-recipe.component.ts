@@ -11,6 +11,7 @@ const SELECTED_RECIPE_KEY = 'selectedRecipe';
 })
 export class SearchByRecipeComponent implements OnInit {
   recipes: Recipe[];
+   usedName: string;
   preselectedRecipe: Observable<string>;
   isLoading = false;
 
@@ -23,18 +24,30 @@ export class SearchByRecipeComponent implements OnInit {
     this.preselectedRecipe = this.routeService.getQueryParamObservable(SELECTED_RECIPE_KEY);
   }
 
-  recipeChanged(recipe: string) {
+  recipeChanged(recipe: string, startIndex: number = 0) {
+    if (startIndex === 0) {
+      this.recipes = new Array<Recipe>();
+    }
     if (recipe) {
+      this.usedName = recipe;
       this.isLoading = true;
-      const recipes$ = this.yummyDataService.findRecipe(recipe);
+      const recipes$ = this.yummyDataService.findRecipe(recipe, null, startIndex);
       recipes$.subscribe(result => {
-        this.recipes = result;
+        result.forEach(e => this.recipes.push(e));
         this.isLoading = false;
       });
     } else {
       this.recipes = null;
     }
     this.routeService.updateQueryParam(SELECTED_RECIPE_KEY, recipe);
+  }
+
+  loadMore() {
+    this.recipeChanged(this.usedName, this.recipes.length);
+  }
+
+  get CanShowMore(): boolean {
+    return this.recipes && this.recipes.length > 0 && !this.isLoading;
   }
 
   public autoComplete(value): Observable<string[]> {
