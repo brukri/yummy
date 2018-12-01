@@ -3,4 +3,5 @@
     [preselectedChips]="preselectedIngredients$" (chipListChanged)="updateRecipes($event)"></autocomplete-multi-search>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
   <recipe-overview *ngIf="!isLoading" [recipes]="recipes"></recipe-overview>
+  <button mat-button *ngIf="ShowMore" (click)="loadMore()">Show more</button>
 </div>
