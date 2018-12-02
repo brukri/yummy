@@ -34,6 +34,9 @@ export class SearchByGrapeComponent implements OnInit {
         result.forEach(item => item.subscribe(recipe => {
           this.recipes.push(recipe[0]);
         }));
+      }, err => {
+
+      }, () => {
         this.isLoading = false;
       });
     } else {

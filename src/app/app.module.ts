@@ -8,7 +8,7 @@ import {MaterialModule} from './material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AppRouters} from './app.routes';
 
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SearchByIngredientsComponent } from './components/search-by-ingredients/search-by-ingredients.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
@@ -35,6 +35,7 @@ import { NoDataFoundComponent } from './components/no-data-found/no-data-found.c
 import { StepDurationComponent } from './components/step-duration/step-duration.component';
 import { PostItNoteComponent } from './components/post-it-note/post-it-note.component';
 import { SearchByGrapeComponent } from './components/search-by-grape/search-by-grape.component';
+import { HttpHeaderInterceptorService } from './services/spoonacular/http-header-interceptor.service';
 
 
 @NgModule({
@@ -75,7 +76,11 @@ import { SearchByGrapeComponent } from './components/search-by-grape/search-by-g
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,     {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpHeaderInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

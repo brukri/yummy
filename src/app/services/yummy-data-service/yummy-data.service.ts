@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SpoonacularService } from '../spoonacular/spoonacular.service';
 import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
-import { map, concatAll, concatMap, mergeMap, mergeAll } from 'rxjs/operators';
-import { Observable, empty, forkJoin } from 'rxjs';
+import { map, concatAll, concatMap, mergeMap, mergeAll, catchError } from 'rxjs/operators';
+import { Observable, empty, forkJoin, of } from 'rxjs';
 
 export interface Recipe {
   id: string;
@@ -268,6 +268,9 @@ export class YummyDataService {
         });
 
         return recipe$;
+      }),
+      catchError(err => {
+        return of([]);
       })
     );
   }
