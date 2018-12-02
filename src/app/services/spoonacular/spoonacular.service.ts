@@ -72,7 +72,7 @@ export class SpoonacularService {
       headers: this.headers,
       params: {
         'limitLicense' : false.toString(),
-        'number': '2'
+        'number': '3'
       },
     });
   }
