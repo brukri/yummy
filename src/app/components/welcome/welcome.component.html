@@ -1,32 +1,38 @@
-<div class="container" fxLayout="row wrap" fxLayoutGap="2em">
+<div class="welcome-container" fxLayout="row wrap" fxLayoutGap="2em">
   <div>
     <a [routerLink]="['/searchByIngredients']">
-      <div class="card">
-        <div class="incredients"><mat-icon class="icon">search</mat-icon></div>
-        <div class="card-title">Search by incredients</div>
+      <div class="welcome-card">
+          <div class="welcome-card-title">Search by incredients</div>
+        <img class="welcome-card-image" src="../../../assets/incredients.jpg">
+        <div class="welcome-card-text">Search for any combination of incredients. E.g. basil, chicken, tomatos...</div>
       </div>
     </a>
   </div>
   <div>
     <a [routerLink]="['/searchByRecipe']">
-      <div class="card">
-        <mat-icon class="icon">search</mat-icon>
-        <div class="card-title">Search by recipe name</div>
+      <div class="welcome-card">
+          <div class="welcome-card-title">Search by recipe name</div>
+          <img class="welcome-card-image" src="../../../assets/recipes.jpg">
+        <div class="welcome-card-text">Search for a recipe name. E.g. lasagne, steak, salad...</div>
       </div>
     </a>
   </div>
   <div>
     <a [routerLink]="['/searchByGrape']">
-      <div class="card">
-        <mat-icon class="icon">search</mat-icon>
-        <div class="card-title">Search by grape</div>
+      <div class="welcome-card">
+          <div class="welcome-card-title">Search by grape</div>
+          <img class="welcome-card-image" src="../../../assets/grapes.jpg">
+        <div class="welcome-card-text">Search for a grape name. E.g. merlot, pinot noir, syrah...</div>
       </div>
     </a>
   </div>
-</div>
-<h1>Recipes of the day</h1>
-<recipe-overview [recipes]="recipes" *ngIf="!isLoading"></recipe-overview>
-<div class="quote">
-  <h2>Did you know?</h2>
-  <blockquote>"{{ trivia }}"</blockquote>
+  <div>
+    <h1>Recipes of the day</h1>
+    <recipe-overview [recipes]="recipes" *ngIf="!isLoading"></recipe-overview>
+  </div>
+
+  <div class="quote">
+    <h2>Did you know?</h2>
+    <blockquote>"{{ trivia }}"</blockquote>
+  </div>
 </div>
