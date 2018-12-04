@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SpoonacularService } from '../spoonacular/spoonacular.service';
 import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
-import { map, concatAll, concatMap, mergeMap, mergeAll, catchError } from 'rxjs/operators';
-import { Observable, empty, forkJoin, of } from 'rxjs';
+import { map, concatAll } from 'rxjs/operators';
+import { Observable, concat } from 'rxjs';
 
 export interface Recipe {
   id: string;
@@ -256,22 +256,17 @@ export class YummyDataService {
     );
   }
 
-  findRecipesByDishPairingForGrape(grape): Observable<[Observable<Recipe>]> {
+  findRecipesByDishPairingForGrape(grape): Observable<any> {
     const dishPairings$ = this.spoonacularService.findDishPairingForGrape(grape);
     return dishPairings$.pipe(
       map(result => {
-        if (result.status === 'failure') {
-          return empty();
-        }
         const recipe$ = result.pairings.map(pairing => {
           return this.findRecipe(pairing, 1);
         });
 
-        return recipe$;
+        return concat(...recipe$);
       }),
-      catchError(err => {
-        return of([]);
-      })
+      concatAll(),
     );
   }
 

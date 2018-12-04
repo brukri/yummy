@@ -28,14 +28,14 @@ export class SearchByGrapeComponent implements OnInit {
   grapeChanged(grape: string) {
     if (grape) {
       this.isLoading = true;
+      this.recipes = [];
       const recipes$ = this.yummyDataService.findRecipesByDishPairingForGrape(grape);
       recipes$.subscribe(result => {
-        this.recipes = [];
-        result.forEach(item => item.subscribe(recipe => {
-          this.recipes.push(recipe[0]);
-        }));
+        if (result.length > 0) {
+          this.recipes.push(result[0]);
+        }
       }, err => {
-
+        this.isLoading = false;
       }, () => {
         this.isLoading = false;
       });

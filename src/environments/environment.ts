@@ -12,7 +12,7 @@ export const environment = {
     scope: 'openid profile email read:current_user read:current_user_metadata update:current_user_metadata'
   },
   spoonacular: {
-    baseUrl: 'http://localhost:3100'
+    baseUrl: 'http://yummy:3200'
   }
 };
 
