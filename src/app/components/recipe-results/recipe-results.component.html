@@ -1,0 +1,6 @@
+<div>
+  <app-no-data-found *ngIf="recipes?.length === 0 && !isLoading" data-test-selector="no-data-found-component"></app-no-data-found>
+  <recipe-overview *ngIf="recipes?.length > 0" [recipes]="recipes"></recipe-overview>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <button mat-button *ngIf="CanShowMore" (click)="loadMore()">Show more</button>
+</div>

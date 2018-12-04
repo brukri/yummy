@@ -11,9 +11,9 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
 })
 export class AutocompleteSingleSearchComponent implements OnInit {
   @Input() placeholder: string;
-  @Input() private autocompletionCallback: Function;
-  @Input() private preselectedValue: Observable<string>;
-  @Output() private resultChanged: EventEmitter<string> = new EventEmitter();
+  @Input() autocompletionCallback: Function;
+  @Input() preselectedValue: Observable<string>;
+  @Output() resultChanged: EventEmitter<string> = new EventEmitter();
   @ViewChild('inputRef') private inputElement: ElementRef<HTMLInputElement>;
   inputCtrl = new FormControl();
   filteredTerms: Observable<string[]>;

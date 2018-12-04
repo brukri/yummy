@@ -5,6 +5,8 @@
     [preselectedValue]="preselectedGrape"
     (resultChanged)="grapeChanged($event)">
   </autocomplete-single-search>
-  <mat-spinner *ngIf="isLoading"></mat-spinner>
-  <recipe-overview *ngIf="!isLoading" [recipes]="recipes"></recipe-overview>
+  <app-recipe-results
+    [recipes]="recipes"
+    [isLoading]="isLoading">
+  </app-recipe-results>
 </div>

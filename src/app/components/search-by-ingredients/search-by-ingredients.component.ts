@@ -32,10 +32,6 @@ export class SearchByIngredientsComponent implements OnInit {
     );
   }
 
-  get CanShowMore(): boolean {
-    return this.recipes && this.recipes.length > 0 && !this.isLoading;
-  }
-
   updateRecipes(ingredients: string[], startIndex: number = 0) {
     if (startIndex === 0) {
       this.recipes = new Array<Recipe>();
@@ -44,13 +40,12 @@ export class SearchByIngredientsComponent implements OnInit {
     if (ingredients.length > 0) {
       this.usedIngredients = ingredients;
       this.isLoading = true;
-      const recipes$ = this.yummyDataService.findRecipesByIngredients(
-        ingredients,
-        null,
-        startIndex
-      );
-      recipes$.subscribe(resolvedRecipes => {
+      const recipes$ = this.yummyDataService.findRecipesByIngredients(ingredients, startIndex);
+      recipes$.subscribe((resolvedRecipes) => {
         resolvedRecipes.forEach(e => this.recipes.push(e));
+      }, err => {
+        this.isLoading = false;
+      }, () => {
         this.isLoading = false;
       });
     } else {

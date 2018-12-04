@@ -40,7 +40,7 @@ export class SearchByGrapeComponent implements OnInit {
         this.isLoading = false;
       });
     } else {
-      this.recipes = null;
+      this.recipes = [];
     }
     this.routeService.updateQueryParam(SELECTED_GRAPE_KEY, grape);
   }

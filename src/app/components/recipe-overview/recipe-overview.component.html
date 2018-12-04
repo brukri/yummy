@@ -1,10 +1,6 @@
-<div>
-  <div *ngIf="recipes?.length > 0">
+
     <div fxLayout="row wrap" fxLayoutGap="2em" fxLayout.lt-md="column">
         <div *ngFor="let recipe of recipes">
             <recipe-card [recipe]="recipe" data-test-selector="recipe-card-component"></recipe-card>
         </div>
     </div>
-  </div>
-  <app-no-data-found *ngIf="recipes?.length === 0" data-test-selector="no-data-found-component"></app-no-data-found>
-</div>

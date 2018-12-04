@@ -1,7 +1,14 @@
 <div data-test-selector="search-by-ingredients-component">
-  <autocomplete-multi-search [placeholder]="'Search ingredients...'" [autocompletionCallback]="autoComplete"
-    [preselectedChips]="preselectedIngredients$" (chipListChanged)="updateRecipes($event)"></autocomplete-multi-search>
-  <mat-spinner *ngIf="isLoading"></mat-spinner>
-  <recipe-overview *ngIf="!isLoading" [recipes]="recipes"></recipe-overview>
-  <button mat-button *ngIf="CanShowMore" (click)="loadMore()">Show more</button>
+  <autocomplete-multi-search
+    [placeholder]="'Search ingredients...'"
+    [autocompletionCallback]="autoComplete"
+    [preselectedChips]="preselectedIngredients$"
+    (chipListChanged)="updateRecipes($event)">
+  </autocomplete-multi-search>
+  <app-recipe-results
+    [recipes]="recipes"
+    [isLoading]="isLoading"
+    [canLoadMore]="true"
+    (loadMoreButtonPressed)="loadMore()">
+  </app-recipe-results>
 </div>
