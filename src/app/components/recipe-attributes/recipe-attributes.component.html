@@ -2,14 +2,14 @@
   <div *ngFor="let item of attributes" class="attribute-div">
     <div *ngIf="item.checked; else: notApplicable">
       <div>
-      <mat-icon class="green-icon">check_circle</mat-icon>
-      <label class="underline-lable">{{ item.label }}</label>
-    </div>
+        <mat-icon class="green-icon">check_circle</mat-icon>
+        <label class="underline-lable">{{ item.label }}</label>
+      </div>
     </div>
     <ng-template #notApplicable>
-        <div>
-      <mat-icon class="red-icon">cancel</mat-icon>
-      <label>{{ item.label }}</label>
+      <div>
+        <mat-icon class="red-icon">cancel</mat-icon>
+        <label>{{ item.label }}</label>
       </div>
     </ng-template>
   </div>

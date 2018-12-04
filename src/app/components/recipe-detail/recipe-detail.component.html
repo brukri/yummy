@@ -18,26 +18,8 @@
         <instructions-list fxFlex="<grow>" [instructions]="recipeDetail.instructions" data-test-selector="recipe-detail-instructions-list"></instructions-list>
       </div>
       <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-        <recipe-attributes [recipeAttributes]="recipeDetail.recipeAttributes" data-test-selector="recipe-detail-attributes"></recipe-attributes>
-        <div class="expansion-panel-margin">
-          <mat-expansion-panel class="expansion-panel" [disabled]="isWinePairingPanelDisabled()">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Wine Pairings
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <app-wine-pairing [winePairing]="recipeDetail.winePairing"></app-wine-pairing>
-          </mat-expansion-panel>
-          <mat-expansion-panel class="expansion-panel" [disabled]="isNutritionPanelDisabled()" (opened)=onNutritionPanelOpen()>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Estimated Nutrition
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-spinner *ngIf="!nutrition"></mat-spinner>
-            <app-nutrition [nutrition]="nutrition"></app-nutrition>
-          </mat-expansion-panel>
-        </div>
+        <recipe-attributes fxFlex="25%" [recipeAttributes]="recipeDetail.recipeAttributes" data-test-selector="recipe-detail-attributes"></recipe-attributes>
+        <app-additional-information fxFlex="<grow>" [winePairing]="recipeDetail.winePairing" [nutrition]="nutrition" (nutritionPanelOpenEvent)="onNutritionPanelOpen()"></app-additional-information>
       </div>
     </div>
   </div>

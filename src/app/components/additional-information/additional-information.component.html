@@ -1,0 +1,19 @@
+<app-post-it-note fxFlex="<grow>" title="Additional Information">
+  <mat-expansion-panel class="expansion-panel" [disabled]="isWinePairingPanelDisabled()">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Wine Pairings
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-wine-pairing [winePairing]="winePairing"></app-wine-pairing>
+  </mat-expansion-panel>
+  <mat-expansion-panel class="expansion-panel" (opened)="onNutritionPanelOpen()">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Estimated Nutrition
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-spinner *ngIf="!nutrition"></mat-spinner>
+    <app-nutrition [nutrition]="nutrition"></app-nutrition>
+  </mat-expansion-panel>
+</app-post-it-note>

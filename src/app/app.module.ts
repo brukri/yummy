@@ -37,6 +37,7 @@ import { PostItNoteComponent } from './components/post-it-note/post-it-note.comp
 import { SearchByGrapeComponent } from './components/search-by-grape/search-by-grape.component';
 import { HttpHeaderInterceptorService } from './services/spoonacular/http-header-interceptor.service';
 import { RecipeResultsComponent } from './components/recipe-results/recipe-results.component';
+import { AdditionalInformationComponent } from './components/additional-information/additional-information.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { RecipeResultsComponent } from './components/recipe-results/recipe-resul
     StepDurationComponent,
     PostItNoteComponent,
     SearchByGrapeComponent,
-    RecipeResultsComponent
+    RecipeResultsComponent,
+    AdditionalInformationComponent
   ],
   imports: [
     BrowserModule,
