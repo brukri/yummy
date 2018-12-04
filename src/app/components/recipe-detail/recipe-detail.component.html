@@ -5,19 +5,20 @@
       <app-step-duration [step]="'Preparation'" [duration]="recipeDetail.preparationMinutes"></app-step-duration>
       <app-step-duration [step]="'Cooking'" [duration]="recipeDetail.cookingMinutes"></app-step-duration>
     </div>
-    <mat-button-toggle *ngIf="shouldDisplayFavoriteButton()" [checked]="isFavorite" (change)="onFavoriteChange(value)" class="favorite-button">
+    <mat-button-toggle *ngIf="shouldDisplayFavoriteButton()" [checked]="isFavorite" (change)="onFavoriteChange(value)"
+      class="favorite-button">
       <mat-icon>favorite</mat-icon>
     </mat-button-toggle>
     <div fxLayout="column">
-        <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-          <ingredients-list fxFlex="25%" [ingredients]="recipeDetail.ingredients" data-test-selector="recipe-detail-ingredients-list"></ingredients-list>
-          <app-post-it-note>
-            <img src={{recipeDetail.image}} data-test-selector="recipe-detail-img" />
-          </app-post-it-note>
-          <instructions-list fxFlex="35%" [instructions]="recipeDetail.instructions" data-test-selector="recipe-detail-instructions-list"></instructions-list>
+      <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
+        <ingredients-list fxFlex="25%" [ingredients]="recipeDetail.ingredients" data-test-selector="recipe-detail-ingredients-list"></ingredients-list>
+        <app-post-it-note>
+          <img src={{recipeDetail.image}} data-test-selector="recipe-detail-img" />
+        </app-post-it-note>
+        <instructions-list fxFlex="<grow>" [instructions]="recipeDetail.instructions" data-test-selector="recipe-detail-instructions-list"></instructions-list>
       </div>
       <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-        <recipe-attributes fxFlexOffset="2em" [recipeAttributes]="recipeDetail.recipeAttributes" data-test-selector="recipe-detail-attributes"></recipe-attributes>
+        <recipe-attributes [recipeAttributes]="recipeDetail.recipeAttributes" data-test-selector="recipe-detail-attributes"></recipe-attributes>
         <div class="expansion-panel-margin">
           <mat-expansion-panel class="expansion-panel" [disabled]="isWinePairingPanelDisabled()">
             <mat-expansion-panel-header>

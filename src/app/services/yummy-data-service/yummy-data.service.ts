@@ -99,8 +99,11 @@ export class YummyDataService {
     numberOfResults?: number
   ): Observable<Recipe[]> {
     return this.spoonacularService
-      .findRecipesByIngredients(ingredients, this.userPreferencesService.getIntolerances(),
-        this.userPreferencesService.getDiets(), numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults(), startIndex)
+      .findRecipesByIngredients(ingredients,
+        this.userPreferencesService.getIntolerances(),
+        this.userPreferencesService.getDiets(),
+        numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults(),
+        startIndex)
       .pipe(
         map(result => {
           if (result.results.length === 0) {
@@ -116,7 +119,8 @@ export class YummyDataService {
     startIndex: number = 0,
     numberOfResults?: number): Observable<Recipe[]> {
     return this.spoonacularService.findRecipe(recipe,
-      numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults(), startIndex).pipe(
+        numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults(),
+        startIndex).pipe(
         map(result => {
           if (result.results.length === 0) {
             return [];

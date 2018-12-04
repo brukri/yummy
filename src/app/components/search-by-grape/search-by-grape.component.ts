@@ -26,9 +26,10 @@ export class SearchByGrapeComponent implements OnInit {
   }
 
   grapeChanged(grape: string) {
+    this.recipes = [];
+
     if (grape) {
       this.isLoading = true;
-      this.recipes = [];
       const recipes$ = this.yummyDataService.findRecipesByDishPairingForGrape(grape);
       recipes$.subscribe(result => {
         if (result.length > 0) {
@@ -39,8 +40,6 @@ export class SearchByGrapeComponent implements OnInit {
       }, () => {
         this.isLoading = false;
       });
-    } else {
-      this.recipes = [];
     }
     this.routeService.updateQueryParam(SELECTED_GRAPE_KEY, grape);
   }
