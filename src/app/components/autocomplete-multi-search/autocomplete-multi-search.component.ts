@@ -59,7 +59,6 @@ export class AutocompleteMultiSearchComponent implements OnInit {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     this.chips.push(event.option.viewValue);
-    this.ingredientInput.nativeElement.value = '';
     this.resetState();
   }
 
@@ -82,6 +81,7 @@ export class AutocompleteMultiSearchComponent implements OnInit {
     this.inputCtrl.setValue(null);
     this.chipListChanged.emit(this.chips);
     this.initFilteredTerms();
+    this.ingredientInput.nativeElement.value = '';
   }
 
 }
