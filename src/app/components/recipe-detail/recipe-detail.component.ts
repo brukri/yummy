@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { YummyDataService,RecipeDetails, WinePairing, Nutrition } from '../../services/yummy-data-service/yummy-data.service';
+import { YummyDataService, RecipeDetails, WinePairing, Nutrition } from '../../services/yummy-data-service/yummy-data.service';
 import { Observable, empty } from 'rxjs';
 import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -23,7 +23,8 @@ export class RecipeDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private location: Location, private yummyDataService: YummyDataService,
     private userPreferencesService: UserPreferencesService, private authService: AuthService) { }
-   ngOnInit() {
+  ngOnInit() {
+    this.nutrition = null;
     this.loadRecipe();
   }
 
@@ -38,15 +39,7 @@ export class RecipeDetailComponent implements OnInit {
     this.isFavorite = this.userPreferencesService.isFavorite(id.toString());
   }
 
-  isWinePairingPanelDisabled(): boolean {
-    return !(this.recipeDetail && this.recipeDetail.winePairing);
-  }
-
-  isNutritionPanelDisabled(): boolean {
-    return false;
-  }
-
-  public onFavoriteChange() {
+  onFavoriteChange() {
     this.isFavorite = !this.isFavorite;
     if (this.isFavorite) {
       this.userPreferencesService.addToFavorites(this.recipeDetail.id.toString());
@@ -55,15 +48,15 @@ export class RecipeDetailComponent implements OnInit {
     }
   }
 
-  onNutritionPanelOpen() {
+  shouldDisplayFavoriteButton() {
+    return this.authService.isLoggedIn;
+  }
+
+  onNutritionPanelPressed() {
     if (!this.nutrition) {
       this.recipeDetail$.subscribe(recipeDetail => {
         this.yummyDataService.guessNutritionByRecipe(recipeDetail.title).subscribe(nutrition => this.nutrition = nutrition);
       });
     }
-  }
-
-  shouldDisplayFavoriteButton () {
-    return this.authService.isLoggedIn;
   }
 }
