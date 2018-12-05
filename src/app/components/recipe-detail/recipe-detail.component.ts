@@ -52,7 +52,7 @@ export class RecipeDetailComponent implements OnInit {
     return this.authService.isLoggedIn;
   }
 
-  onNutritionPanelPressed() {
+  onNutritionPanelOpen() {
     if (!this.nutrition) {
       this.recipeDetail$.subscribe(recipeDetail => {
         this.yummyDataService.guessNutritionByRecipe(recipeDetail.title).subscribe(nutrition => this.nutrition = nutrition);
