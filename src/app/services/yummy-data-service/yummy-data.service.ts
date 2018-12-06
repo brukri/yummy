@@ -242,6 +242,9 @@ export class YummyDataService {
   guessNutritionByRecipe(recipeTitle: string): Observable<Nutrition> {
     return this.spoonacularService.guessNutritionByRecipe(recipeTitle).pipe(
       map(result => {
+        if (result.status === 'error') {
+          return null;
+        }
         return {
           calories: this.createEstimatedValues(result.calories),
           fat: this.createEstimatedValues(result.fat),

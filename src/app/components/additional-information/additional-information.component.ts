@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { WinePairing, Nutrition } from 'src/app/services/yummy-data-service/yummy-data.service';
 
 @Component({
@@ -6,14 +6,23 @@ import { WinePairing, Nutrition } from 'src/app/services/yummy-data-service/yumm
   templateUrl: './additional-information.component.html',
   styleUrls: ['./additional-information.component.css']
 })
-export class AdditionalInformationComponent implements OnInit {
+export class AdditionalInformationComponent implements OnChanges {
   @Input() winePairing: WinePairing;
-  @Input() nutrition: Nutrition;
+  @Input() nutrition$: Nutrition;
   @Output() nutritionPanelOpenEvent: EventEmitter<string> = new EventEmitter();
+  isLoading = false;
+  nutrition: Nutrition;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.nutrition$ && changes.nutrition$.currentValue) {
+      changes.nutrition$.currentValue.subscribe(
+        nutrition => this.nutrition = nutrition,
+        err => this.isLoading = false,
+        () => this.isLoading = false
+      );
+    }
   }
 
   isWinePairingPanelDisabled(): boolean {
@@ -21,6 +30,9 @@ export class AdditionalInformationComponent implements OnInit {
   }
 
   onNutritionPanelOpen() {
-    this.nutritionPanelOpenEvent.emit();
+    if (!this.nutrition) {
+      this.isLoading = true;
+      this.nutritionPanelOpenEvent.emit();
+    }
   }
 }

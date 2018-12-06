@@ -13,7 +13,7 @@
         Estimated Nutrition
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <mat-spinner *ngIf="!nutrition"></mat-spinner>
-    <app-nutrition [nutrition]="nutrition"></app-nutrition>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <app-nutrition *ngIf="nutrition" [nutrition]="nutrition"></app-nutrition>
   </mat-expansion-panel>
 </app-post-it-note>

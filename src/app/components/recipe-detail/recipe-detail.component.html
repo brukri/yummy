@@ -19,7 +19,7 @@
       </div>
       <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
         <recipe-attributes fxFlex="25%" [recipeAttributes]="recipeDetail.recipeAttributes" data-test-selector="recipe-detail-attributes"></recipe-attributes>
-        <app-additional-information fxFlex="<grow>" [winePairing]="recipeDetail.winePairing" [nutrition]="nutrition" (nutritionPanelOpenEvent)="onNutritionPanelOpen()"></app-additional-information>
+        <app-additional-information fxFlex="<grow>" [winePairing]="recipeDetail.winePairing" [nutrition$]="nutrition$" (nutritionPanelOpenEvent)="onNutritionPanelOpen()"></app-additional-information>
       </div>
     </div>
   </div>

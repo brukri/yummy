@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 
 export class RecipeDetailComponent implements OnInit {
-  nutrition: Nutrition;
+  nutrition$: Observable<Nutrition>;
   recipeDetail: RecipeDetails;
   recipeDetail$: Observable<RecipeDetails>;
   isFavorite: boolean;
@@ -24,7 +24,7 @@ export class RecipeDetailComponent implements OnInit {
     private location: Location, private yummyDataService: YummyDataService,
     private userPreferencesService: UserPreferencesService, private authService: AuthService) { }
   ngOnInit() {
-    this.nutrition = null;
+    this.nutrition$ = null;
     this.loadRecipe();
   }
 
@@ -53,10 +53,8 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onNutritionPanelOpen() {
-    if (!this.nutrition) {
-      this.recipeDetail$.subscribe(recipeDetail => {
-        this.yummyDataService.guessNutritionByRecipe(recipeDetail.title).subscribe(nutrition => this.nutrition = nutrition);
-      });
-    }
+    this.recipeDetail$.subscribe(recipeDetail => {
+      this.nutrition$ = this.yummyDataService.guessNutritionByRecipe(recipeDetail.title);
+    });
   }
 }
