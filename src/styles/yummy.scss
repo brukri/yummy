@@ -105,10 +105,6 @@ h2 {
   min-width: 6em;
 }
 
-image {
-  margin: 0px;
-}
-
 .expansion-panel {
   background: $color-grey;
   min-width: 18em;
@@ -117,12 +113,6 @@ image {
 .mat-button-toggle.mat-button-toggle-checked {
   background-color: $color-green;
   margin: 10px;
-}
-
-.mat-button {
-  background-color: $color-green;
-  color: $color-green;
-  margin: 20px;
 }
 
 .underline-lable {
