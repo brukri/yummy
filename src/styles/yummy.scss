@@ -1,8 +1,8 @@
-@import "yummy-variables";
+@import 'yummy-variables';
 
 @font-face {
   font-display: swap;
-  font-family: "Indie Flower";
+  font-family: $default-font-family;
   src: url("https://fonts.gstatic.com/s/indieflower/v9/m8JVjfNVeKWVnh3QMuKkFcZVaUuH99GUDg.woff2");
 }
 
@@ -13,7 +13,7 @@
 
 * {
   box-sizing: inherit;
-  font-family: "Indie Flower";
+  font-family: $default-font-family;
   color: $color-whitesmoke;
 }
 
