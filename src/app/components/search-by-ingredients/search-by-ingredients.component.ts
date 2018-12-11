@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { Observable, empty } from "rxjs";
+import { Component, OnInit } from '@angular/core';
+import { Observable, empty } from 'rxjs';
 import {
   YummyDataService,
   Recipe
-} from "../../services/yummy-data-service/yummy-data.service";
-import { RouteService } from "../../services/route-service/route.service";
-import { map } from "rxjs/operators";
+} from '../../services/yummy-data-service/yummy-data.service';
+import { RouteService } from '../../services/route-service/route.service';
+import { map } from 'rxjs/operators';
 import {NUMBER_OF_RESULTS} from '../../yummyConstants';
 
-const SELECTED_INGREDIENTS_KEY = "selectedIngredients";
+const SELECTED_INGREDIENTS_KEY = 'selectedIngredients';
 
 @Component({
-  selector: "app-search-by-ingredients",
-  templateUrl: "./search-by-ingredients.component.html",
-  styleUrls: ["./search-by-ingredients.component.css"]
+  selector: 'app-search-by-ingredients',
+  templateUrl: './search-by-ingredients.component.html',
+  styleUrls: ['./search-by-ingredients.component.css']
 })
 export class SearchByIngredientsComponent implements OnInit {
   recipes: Recipe[];

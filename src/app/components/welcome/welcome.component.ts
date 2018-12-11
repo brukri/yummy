@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { YummyDataService, FoodTrivia,Recipe} from '../../services/yummy-data-service/yummy-data.service';
+import { YummyDataService, FoodTrivia, Recipe} from '../../services/yummy-data-service/yummy-data.service';
 import { Observable } from 'rxjs';
 
 @Component({

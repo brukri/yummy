@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {MatCard} from '@angular/material';
 import { Recipe } from '../../services/yummy-data-service/yummy-data.service';
 import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';

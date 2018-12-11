@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RecipeAttributes } from '../../services/yummy-data-service/yummy-data.service';
 @Component({
   selector: 'recipe-attributes',
@@ -28,7 +28,7 @@ export class RecipeAttributesComponent implements OnInit {
       if (x.checked && y.checked) {
         return 0;
       }
-      if (x.checked){
+      if (x.checked) {
         return -1;
       }
       return 1;

@@ -17,7 +17,7 @@ export class SearchByRecipeComponent implements OnInit {
   isLoading = false;
 
   constructor(private yummyDataService: YummyDataService,
-    private routeService: RouteService) { 
+    private routeService: RouteService) {
     this.autoComplete = this.autoComplete.bind(this);
   }
 
