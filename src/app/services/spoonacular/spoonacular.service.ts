@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -13,7 +13,8 @@ export class SpoonacularService {
     this.baseUrl = environment.spoonacular.baseUrl;
   }
 
-  findRecipesByIngredients(ingredients: String[], intolerances: String[], diets: String[], numberOfResults: number, startIndex = 0): Observable<any> {
+  findRecipesByIngredients(ingredients: String[], intolerances: String[], diets: String[],
+    numberOfResults: number, startIndex = 0): Observable<any> {
     return this.http.get(`${this.baseUrl}/recipes/searchComplex`, {
       params: {
         'includeIngredients' : ingredients.join(','),
@@ -38,7 +39,7 @@ export class SpoonacularService {
     });
   }
 
-  getRecipeDetailsForIds(recipeIds : string[]): Observable<any> {
+  getRecipeDetailsForIds(recipeIds: string[]): Observable<any> {
     return this.http.get(`${this.baseUrl}/recipes/informationBulk`, {
       params: {
         'ids' : recipeIds.join(','),
@@ -47,7 +48,7 @@ export class SpoonacularService {
     });
   }
 
-  getRecipeDetailsForId(recipeId : string): Observable<any> {
+  getRecipeDetailsForId(recipeId: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/recipes/${recipeId}/information`, {
       params: {
         'id' : recipeId.toString(),

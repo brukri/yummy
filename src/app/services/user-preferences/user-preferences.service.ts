@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as auth0 from 'auth0-js';
 import { environment } from '../../../environments/environment';
+import {NUMBER_OF_RESULTS} from '../../yummyConstants';
 
 @Injectable({
   providedIn: 'root'
@@ -54,7 +55,7 @@ export class UserPreferencesService {
   }
 
   getNumberOfResults(): number {
-    return this.userMetadata.numberOfResults || 5;
+    return this.userMetadata.numberOfResults || NUMBER_OF_RESULTS;
   }
 
   addToFavorites(id: string): void {

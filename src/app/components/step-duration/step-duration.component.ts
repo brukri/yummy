@@ -5,13 +5,8 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './step-duration.component.html',
   styleUrls: ['./step-duration.component.css']
 })
-export class StepDurationComponent implements OnInit {
+export class StepDurationComponent {
   @Input() step: string;
   @Input() duration: string;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

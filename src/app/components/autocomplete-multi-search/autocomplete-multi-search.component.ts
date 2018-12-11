@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent, MatChipInputEvent } from '@angular/material';
 import { Observable } from 'rxjs';
 import { debounceTime, switchMap, skipWhile } from 'rxjs/operators';
+import {AUTOCOMPLETE_DELAY_SUGGESTION_TIME} from '../../yummyConstants';
 
 @Component({
   selector: 'autocomplete-multi-search',
@@ -64,7 +65,7 @@ export class AutocompleteMultiSearchComponent implements OnInit {
 
   private initFilteredTerms() {
     this.filteredTerms = this.inputCtrl.valueChanges.pipe(
-      debounceTime(500),
+      debounceTime(AUTOCOMPLETE_DELAY_SUGGESTION_TIME),
       skipWhile(value => {
         return value && value.length < 2;
       }),

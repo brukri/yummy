@@ -7,12 +7,8 @@ import { Observable } from 'rxjs';
   templateUrl: './nutrition.component.html',
   styleUrls: ['./nutrition.component.css']
 })
-export class NutritionComponent implements OnInit {
+export class NutritionComponent {
   @Input()
   nutrition: Nutrition;
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

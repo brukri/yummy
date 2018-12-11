@@ -7,13 +7,8 @@ import { Recipe } from '../../services/yummy-data-service/yummy-data.service';
   templateUrl: './recipe-overview.component.html',
   styleUrls: ['./recipe-overview.component.css']
 })
-export class RecipeOverviewComponent implements OnInit {
+export class RecipeOverviewComponent {
   @Input() recipes: Recipe[];
   @Input() expectData: boolean;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

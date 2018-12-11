@@ -5,11 +5,7 @@ import { Instructions,InstructionStep } from '../../services/yummy-data-service/
   templateUrl: './instructions.component.html',
   styleUrls: ['./instructions.component.css']
 })
-export class InstructionsComponent implements OnInit {
+export class InstructionsComponent {
   @Input() instructions: Instructions;
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

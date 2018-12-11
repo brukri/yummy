@@ -12,7 +12,6 @@ export class RecipeAttributesComponent implements OnInit {
   @Input() attributes = Array<AttributeItem>();
   constructor() { }
 
-
   ngOnInit() {
     this.createAttributes();
   }

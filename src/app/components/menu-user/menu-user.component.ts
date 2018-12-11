@@ -6,15 +6,11 @@ import { AuthService } from '../../services/auth/auth.service';
   templateUrl: './menu-user.component.html',
   styleUrls: ['./menu-user.component.css']
 })
-export class MenuUserComponent implements OnInit {
+export class MenuUserComponent {
 
   authService: AuthService;
 
   constructor(authService: AuthService) {
     this.authService = authService;
    }
-
-  ngOnInit() {
-  }
-
 }

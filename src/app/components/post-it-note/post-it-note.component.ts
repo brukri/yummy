@@ -5,12 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './post-it-note.component.html',
   styleUrls: ['./post-it-note.component.css']
 })
-export class PostItNoteComponent implements OnInit {
+export class PostItNoteComponent {
   @Input() title;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

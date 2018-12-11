@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { switchMap, debounceTime, skipWhile } from 'rxjs/operators';
 import { Observable} from 'rxjs';
 import { MatAutocompleteSelectedEvent } from '@angular/material';
+import {AUTOCOMPLETE_DELAY_SUGGESTION_TIME} from '../../yummyConstants';
 
 @Component({
   selector: 'autocomplete-single-search',
@@ -46,7 +47,7 @@ export class AutocompleteSingleSearchComponent implements OnInit {
 
   initFilteredTerms() {
     this.filteredTerms = this.inputCtrl.valueChanges.pipe(
-      debounceTime(500),
+      debounceTime(AUTOCOMPLETE_DELAY_SUGGESTION_TIME),
       skipWhile(value => {
         return value && value.length < 2;
       }),

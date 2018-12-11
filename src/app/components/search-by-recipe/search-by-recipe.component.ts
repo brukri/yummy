@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, empty } from 'rxjs';
 import { YummyDataService, Recipe } from '../../services/yummy-data-service/yummy-data.service';
 import { RouteService } from '../../services/route-service/route.service';
+import {NUMBER_OF_RESULTS} from '../../yummyConstants';
 
 const SELECTED_RECIPE_KEY = 'selectedRecipe';
 @Component({
@@ -50,7 +51,7 @@ export class SearchByRecipeComponent implements OnInit {
   }
 
   autoComplete(value): Observable<string[]> {
-    return this.yummyDataService.autoCompleteRecipe(value, 5);
+    return this.yummyDataService.autoCompleteRecipe(value, NUMBER_OF_RESULTS);
   }
 
 }

@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './menu-search.component.html',
   styleUrls: ['./menu-search.component.css']
 })
-export class MenuSearchComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class MenuSearchComponent {
 
 }

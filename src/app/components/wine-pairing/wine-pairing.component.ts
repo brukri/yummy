@@ -7,13 +7,8 @@ import { WinePairing } from '../../services/yummy-data-service/yummy-data.servic
   templateUrl: './wine-pairing.component.html',
   styleUrls: ['./wine-pairing.component.css']
 })
-export class WinePairingComponent implements OnInit {
+export class WinePairingComponent {
   @Input()
   winePairing: WinePairing;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

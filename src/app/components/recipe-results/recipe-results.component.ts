@@ -6,16 +6,12 @@ import { Recipe } from 'src/app/services/yummy-data-service/yummy-data.service';
   templateUrl: './recipe-results.component.html',
   styleUrls: ['./recipe-results.component.css']
 })
-export class RecipeResultsComponent implements OnInit {
+export class RecipeResultsComponent {
 
   @Input() recipes: Recipe[];
   @Input() isLoading: boolean;
   @Input() canLoadMore = false;
   @Output() loadMoreButtonPressed: EventEmitter<string> = new EventEmitter();
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   get CanShowMore(): boolean {
     return this.canLoadMore && this.recipes && this.recipes.length > 0 && !this.isLoading;

@@ -6,6 +6,7 @@ import {
 } from "../../services/yummy-data-service/yummy-data.service";
 import { RouteService } from "../../services/route-service/route.service";
 import { map } from "rxjs/operators";
+import {NUMBER_OF_RESULTS} from '../../yummyConstants';
 
 const SELECTED_INGREDIENTS_KEY = "selectedIngredients";
 
@@ -62,7 +63,7 @@ export class SearchByIngredientsComponent implements OnInit {
   }
 
   autoComplete(value): Observable<string[]> {
-    const ingredients$ = this.yummyDataService.autoCompleteIngredient(value, 5);
+    const ingredients$ = this.yummyDataService.autoCompleteIngredient(value, NUMBER_OF_RESULTS);
     return ingredients$.pipe(
       map(result => {
         return result.map(item => item.name);
