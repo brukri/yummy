@@ -35,9 +35,10 @@ import { NoDataFoundComponent } from './components/no-data-found/no-data-found.c
 import { StepDurationComponent } from './components/step-duration/step-duration.component';
 import { PostItNoteComponent } from './components/post-it-note/post-it-note.component';
 import { SearchByGrapeComponent } from './components/search-by-grape/search-by-grape.component';
-import { HttpHeaderInterceptorService } from './services/spoonacular/http-header-interceptor.service';
+import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 import { RecipeResultsComponent } from './components/recipe-results/recipe-results.component';
 import { AdditionalInformationComponent } from './components/additional-information/additional-information.component';
+import { ServiceErrorComponent } from './components/service-error/service-error.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { AdditionalInformationComponent } from './components/additional-informat
     PostItNoteComponent,
     SearchByGrapeComponent,
     RecipeResultsComponent,
-    AdditionalInformationComponent
+    AdditionalInformationComponent,
+    ServiceErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,7 @@ import { AdditionalInformationComponent } from './components/additional-informat
   ],
   providers: [AuthService,     {
     provide: HTTP_INTERCEPTORS,
-    useClass: HttpHeaderInterceptorService,
+    useClass: HttpInterceptorService,
     multi: true
   }],
   bootstrap: [AppComponent]

@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { AuthGuard } from './services/auth/auth.guard';
 import { UserPreferencesComponent } from './components/user-preferences/user-preferences.component';
 import { SearchByGrapeComponent } from './components/search-by-grape/search-by-grape.component';
+import { ServiceErrorComponent } from './components/service-error/service-error.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'detail/:id', component: RecipeDetailComponent},
   {path: 'favorites', component: UserFavoritesComponent, canActivate: [AuthGuard]},
   {path: 'preferences', component: UserPreferencesComponent, canActivate: [AuthGuard]},
+  {path: 'serviceError', component: ServiceErrorComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
 
