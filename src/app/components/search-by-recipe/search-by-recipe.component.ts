@@ -12,6 +12,7 @@ const SELECTED_RECIPE_KEY = 'selectedRecipe';
 })
 export class SearchByRecipeComponent implements OnInit {
   recipes: Recipe[];
+  totalResults: number;
   usedName: string;
   preselectedRecipe: Observable<string>;
   isLoading = false;
@@ -34,14 +35,17 @@ export class SearchByRecipeComponent implements OnInit {
       this.isLoading = true;
       const recipes$ = this.yummyDataService.findRecipe(recipe, startIndex);
       recipes$.subscribe(result => {
-        result.forEach(e => this.recipes.push(e));
+        this.totalResults = result.totalResults;
+        result.results.forEach(e => this.recipes.push(e));
       }, err => {
         this.isLoading = false;
+        this.totalResults = 0;
       }, () => {
         this.isLoading = false;
       });
     } else {
       this.recipes = null;
+      this.totalResults = 0;
     }
     this.routeService.updateQueryParam(SELECTED_RECIPE_KEY, recipe);
   }

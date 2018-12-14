@@ -234,7 +234,7 @@ h2 {
 }
 
 .welcome-card {
-  background-color: $color-whitesmoke;
+  background-color: $color-dark-grey;
   margin: 20px;
   border-radius: 20px;
   align-content: center;
@@ -270,4 +270,9 @@ h2 {
 .welcome-card-image {
   height: 150px;
   opacity: 0.6;
+}
+
+.result-count-label{
+  margin: 1em;
+  color: $color-whitesmoke;
 }

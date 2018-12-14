@@ -7,6 +7,7 @@
   </autocomplete-multi-search>
   <app-recipe-results
     [recipes]="recipes"
+    [totalResults]="totalResults"
     [isLoading]="isLoading"
     [canLoadMore]="true"
     (loadMoreButtonPressed)="loadMore()">

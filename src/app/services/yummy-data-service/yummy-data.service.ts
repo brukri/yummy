@@ -4,6 +4,11 @@ import { UserPreferencesService } from '../../services/user-preferences/user-pre
 import { map, concatAll } from 'rxjs/operators';
 import { Observable, concat } from 'rxjs';
 
+export interface RecipeResult {
+  totalResults: number;
+  results: Recipe[];
+}
+
 export interface Recipe {
   id: string;
   title: string;
@@ -90,14 +95,13 @@ export interface EstimatedValues {
 export class YummyDataService {
   constructor(private spoonacularService: SpoonacularService, private userPreferencesService: UserPreferencesService) { }
 
-  incredientImageSize = '100x100';
-  // Todo: Take from prefereces
+
 
   findRecipesByIngredients(
     ingredients: String[],
     startIndex: number = 0,
     numberOfResults?: number
-  ): Observable<Recipe[]> {
+  ): Observable<RecipeResult> {
     return this.spoonacularService
       .findRecipesByIngredients(ingredients,
         this.userPreferencesService.getIntolerances(),
@@ -107,9 +111,9 @@ export class YummyDataService {
       .pipe(
         map(result => {
           if (result.results.length === 0) {
-            return [];
+            return {results: [], totalResults: 0};
           } else {
-            return result.results.map(this.transformRecipe);
+            return  { results: result.results.map(this.transformRecipe), totalResults: result.totalResults};
           }
         })
       );
@@ -117,15 +121,15 @@ export class YummyDataService {
 
   findRecipe(recipe: string,
     startIndex: number = 0,
-    numberOfResults?: number): Observable<Recipe[]> {
+    numberOfResults?: number): Observable<RecipeResult> {
     return this.spoonacularService.findRecipe(recipe,
         numberOfResults ? numberOfResults : this.userPreferencesService.getNumberOfResults(),
         startIndex).pipe(
         map(result => {
           if (result.results.length === 0) {
-            return [];
+            return {results: [], totalResults: 0};
           } else {
-            return result.results.map(this.transformRecipe);
+            return  { results: result.results.map(this.transformRecipe), totalResults: result.totalResults};
           }
         })
       );
@@ -161,11 +165,6 @@ export class YummyDataService {
           return {
             id: item.id,
             title: item.title,
-            image:
-              'https://spoonacular.com/cdn/ingredients_' +
-              this.incredientImageSize +
-              '/' +
-              item.image,
             name: item.name,
             amount: item.measures.metric.amount,
             unit: item.measures.metric.unitLong

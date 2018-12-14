@@ -32,8 +32,8 @@ export class SearchByGrapeComponent implements OnInit {
       this.isLoading = true;
       const recipes$ = this.yummyDataService.findRecipesByDishPairingForGrape(grape);
       recipes$.subscribe(result => {
-        if (result.length > 0) {
-          this.recipes.push(result[0]);
+        if (result.results.length > 0) {
+          this.recipes.push(result.results[0]);
         }
       }, err => {
         this.isLoading = false;

@@ -17,6 +17,7 @@ const SELECTED_INGREDIENTS_KEY = 'selectedIngredients';
 })
 export class SearchByIngredientsComponent implements OnInit {
   recipes: Recipe[];
+  totalResults: number;
   preselectedIngredients$: Observable<string[]>;
   isLoading = false;
   private usedIngredients: string[];
@@ -41,16 +42,19 @@ export class SearchByIngredientsComponent implements OnInit {
     if (ingredients.length > 0) {
       this.usedIngredients = ingredients;
       this.isLoading = true;
-      const recipes$ = this.yummyDataService.findRecipesByIngredients(ingredients, startIndex);
-      recipes$.subscribe((resolvedRecipes) => {
-        resolvedRecipes.forEach(e => this.recipes.push(e));
+      const result$ = this.yummyDataService.findRecipesByIngredients(ingredients, startIndex);
+      result$.subscribe((resolvedResult) => {
+        this.totalResults = resolvedResult.totalResults;
+        resolvedResult.results.forEach(e => this.recipes.push(e));
       }, err => {
         this.isLoading = false;
+        this.totalResults = 0;
       }, () => {
         this.isLoading = false;
       });
     } else {
       this.recipes = null;
+      this.totalResults = 0;
     }
     this.routeService.updateMultiValuesQueryParam(
       SELECTED_INGREDIENTS_KEY,

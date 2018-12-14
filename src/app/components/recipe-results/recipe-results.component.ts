@@ -9,12 +9,17 @@ import { Recipe } from 'src/app/services/yummy-data-service/yummy-data.service';
 export class RecipeResultsComponent {
 
   @Input() recipes: Recipe[];
-  @Input() isLoading: boolean;
   @Input() canLoadMore = false;
+  @Input() isLoading: boolean;
+  @Input() totalResults = 0;
   @Output() loadMoreButtonPressed: EventEmitter<string> = new EventEmitter();
 
   get CanShowMore(): boolean {
-    return this.canLoadMore && this.recipes && this.recipes.length > 0 && !this.isLoading;
+    return this.canLoadMore && this.HasResults && this.recipes.length < this.totalResults && !this.isLoading;
+  }
+
+  get HasResults(): boolean {
+    return this.recipes && this.recipes.length > 0;
   }
 
   loadMore() {
