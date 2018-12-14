@@ -1,8 +1,32 @@
-<button mat-icon-button [matMenuTriggerFor]="menuSearch" data-test-selector="menu-search-button">
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menuSearch"
+  data-test-selector="menu-search-button"
+>
   <mat-icon>search</mat-icon>
 </button>
 <mat-menu #menuSearch="matMenu">
-  <button mat-menu-item [routerLink]="['/searchByIngredients']" [queryParams]="{ selectedIngredients: '' }" data-test-selector="search-by-ingredients-button">By Ingredients</button>
-  <button mat-menu-item [routerLink]="['/searchByRecipe']" [queryParams]="{ selectedRecipe: '' }" data-test-selector="search-by-recipe-button">By Recipe</button>
-  <button mat-menu-item [routerLink]="['/searchByGrape']" [queryParams]="{ selectedGrape: '' }" data-test-selector="search-by-grape-button">By Grape</button>
+  <button
+    mat-menu-item
+    [routerLink]="['/searchByIngredients']"
+    [queryParams]="{ selectedIngredients: '' }"
+    data-test-selector="search-by-ingredients-button">
+    <mat-icon class="icon">local_grocery_store</mat-icon>
+    By Ingredients
+  </button>
+  <button
+    mat-menu-item
+    [routerLink]="['/searchByRecipe']"
+    [queryParams]="{ selectedRecipe: '' }"
+    data-test-selector="search-by-recipe-button">
+    <mat-icon class="icon">restaurant_menu</mat-icon>
+    By Recipe
+  </button>
+  <button
+    mat-menu-item
+    [routerLink]="['/searchByGrape']"
+    [queryParams]="{ selectedGrape: '' }"
+    data-test-selector="search-by-grape-button">
+    <mat-icon class="icon">local_bar</mat-icon>By Grape
+  </button>
 </mat-menu>

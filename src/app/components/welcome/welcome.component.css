@@ -1,3 +1,10 @@
-h1{
- text-align: center;
+h1 {
+    text-align: center;
 }
+
+.welcome-icon {
+    color: whitesmoke;
+    font-size: 4em;
+    margin: 8px;
+  }
+  

@@ -1,49 +1,50 @@
 <div class="welcome-container" fxLayout="row wrap" fxLayoutGap="2em">
-  <div>
+  <div class="welcome-article">
     <a [routerLink]="['/searchByIngredients']">
-      <div class="welcome-card">
-        <div class="welcome-card-title">Search by incredients</div>
-        <img class="welcome-card-image" src="../../../assets/incredients.jpg" />
-        <div class="welcome-card-text">
-          Search for any combination of incredients. E.g. basil, chicken,
-          tomatos...
-        </div>
+      <div class="circle-icon">
+        <i class="material-icons welcome-icon">local_grocery_store</i>
       </div>
     </a>
+    <h4>Search by incredients</h4>
+    <p class="welcome-paragraph">
+      <strong>INCREDIENTS</strong> – search for combinations of incredients. Or just enter what you have available in
+      your fridge. E.g. basil, chicken, tomatos... 
+    </p>
   </div>
-  <div>
+
+  <div class="welcome-article">
     <a [routerLink]="['/searchByRecipe']">
-      <div class="welcome-card">
-        <div class="welcome-card-title">Search by recipe name</div>
-        <img class="welcome-card-image" src="../../../assets/recipes.jpg" />
-        <div class="welcome-card-text">
-          Search for a recipe name. E.g. lasagne, steak, salad...
-        </div>
+      <div class="circle-icon">
+        <i class="material-icons welcome-icon">restaurant_menu</i>
       </div>
     </a>
+    <h4>Search by recipe name</h4>
+    <p class="welcome-paragraph">
+      <strong>RECIPE</strong> – search for a recipe name. You can search for exotic recipes from all over the world or just
+      for your most favorite ones. E.g. lasagne, steak, salad... 
+    </p>
   </div>
-  <div>
+
+  <div class="welcome-article">
     <a [routerLink]="['/searchByGrape']">
-      <div class="welcome-card">
-        <div class="welcome-card-title">Search by grape</div>
-        <img class="welcome-card-image" src="../../../assets/grapes.jpg" />
-        <div class="welcome-card-text">
-          Search for a grape name. E.g. merlot, pinot noir, syrah...
-        </div>
+      <div class="circle-icon">
+        <i class="material-icons welcome-icon">local_bar</i>
       </div>
     </a>
+    <h4>Search by grape</h4>
+    <p class="welcome-paragraph">
+      <strong>GRAPE</strong> – search for a grape name. We will suggest you some dishes perfectly matching your wine. E.g. merlot, pinot noir,
+      syrah... 
+    </p>
   </div>
 </div>
 <div class="welcome-container" fxLayout="row wrap" fxLayoutGap="2em">
-    <div class="quote">
-      <h2>Did you know?</h2>
-      <blockquote>"{{ trivia }}"</blockquote>
-    </div>
+  <div class="quote">
+    <h2>Did you know?</h2>
+    <blockquote>"{{ trivia }}"</blockquote>
   </div>
+</div>
 <h1>Recipes of the day</h1>
-<div
-  class="welcome-container" fxLayout="blockquote"
-  fxLayoutAlign="center">
- 
+<div class="welcome-container" fxLayout="blockquote" fxLayoutAlign="center">
   <recipe-overview [recipes]="recipes" *ngIf="!isLoading"></recipe-overview>
 </div>
