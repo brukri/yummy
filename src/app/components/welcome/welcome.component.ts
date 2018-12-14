@@ -18,8 +18,8 @@ export class WelcomeComponent implements OnInit {
     result.subscribe(e => this.trivia = e.text);
     this.isLoading = true;
     const recipes$ = this.yummyDataService.getRandomRecipes();
-    recipes$.subscribe(result => {
-      this.recipes = result;
+    recipes$.subscribe(resultEntry => {
+      this.recipes = resultEntry;
       this.isLoading = false;
     });
   }

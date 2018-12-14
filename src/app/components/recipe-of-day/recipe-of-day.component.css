@@ -1,0 +1,9 @@
+.recipe-of-day-img {
+    border-radius: 50%;
+    width: 18em;
+    height: 18em;
+}
+
+.recipe-of-day-title {
+    text-align: center;
+}

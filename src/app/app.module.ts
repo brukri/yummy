@@ -39,6 +39,7 @@ import { HttpInterceptorService } from './services/http-interceptor/http-interce
 import { RecipeResultsComponent } from './components/recipe-results/recipe-results.component';
 import { AdditionalInformationComponent } from './components/additional-information/additional-information.component';
 import { ServiceErrorComponent } from './components/service-error/service-error.component';
+import { RecipeOfDayComponent } from './components/recipe-of-day/recipe-of-day.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { ServiceErrorComponent } from './components/service-error/service-error.
     SearchByGrapeComponent,
     RecipeResultsComponent,
     AdditionalInformationComponent,
-    ServiceErrorComponent
+    ServiceErrorComponent,
+    RecipeOfDayComponent
   ],
   imports: [
     BrowserModule,

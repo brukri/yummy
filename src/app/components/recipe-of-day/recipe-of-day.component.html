@@ -1,0 +1,10 @@
+<div fxLayout="row wrap" fxLayoutGap="2em" fxLayout.lt-md="column">
+  <div *ngFor="let recipe of recipes">
+    <div>
+      <a routerLink="/detail/{{recipe.id}}">
+        <h4 class="recipe-of-day-title">{{recipe.title}}</h4>
+        <img class="recipe-of-day-img" src="{{recipe.image}}" />
+      </a>
+    </div>
+  </div>
+</div>

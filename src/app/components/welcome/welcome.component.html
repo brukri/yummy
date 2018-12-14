@@ -38,6 +38,7 @@
     </p>
   </div>
 </div>
+<br>
 <div class="welcome-container" fxLayout="row wrap" fxLayoutGap="2em">
   <div class="quote">
     <h2>Did you know?</h2>
@@ -46,5 +47,5 @@
 </div>
 <h1>Recipes of the day</h1>
 <div class="welcome-container" fxLayout="blockquote" fxLayoutAlign="center">
-  <recipe-overview [recipes]="recipes" *ngIf="!isLoading"></recipe-overview>
+  <app-recipe-of-day [recipes]="recipes" *ngIf="!isLoading"></app-recipe-of-day>
 </div>
