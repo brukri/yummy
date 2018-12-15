@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { YummyDataService, FoodTrivia, Recipe} from '../../services/yummy-data-service/yummy-data.service';
 import { Observable } from 'rxjs';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-welcome',
@@ -9,7 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class WelcomeComponent implements OnInit {
   isLoading = false;
-  constructor(private yummyDataService: YummyDataService) { }
+  authService: AuthService;
+  constructor(private yummyDataService: YummyDataService,authService: AuthService) {this.authService = authService; }
   @Input() recipes: Recipe[];
   trivia: string;
 

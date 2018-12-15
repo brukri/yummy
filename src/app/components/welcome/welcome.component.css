@@ -8,4 +8,8 @@ h1 {
     font-size: 4em;
     margin: 8px;
   }
+
+  a:hover {
+    cursor:pointer;
+   }
   

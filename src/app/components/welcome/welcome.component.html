@@ -7,8 +7,9 @@
     </a>
     <h4>Search by incredients</h4>
     <p class="welcome-paragraph">
-      <strong>INCREDIENTS</strong> – search for combinations of incredients. Or just enter what you have available in
-      your fridge. E.g. basil, chicken, tomatos... 
+      <strong>INCREDIENTS</strong> – search for combinations of incredients. Or
+      just enter what you have available in your fridge. E.g. basil, chicken,
+      tomatos...
     </p>
   </div>
 
@@ -20,8 +21,9 @@
     </a>
     <h4>Search by recipe name</h4>
     <p class="welcome-paragraph">
-      <strong>RECIPE</strong> – search for a recipe name. You can search for exotic recipes from all over the world or just
-      for your most favorite ones. E.g. lasagne, steak, salad... 
+      <strong>RECIPE</strong> – search for a recipe name. You can search for
+      exotic recipes from all over the world or just for your most favorite
+      ones. E.g. lasagne, steak, salad...
     </p>
   </div>
 
@@ -33,12 +35,31 @@
     </a>
     <h4>Search by grape</h4>
     <p class="welcome-paragraph">
-      <strong>GRAPE</strong> – search for a grape name. We will suggest you some dishes perfectly matching your wine. E.g. merlot, pinot noir,
-      syrah... 
+      <strong>GRAPE</strong> – search for a grape name. We will suggest you some
+      dishes perfectly matching your wine. E.g. merlot, pinot noir, syrah...
+    </p>
+  </div>
+
+  <div class="welcome-article">
+    <a *ngIf="authService.isLoggedIn" [routerLink]="['/preferences']">
+      <div class="circle-icon">
+        <i class="material-icons welcome-icon">person</i>
+      </div>
+    </a>
+
+    <a *ngIf="!authService.isLoggedIn" (click)="authService.login()">
+      <div class="circle-icon">
+        <i class="material-icons welcome-icon">person</i>
+      </div>
+    </a>
+    <h4>Login/Register</h4>
+    <p class="welcome-paragraph">
+      <strong>SETTINGS</strong> – login or register to save your favorite
+      recipes. Or set your diets and allergies to get customized search results.
     </p>
   </div>
 </div>
-<br>
+<br />
 <div class="welcome-container" fxLayout="row wrap" fxLayoutGap="2em">
   <div class="quote">
     <h2>Did you know?</h2>
