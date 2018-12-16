@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth/auth.service';
 export class WelcomeComponent implements OnInit {
   isLoading = false;
   authService: AuthService;
-  constructor(private yummyDataService: YummyDataService,authService: AuthService) {this.authService = authService; }
+  constructor(private yummyDataService: YummyDataService, authService: AuthService) {this.authService = authService; }
   @Input() recipes: Recipe[];
   trivia: string;
 

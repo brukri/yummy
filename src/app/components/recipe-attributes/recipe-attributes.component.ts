@@ -1,5 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RecipeAttributes } from '../../services/yummy-data-service/yummy-data.service';
+
+
+export class AttributeItem {
+  label: string;
+  checked: boolean;
+  constructor(label: string, checked?: boolean) {
+   this.label = label;
+   this.checked = checked ? checked : false;
+  }
+}
+
 @Component({
   selector: 'recipe-attributes',
   templateUrl: './recipe-attributes.component.html',
@@ -38,11 +49,3 @@ export class RecipeAttributesComponent implements OnInit {
 
 }
 
-export class AttributeItem {
-  label: string;
-  checked: boolean;
-  constructor(label: string, checked?: boolean) {
-   this.label = label;
-   this.checked = checked ? checked : false;
-  }
-}

@@ -1,6 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserPreferencesService } from '../../services/user-preferences/user-preferences.service';
 
+export class CheckboxItem {
+  label: string;
+  checked: boolean;
+  constructor(label: string, checked?: boolean) {
+   this.label = label;
+   this.checked = checked ? checked : false;
+  }
+}
 
 @Component({
   selector: 'app-user-preferences',
@@ -75,11 +83,4 @@ export class UserPreferencesComponent implements OnInit {
 
 
 }
-export class CheckboxItem {
-  label: string;
-  checked: boolean;
-  constructor(label: string, checked?: boolean) {
-   this.label = label;
-   this.checked = checked ? checked : false;
-  }
-}
+
