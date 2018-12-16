@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { YummyDataServiceService } from './yummy-data-service.service';
+import { YummyDataService } from './yummy-data.service';
 
 describe('YummyDataServiceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [YummyDataServiceService]
+      providers: [YummyDataService]
     });
   });
 
-  it('should be created', inject([YummyDataServiceService], (service: YummyDataServiceService) => {
+  it('should be created', inject([YummyDataService], (service: YummyDataService) => {
     expect(service).toBeTruthy();
   }));
 });
