@@ -12,8 +12,8 @@
     <div fxLayout="column">
       <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
         <ingredients-list fxFlex="25%" [ingredients]="recipeDetail.ingredients" data-test-selector="recipe-detail-ingredients-list"></ingredients-list>
-        <app-post-it-note>
-          <img src={{recipeDetail.image}} data-test-selector="recipe-detail-img" />
+        <app-post-it-note fxFlex="40%">
+          <img src={{recipeDetail.image}} class="recipe-detail-img" data-test-selector="recipe-detail-img" />
         </app-post-it-note>
         <instructions-list fxFlex="<grow>" [instructions]="recipeDetail.instructions" data-test-selector="recipe-detail-instructions-list"></instructions-list>
       </div>

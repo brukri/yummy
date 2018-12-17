@@ -40,6 +40,12 @@ h2 {
   margin-bottom: 0.5em;
 }
 
+.recipe-detail-img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
 .grid-container {
   display: grid;
   grid-template-rows: 4em 1fr;
