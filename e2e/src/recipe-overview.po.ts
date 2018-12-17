@@ -15,7 +15,6 @@ export class RecipeOverviewPage {
 
   verifyRecipeCard(recipeCardElement) {
     ProtractorHelper.getElementByTestSelector('recipe-card-title', recipeCardElement).isDisplayed();
-    ProtractorHelper.getElementByTestSelector('recipe-card-likes', recipeCardElement).isDisplayed();
     ProtractorHelper.getElementByTestSelector('recipe-card-img', recipeCardElement).isDisplayed();
   }
 

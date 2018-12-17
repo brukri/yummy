@@ -28,6 +28,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome page when opening yummy app', () => {
     yummyPage.navigateToYummyAndVerify();
+    welcomePage.verifyWelcomePage();
     welcomePage.verifyTrivia();
     browser.sleep(2000);
   });
@@ -35,6 +36,7 @@ describe('workspace-project App', () => {
   it('should display recipe overview page when searching by ingredients', () => {
     yummyPage.navigateToYummyAndVerify();
     navigationPage.verifyAndClickSearchButton();
+    browser.sleep(1000);
     navigationPage.verifyAndClickSearchByIngredientsButton();
     searchByIngredientsPage.verifySearchByIngredients();
     searchByIngredientsPage.verifyAndSendAutocompleteMultiSearchInputKeys('tomato');
@@ -47,6 +49,7 @@ describe('workspace-project App', () => {
   it('should display recipe overview page when searching by recipe', () => {
     yummyPage.navigateToYummyAndVerify();
     navigationPage.verifyAndClickSearchButton();
+    browser.sleep(1000);
     navigationPage.verifyAndClickSearchByRecipeButton();
     searchByRecipePage.verifySearchByRecipe();
     searchByRecipePage.verifyAndSendAutocompleteSingleSearchInputKeys('tomato');
