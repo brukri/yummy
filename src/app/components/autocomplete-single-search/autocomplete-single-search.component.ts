@@ -6,9 +6,8 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
 import {AUTOCOMPLETE_DELAY_SUGGESTION_TIME} from '../../yummyConstants';
 
 @Component({
-  selector: 'autocomplete-single-search',
+  selector: 'yummy-autocomplete-single-search',
   templateUrl: './autocomplete-single-search.component.html',
-  styleUrls: ['./autocomplete-single-search.component.css']
 })
 export class AutocompleteSingleSearchComponent implements OnInit {
   @Input() placeholder: string;

@@ -2,9 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange
 import { WinePairing, Nutrition } from 'src/app/services/yummy-data-service/yummy-data.service';
 
 @Component({
-  selector: 'app-additional-information',
-  templateUrl: './additional-information.component.html',
-  styleUrls: ['./additional-information.component.css']
+  selector: 'yummy-additional-information',
+  templateUrl: './additional-information.component.html'
 })
 export class AdditionalInformationComponent implements OnChanges {
   @Input() winePairing: WinePairing;

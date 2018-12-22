@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-    <app-post-it-note>
+    <yummy-post-it-note>
     <h1>My food intolerances:</h1>
     <h4>
       We will only show you recipes which will not cause problems for you.
@@ -9,8 +9,8 @@
           [(ngModel)]="item.checked"
           (change)="onToggleIntolerance()">{{ item.label }}</mat-slide-toggle>
     </div>
-  </app-post-it-note>
-  <app-post-it-note>
+  </yummy-post-it-note>
+  <yummy-post-it-note>
     <h1>My diets:</h1>
     <h4>We will only show you recipes compliant with your diets.</h4>
       <div *ngFor="let item of dietOptions">
@@ -18,8 +18,8 @@
           [(ngModel)]="item.checked"
           (change)="onToggleDiets()">{{ item.label }}</mat-slide-toggle>
       </div>
-  </app-post-it-note>
-  <app-post-it-note>
+  </yummy-post-it-note>
+  <yummy-post-it-note>
     <h1>General Settings:</h1>
     <div>
       Number or recipe results
@@ -32,5 +32,5 @@
       [(ngModel)]="numberOfResults"
       (change)="onNumberOfResultsChange($event)"></mat-slider>
     </div>
-  </app-post-it-note>
+  </yummy-post-it-note>
 </div>

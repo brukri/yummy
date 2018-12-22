@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'yummy-root',
   templateUrl: './yummy.component.html'
 })
 export class YummyComponent {

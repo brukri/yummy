@@ -11,9 +11,8 @@ export class CheckboxItem {
 }
 
 @Component({
-  selector: 'app-user-preferences',
-  templateUrl: './user-preferences.component.html',
-  styleUrls: ['./user-preferences.component.css']
+  selector: 'yummy-user-preferences',
+  templateUrl: './user-preferences.component.html'
 })
 export class UserPreferencesComponent implements OnInit {
   @Input() intoleranceOptions = Array<CheckboxItem>();

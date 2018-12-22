@@ -3,9 +3,8 @@ import { Nutrition } from '../../services/yummy-data-service/yummy-data.service'
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-nutrition',
-  templateUrl: './nutrition.component.html',
-  styleUrls: ['./nutrition.component.css']
+  selector: 'yummy-nutrition',
+  templateUrl: './nutrition.component.html'
 })
 export class NutritionComponent {
   @Input()

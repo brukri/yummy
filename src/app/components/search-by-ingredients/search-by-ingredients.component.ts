@@ -11,9 +11,8 @@ import {NUMBER_OF_RESULTS} from '../../yummyConstants';
 const SELECTED_INGREDIENTS_KEY = 'selectedIngredients';
 
 @Component({
-  selector: 'app-search-by-ingredients',
-  templateUrl: './search-by-ingredients.component.html',
-  styleUrls: ['./search-by-ingredients.component.css']
+  selector: 'yummy-search-by-ingredients',
+  templateUrl: './search-by-ingredients.component.html'
 })
 export class SearchByIngredientsComponent implements OnInit {
   recipes: Recipe[];

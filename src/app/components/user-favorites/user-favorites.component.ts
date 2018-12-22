@@ -5,9 +5,8 @@ import {
   Recipe
 } from '../../services/yummy-data-service/yummy-data.service';
 @Component({
-  selector: 'app-favorites',
-  templateUrl: './user-favorites.component.html',
-  styleUrls: ['./user-favorites.component.css']
+  selector: 'yummy-favorites',
+  templateUrl: './user-favorites.component.html'
 })
 export class UserFavoritesComponent implements OnInit {
   isLoading = false;

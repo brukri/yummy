@@ -5,9 +5,8 @@ import { UserPreferencesService } from '../../services/user-preferences/user-pre
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
-  selector: 'recipe-card',
-  templateUrl: './recipe-card.component.html',
-  styleUrls: ['./recipe-card.component.css']
+  selector: 'yummy-recipe-card',
+  templateUrl: './recipe-card.component.html'
 })
 export class RecipeCardComponent implements OnInit {
   @Input() recipe: Recipe;

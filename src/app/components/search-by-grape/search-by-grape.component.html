@@ -1,12 +1,12 @@
 <div data-test-selector="search-by-grape-component">
-  <autocomplete-single-search
+  <yummy-autocomplete-single-search
     [placeholder]="'Search grape...'"
     [autocompletionCallback]="autoComplete"
     [preselectedValue]="preselectedGrape"
     (resultChanged)="grapeChanged($event)">
-  </autocomplete-single-search>
-  <app-recipe-results
+  </yummy-autocomplete-single-search>
+  <yummy-recipe-results
     [recipes]="recipes"
     [isLoading]="isLoading">
-  </app-recipe-results>
+  </yummy-recipe-results>
 </div>

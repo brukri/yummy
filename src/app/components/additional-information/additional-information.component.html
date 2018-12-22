@@ -1,11 +1,11 @@
-<app-post-it-note fxFlex="<grow>" title="Additional Information">
+<yummy-post-it-note fxFlex="<grow>" title="Additional Information">
   <mat-expansion-panel class="expansion-panel" [disabled]="isWinePairingPanelDisabled()">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Wine Pairings
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <app-wine-pairing [winePairing]="winePairing"></app-wine-pairing>
+    <yummy-wine-pairing [winePairing]="winePairing"></yummy-wine-pairing>
   </mat-expansion-panel>
   <mat-expansion-panel class="expansion-panel" (opened)="onNutritionPanelOpen()">
     <mat-expansion-panel-header>
@@ -14,6 +14,6 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-spinner *ngIf="isLoading"></mat-spinner>
-    <app-nutrition *ngIf="nutrition" [nutrition]="nutrition"></app-nutrition>
+    <yummy-nutrition *ngIf="nutrition" [nutrition]="nutrition"></yummy-nutrition>
   </mat-expansion-panel>
-</app-post-it-note>
+</yummy-post-it-note>

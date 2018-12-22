@@ -1,15 +1,15 @@
 <div data-test-selector="search-by-ingredients-component">
-  <autocomplete-multi-search
+  <yummy-autocomplete-multi-search
     [placeholder]="'Search ingredients...'"
     [autocompletionCallback]="autoComplete"
     [preselectedChips]="preselectedIngredients$"
     (chipListChanged)="updateRecipes($event)">
-  </autocomplete-multi-search>
-  <app-recipe-results
+  </yummy-autocomplete-multi-search>
+  <yummy-recipe-results
     [recipes]="recipes"
     [totalResults]="totalResults"
     [isLoading]="isLoading"
     [canLoadMore]="true"
     (loadMoreButtonPressed)="loadMore()">
-  </app-recipe-results>
+  </yummy-recipe-results>
 </div>

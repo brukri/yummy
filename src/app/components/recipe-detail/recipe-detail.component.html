@@ -2,8 +2,8 @@
   <div *ngIf="recipeDetail" data-test-selector="recipe-detail-component">
     <h1 data-test-selector="recipe-detail-title">{{recipeDetail.title}}</h1>
     <div *ngIf="recipeDetail.preparationMinutes && recipeDetail.cookingMinutes" fxLayout="column" fxLayoutGap="1em">
-      <app-step-duration [step]="'Preparation'" [duration]="recipeDetail.preparationMinutes"></app-step-duration>
-      <app-step-duration [step]="'Cooking'" [duration]="recipeDetail.cookingMinutes"></app-step-duration>
+      <yummy-step-duration [step]="'Preparation'" [duration]="recipeDetail.preparationMinutes"></yummy-step-duration>
+      <yummy-step-duration [step]="'Cooking'" [duration]="recipeDetail.cookingMinutes"></yummy-step-duration>
     </div>
     <mat-button-toggle *ngIf="shouldDisplayFavoriteButton()" [checked]="isFavorite" (change)="onFavoriteChange(value)"
       class="favorite-button">
@@ -11,15 +11,15 @@
     </mat-button-toggle>
     <div fxLayout="column">
       <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-        <ingredients-list fxFlex="25%" [ingredients]="recipeDetail.ingredients" data-test-selector="recipe-detail-ingredients-list"></ingredients-list>
-        <app-post-it-note fxFlex="40%">
+        <yummy-ingredients-list fxFlex="25%" [ingredients]="recipeDetail.ingredients" data-test-selector="recipe-detail-ingredients-list"></yummy-ingredients-list>
+        <yummy-post-it-note fxFlex="40%">
           <img src={{recipeDetail.image}} class="recipe-detail-img" data-test-selector="recipe-detail-img" />
-        </app-post-it-note>
-        <instructions-list fxFlex="<grow>" [instructions]="recipeDetail.instructions" data-test-selector="recipe-detail-instructions-list"></instructions-list>
+        </yummy-post-it-note>
+        <yummy-instructions-list fxFlex="<grow>" [instructions]="recipeDetail.instructions" data-test-selector="recipe-detail-instructions-list"></yummy-instructions-list>
       </div>
       <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="2em">
-        <recipe-attributes fxFlex="25%" [recipeAttributes]="recipeDetail.recipeAttributes" data-test-selector="recipe-detail-attributes"></recipe-attributes>
-        <app-additional-information fxFlex="<grow>" [winePairing]="recipeDetail.winePairing" [nutrition$]="nutrition$" (nutritionPanelOpenEvent)="onNutritionPanelOpen()"></app-additional-information>
+        <yummy-recipe-attributes fxFlex="25%" [recipeAttributes]="recipeDetail.recipeAttributes" data-test-selector="recipe-detail-attributes"></yummy-recipe-attributes>
+        <yummy-additional-information fxFlex="<grow>" [winePairing]="recipeDetail.winePairing" [nutrition$]="nutrition$" (nutritionPanelOpenEvent)="onNutritionPanelOpen()"></yummy-additional-information>
       </div>
     </div>
   </div>

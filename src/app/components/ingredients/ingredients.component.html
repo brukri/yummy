@@ -1,8 +1,8 @@
-<app-post-it-note title="Ingredients">
+<yummy-post-it-note title="Ingredients">
   <div fxLayout="column">
     <div *ngFor="let incredient of ingredients" fxLayout="row" fxLayoutGap="1em">
       <div fxFlex="7em">{{incredient.amount}} {{incredient.unit}}</div>
       <div>{{incredient.name}}</div>
     </div>
   </div>
-</app-post-it-note>
+</yummy-post-it-note>

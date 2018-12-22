@@ -7,9 +7,8 @@ import { debounceTime, switchMap, skipWhile } from 'rxjs/operators';
 import {AUTOCOMPLETE_DELAY_SUGGESTION_TIME} from '../../yummyConstants';
 
 @Component({
-  selector: 'autocomplete-multi-search',
+  selector: 'yummy-autocomplete-multi-search',
   templateUrl: './autocomplete-multi-search.component.html',
-  styleUrls: ['./autocomplete-multi-search.component.css']
 })
 export class AutocompleteMultiSearchComponent implements OnInit {
   @Input() placeholder: string;

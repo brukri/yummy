@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-service-error',
-  templateUrl: './service-error.component.html',
-  styleUrls: ['./service-error.component.css']
+  selector: 'yummy-service-error',
+  templateUrl: './service-error.component.html'
 })
 export class ServiceErrorComponent {
 

@@ -6,9 +6,8 @@ import {NUMBER_OF_RESULTS} from '../../yummyConstants';
 
 const SELECTED_RECIPE_KEY = 'selectedRecipe';
 @Component({
-  selector: 'search-by-recipe',
-  templateUrl: './search-by-recipe.component.html',
-  styleUrls: ['./search-by-recipe.component.css']
+  selector: 'yummy-search-by-recipe',
+  templateUrl: './search-by-recipe.component.html'
 })
 export class SearchByRecipeComponent implements OnInit {
   recipes: Recipe[];

@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "yummy",
+      "prefix": "app",
       "schematics": {},
       "architect": {
         "build": {

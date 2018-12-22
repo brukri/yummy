@@ -1,15 +1,15 @@
 <div data-test-selector="search-by-recipe-component">
-  <autocomplete-single-search
+  <yummy-autocomplete-single-search
     [placeholder]="'Search recipe...'"
     [autocompletionCallback]="autoComplete"
     [preselectedValue]="preselectedRecipe"
     (resultChanged)="recipeChanged($event)">
-  </autocomplete-single-search>
-  <app-recipe-results 
+  </yummy-autocomplete-single-search>
+  <yummy-recipe-results 
     [recipes]="recipes"
     [isLoading]="isLoading"
     [totalResults]="totalResults"
     [canLoadMore]="true"
     (loadMoreButtonPressed)="loadMore()">
-  </app-recipe-results>
+  </yummy-recipe-results>
 </div>

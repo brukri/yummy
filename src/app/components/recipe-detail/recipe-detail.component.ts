@@ -8,9 +8,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 @Component({
-  selector: 'app-recipe-detail',
-  templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.css']
+  selector: 'yummy-recipe-detail',
+  templateUrl: './recipe-detail.component.html'
 })
 
 export class RecipeDetailComponent implements OnInit {

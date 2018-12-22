@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
-  selector: 'app-welcome',
+  selector: 'yummy-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })

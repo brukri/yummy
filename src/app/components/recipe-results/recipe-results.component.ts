@@ -2,9 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Recipe } from 'src/app/services/yummy-data-service/yummy-data.service';
 
 @Component({
-  selector: 'app-recipe-results',
-  templateUrl: './recipe-results.component.html',
-  styleUrls: ['./recipe-results.component.css']
+  selector: 'yummy-recipe-results',
+  templateUrl: './recipe-results.component.html'
 })
 export class RecipeResultsComponent {
 

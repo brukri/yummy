@@ -12,9 +12,8 @@ export class AttributeItem {
 }
 
 @Component({
-  selector: 'recipe-attributes',
+  selector: 'yummy-recipe-attributes',
   templateUrl: './recipe-attributes.component.html',
-  styleUrls: ['./recipe-attributes.component.css']
 })
 
 

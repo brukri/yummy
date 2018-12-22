@@ -3,9 +3,8 @@ import { Observable } from 'rxjs';
 import { WinePairing } from '../../services/yummy-data-service/yummy-data.service';
 
 @Component({
-  selector: 'app-wine-pairing',
-  templateUrl: './wine-pairing.component.html',
-  styleUrls: ['./wine-pairing.component.css']
+  selector: 'yummy-wine-pairing',
+  templateUrl: './wine-pairing.component.html'
 })
 export class WinePairingComponent {
   @Input()

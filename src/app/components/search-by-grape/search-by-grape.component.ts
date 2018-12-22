@@ -7,9 +7,8 @@ import { filter, map } from 'rxjs/operators';
 const SELECTED_GRAPE_KEY = 'selectedGrape';
 
 @Component({
-  selector: 'app-search-by-grape',
-  templateUrl: './search-by-grape.component.html',
-  styleUrls: ['./search-by-grape.component.css']
+  selector: 'yummy-search-by-grape',
+  templateUrl: './search-by-grape.component.html'
 })
 export class SearchByGrapeComponent implements OnInit {
   recipes: Recipe[];

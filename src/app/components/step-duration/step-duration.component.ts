@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-step-duration',
-  templateUrl: './step-duration.component.html',
-  styleUrls: ['./step-duration.component.css']
+  selector: 'yummy-step-duration',
+  templateUrl: './step-duration.component.html'
 })
 export class StepDurationComponent {
   @Input() step: string;
