@@ -1,13 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
+import { YummyComponent as YummyComponent } from './yummy.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {AppRouters} from './app.routes';
-
+import {YummyRouters} from './yummy.routes';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SearchByIngredientsComponent } from './components/search-by-ingredients/search-by-ingredients.component';
@@ -44,7 +41,7 @@ import { RecipeOfDayComponent } from './components/recipe-of-day/recipe-of-day.c
 
 @NgModule({
   declarations: [
-    AppComponent,
+    YummyComponent,
     WelcomeComponent,
     SearchByIngredientsComponent,
     RecipeCardComponent,
@@ -80,7 +77,7 @@ import { RecipeOfDayComponent } from './components/recipe-of-day/recipe-of-day.c
     MaterialModule,
     HttpClientModule,
     FlexLayoutModule,
-    AppRouters,
+    YummyRouters,
     ReactiveFormsModule,
     FormsModule
   ],
@@ -89,6 +86,6 @@ import { RecipeOfDayComponent } from './components/recipe-of-day/recipe-of-day.c
     useClass: HttpInterceptorService,
     multi: true
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [YummyComponent]
 })
-export class AppModule { }
+export class YummyModule { }
