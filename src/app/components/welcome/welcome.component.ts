@@ -5,8 +5,7 @@ import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'yummy-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  templateUrl: './welcome.component.html'
 })
 export class WelcomeComponent implements OnInit {
   isLoading = false;

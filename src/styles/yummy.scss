@@ -272,8 +272,33 @@ h2 {
   text-align: center;
   margin: 2em;
 }
+.welcome-text {
+  text-align: center;
+  margin: 2em;
+}
+
+.material-icons.welcome-icon {
+  color: whitesmoke;
+  font-size: 4em;
+  margin: 8px;
+}
+
+.welcome-login-link:hover {
+  cursor:pointer;
+ }
+
 
 .result-count-label{
   margin: 1em;
   color: $color-whitesmoke;
+}
+
+.recipe-of-day-img {
+  border-radius: 50%;
+  max-width: 18em;
+  max-height: 18em;
+}
+
+.recipe-of-day-title {
+  text-align: center;
 }

@@ -47,7 +47,7 @@
       </div>
     </a>
 
-    <a *ngIf="!authService.isLoggedIn" (click)="authService.login()">
+    <a class="welcome-login-link" *ngIf="!authService.isLoggedIn" (click)="authService.login()">
       <div class="circle-icon">
         <i class="material-icons welcome-icon">person</i>
       </div>
@@ -66,7 +66,7 @@
     <blockquote>"{{ trivia }}"</blockquote>
   </div>
 </div>
-<h1>Recipes of the day</h1>
+<h1 class="welcome-text">Recipes of the day</h1>
 <div class="welcome-container" fxLayout="blockquote" fxLayoutAlign="center">
   <yummy-recipe-of-day [recipes]="recipes" *ngIf="!isLoading"></yummy-recipe-of-day>
 </div>
