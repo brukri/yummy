@@ -92,18 +92,18 @@ h2 {
 
 .numberCircle {
   border-radius: 50%;
-  min-width: 28px;
-  height: 28px;
+  min-width: 1.5em;
+  height: 1.5em;
   font-size: 120%;
-  padding: 4px, 4px;
+  padding: 0.2em, 0.2em;
   background: #fff;
-  border: 1px solid #666;
+  border: 0.05em solid #666;
   color: #666;
 }
 
 .avatar-image {
-  height: 30px;
-  width: 30px;
+  height: 2em;
+  width: 2em;
   border-radius: 50%;
 }
 
@@ -118,7 +118,10 @@ h2 {
 
 .mat-button-toggle.mat-button-toggle-checked {
   background-color: $color-green;
-  margin: 10px;
+}
+
+.mat-button-toggle{
+  margin: 1em 0em;
 }
 
 .underline-lable {
@@ -126,7 +129,7 @@ h2 {
 }
 
 .attribute-div {
-  min-width: 150px;
+  min-width: 9.2em;
 }
 
 .error-text {
@@ -136,13 +139,13 @@ h2 {
 .green-icon {
   color: $color-green;
   vertical-align: middle;
-  margin: 10px;
+  margin: 0.6em;
 }
 
 .red-icon {
   color: $color-red;
   vertical-align: middle;
-  margin: 10px;
+  margin: 0.6em;
 }
 
 .trivia {
@@ -161,7 +164,7 @@ h2 {
   margin-top: 2em;
   padding: 1.5em;
   background: #b1b1b134;
-  box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.625em 0.625em 0.125em rgba(0, 0, 0, 0.3);
 }
 
 .post-it-content {
@@ -171,8 +174,8 @@ h2 {
 .post-it-pin {
   background-color: #aaa;
   display: block;
-  height: 32px;
-  width: 2px;
+  height: 2em;
+  width: 0.125em;
   position: relative;
   top: -1.8em;
   left: 50%;
@@ -226,14 +229,12 @@ h2 {
 }
 
 .quote {
-  border-radius: 10px;
-  max-width: 800px;
+  border-radius: 0.625em;
+  max-width: 45em;
   margin: 2em;
-  padding: 20px;
-  font-size: 20px;
-  box-shadow: 0px 0px 4px $color-green;
+  padding: 1.5em;
+  box-shadow: 0em 0em 0.25em $color-green;
   padding: 0.5em 0.6em;
-  margin: 1em;
 }
 .welcome-container {
   justify-content: center;
@@ -242,16 +243,16 @@ h2 {
 
 .circle-icon {
   display: inline-block;
-  border-radius: 60px;
+  border-radius: 3.9em;
   width: 6em;
   height: 6em;
-  box-shadow: 0px 0px 4px $color-green;
+  box-shadow: 0 0 0.25em $color-green;
   padding: 0.5em 0.6em;
   margin: 1em;
 }
 
 .circle-icon:hover {
-  box-shadow: 0px 0px 20px $color-green;
+  box-shadow: 0 0 1.25em $color-green;
 }
 
 
@@ -280,7 +281,7 @@ h2 {
 .material-icons.welcome-icon {
   color: whitesmoke;
   font-size: 4em;
-  margin: 8px;
+  margin: 0.125em;
 }
 
 .welcome-login-link:hover {
@@ -297,6 +298,9 @@ h2 {
   border-radius: 50%;
   max-width: 18em;
   max-height: 18em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .recipe-of-day-title {
