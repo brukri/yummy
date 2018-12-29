@@ -22,6 +22,11 @@ export class UserPreferencesService {
     this.loadUserMetadata();
   }
 
+  initWithAuth(authManager: auth0.Management){
+    this.auth0Management = authManager;
+  }
+
+
   invalidate() {
     this.userId = null;
     this.auth0Management = null;
@@ -51,7 +56,11 @@ export class UserPreferencesService {
   }
 
   getFavorites(): string[] {
-    return this.userMetadata.favorites || [];
+    if (this.userMetadata.favorites) {
+      return this.userMetadata.favorites;
+    }
+    this.userMetadata.favorites = [];
+    return this.userMetadata.favorites;
   }
 
   getNumberOfResults(): number {
