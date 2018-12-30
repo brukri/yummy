@@ -171,9 +171,13 @@ export class YummyDataService {
           };
         }),
         instructions: response.analyzedInstructions.map(result => {
+          let count = 0;
           return {
-            steps: result.steps.map(item => {
-              return { number: item.number, text: item.step };
+            steps: result.steps.filter(function( element ) {
+              return element.step.length > 1;
+            }).map(item => {
+              count++;
+              return { number: count.toString(), text: item.step };
             })
           };
         }),
