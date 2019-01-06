@@ -18,7 +18,6 @@ describe('YummyDataServiceService', () => {
 
   it('should find recipe', inject([YummyDataService], (service: YummyDataService) => {
     const spoonacularService = jasmine.createSpyObj('SpoonacularService', ['findRecipe']);
-    // tslint:disable-next-line:max-line-length
     spoonacularService.findRecipe.and.callFake(function(recipe, numberOfResults, startIndex) {
        return Observable.create(function(observer) {observer.next({results: [{}], totalResults: 2}); }); });
 
