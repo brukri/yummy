@@ -27,13 +27,7 @@ With the recipe overview module...
 
 ### Recipe Detail
 With the recipe detail module...
-- detailed information about a recipe is displayed like...
--- preparation/cooking time
--- needed ingredients
--- a menu picture
--- preparation instructions
--- recipe attributes
--- additional information: wine parings and estimated nutrition
+- detailed information about a recipe is displayed like preparation/cooking time, needed ingredients, a menu picture, preparation instructions, recipe attributes, additional information: wine parings and estimated nutrition
 - a user can add the recipe to his favorites
 
 ## Installation
