@@ -28,11 +28,14 @@ export class SpoonacularService {
     });
   }
 
-  findRecipe(recipe: string, numberOfResults: number, startIndex = 0): Observable<any> {
-    return this.http.get(`${this.baseUrl}/recipes/search`, {
+  findRecipe(recipe: string, intolerances: String[], diets: String[], numberOfResults: number, startIndex = 0): Observable<any> {
+    return this.http.get(`${this.baseUrl}/recipes/searchComplex`, {
       params: {
         'query' : recipe,
+        'intolerances' : intolerances.join(','),
+        'diet' : diets.join(','),
         'number' : numberOfResults.toString(),
+        'limitLicense' : 'false',
         'offset' : startIndex.toString(),
         'ranking': '1'
       },
