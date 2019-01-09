@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpHeaders } from '@angular/common/http';
 import {apiKey} from '../apiKey';
 import { tap, map, catchError } from 'rxjs/operators';
-import { empty } from 'rxjs';
+import { empty, EMPTY } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         if (err.status !== 400) {
           this.router.navigate(['serviceError']);
         }
-        return empty();
+        return EMPTY;
       })
     );
   }

@@ -34,8 +34,8 @@ describe('UserPreferencesService', () => {
     service.removeFromFavorites('123');
     expect(service.getFavorites.length).toEqual(0);
   }));
-  
-  it('should store diets', inject([UserPreferencesService], (service: UserPreferencesService) => {
+
+    it('should store diets', inject([UserPreferencesService], (service: UserPreferencesService) => {
     service.initWithAuth(authManagement);
     expect(service.getDiets().length).toEqual(0);
     service.saveDiets(['vegan']);

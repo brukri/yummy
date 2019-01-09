@@ -22,7 +22,7 @@ export class UserPreferencesService {
     this.loadUserMetadata();
   }
 
-  initWithAuth(authManager: auth0.Management){
+  initWithAuth(authManager: auth0.Management) {
     this.auth0Management = authManager;
   }
 
