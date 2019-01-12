@@ -1,7 +1,7 @@
 <yummy-post-it-note title="Instructions">
   <div *ngFor="let instructions of instructions" fxLayout="column" fxLayoutGap="0.5em">
     <div *ngFor="let step of instructions.steps" fxLayout="row" fxLayoutGap="1em">
-          <div class=numberCircle fxLayoutAlign="center">{{step.number}}</div>
+          <div class=number-circle fxLayoutAlign="center">{{step.number}}</div>
           <div fxLayoutAlign="">{{step.text}}</div>
     </div>
   </div>

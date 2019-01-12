@@ -6,9 +6,13 @@
   src: url("https://fonts.gstatic.com/s/indieflower/v9/m8JVjfNVeKWVnh3QMuKkFcZVaUuH99GUDg.woff2");
 }
 
+@mixin container-min-max-standard-mixin() {
+  min-width: $container-standard-min-width;
+  max-width: $container-standard-max-width;
+}
+
 :root {
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 * {
@@ -23,6 +27,7 @@ body {
 }
 
 main {
+  overflow-x: hidden;
   margin-bottom: 1em;
 }
 
@@ -59,15 +64,13 @@ h2 {
 
 .grid-item-main {
   grid-row: 2/3;
-  overflow: auto;
 }
 
 .recipe-card {
   margin-top: 1em;
   margin-bottom: 1em;
-  min-width: 18em;
-  max-width: 30em;
   min-height: 25em;
+  @include container-min-max-standard-mixin;
 }
 
 .recipe-card:hover {
@@ -77,8 +80,7 @@ h2 {
 .card {
   background: #b1b1b134;
   border-radius: 1em;
-  min-width: 18em;
-  max-width: 30em;
+  @include container-min-max-standard-mixin;
   padding: 1.5em;
 }
 
@@ -90,7 +92,7 @@ h2 {
   width: 100%;
 }
 
-.numberCircle {
+.number-circle {
   border-radius: 50%;
   min-width: 1.5em;
   height: 1.5em;
@@ -113,7 +115,7 @@ h2 {
 
 .expansion-panel {
   background: $color-grey;
-  min-width: 18em;
+  min-width: $container-standard-min-width;
 }
 
 .mat-button-toggle.mat-button-toggle-checked {
@@ -296,8 +298,7 @@ h2 {
 
 .recipe-of-day-img {
   border-radius: 50%;
-  max-width: 18em;
-  max-height: 18em;
+  @include container-min-max-standard-mixin;
   display: block;
   margin-left: auto;
   margin-right: auto;
