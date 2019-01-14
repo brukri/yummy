@@ -70,5 +70,5 @@ Deploy yummy to firebase with the following command sequence:
 - `npm install -g firebase-tools` (once)
 - `npm run deploy`
 ### Usability Test
-The usability test and results can be found here: [usability test document](UsabilityTest/UsabilityTest.docx)
+The usability test and results can be found here: [usability test document](https://github.com/brukri/yummy/blob/master/UsabilityTest/UsabilityTest.docx)
 
