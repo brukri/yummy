@@ -1,4 +1,4 @@
-# Yummy
+﻿# Yummy
 ## Description
 Yummy is a web application to look for recipes according to ingredients, recipe terms and grape varieties.
 The recipe results will be displayed on a overview page. On the recipe detail page one can grap all the detail information for a recipe like preparation/cooking time, a picture, intructions and ingredients.
@@ -70,5 +70,5 @@ Deploy yummy to firebase with the following command sequence:
 - `npm install -g firebase-tools` (once)
 - `npm run deploy`
 ### Usability Test
-The usability test and results can be found here: [usability test document](usabilityTest/UsabilityTest.docx)
+The usability test and results can be found here: [usability test document](UsabilityTest/UsabilityTest.docx)
 
