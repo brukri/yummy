@@ -28,7 +28,7 @@ With the recipe overview module...
 - a list of recipes is displayed with its names and a menu picture
 - a user can load more recipe results on request
 
-### Recipe Detail
+## Recipe Detail
 
 With the recipe detail module...
 - detailed information about a recipe is displayed like preparation/cooking time, needed ingredients, a menu picture, preparation instructions, recipe attributes, additional information: wine parings and estimated nutrition
